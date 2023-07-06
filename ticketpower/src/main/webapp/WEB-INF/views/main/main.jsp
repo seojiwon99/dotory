@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>asd</h2>
+	<h2>메인 커밋 확인입니다!</h2>
 </body>
 </html>
