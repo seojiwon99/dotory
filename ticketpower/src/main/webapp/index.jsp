@@ -10,5 +10,6 @@
 	<jsp:forward page="main.do"></jsp:forward>
 	<h3>정호현</h3>
 	<h1>남태원</h1>
+	<h1>박상우</h1>
 </body>
 </html>
