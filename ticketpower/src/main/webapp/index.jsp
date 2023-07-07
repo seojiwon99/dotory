@@ -9,6 +9,7 @@
 <body>
 	<jsp:forward page="main.do"></jsp:forward>
 	<h1>커밋 확인</h1>
-	<h2>ASDaasd</h2>
+	<h2>커밋은 어려워</h2>
+	
 </body>
 </html>
