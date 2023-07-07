@@ -1,1 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.dotory.board.mapper.BoardMapper">
+
+	<select id="boardSelectList" resultType="boardVO">
+		SELECT *
+		  FROM member
+		<if test="key == 'name'">
+			WHERE MEMBER_NAME LIKE '%' || #{val} || '%'
+		</if>
+		<if test="key == 'tel'">
+			WHERE MEMBER_TEL LIKE '%' || #{val} || '%'
+		</if>
+		<if test="key == 'address'">
+			WHERE MEMBER_ADDRESS LIKE '%' || #{val} || '%'
+		</if>
+		<if test="key == 'all'">where 1 = 1</if>
+	</select>
+
+</mapper>
