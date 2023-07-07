@@ -8,6 +8,7 @@
 </head>
 <body>
 	<jsp:forward page="main.do"></jsp:forward>
-	<h1>커밋 확인</h1>
+	<h3>정호현</h3>
+	<h1>남태원</h1>
 </body>
 </html>
