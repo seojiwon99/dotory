@@ -1,1 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.dotory.member.mapper.MemberMapper">
+	<select id="memberList" resultType="co.dotory.member.service.MemberVO">
+		SELECT * FROM DT_MEMBER
+		<if test = "key == 'name'"> WHERE MEMBER_NAME LIKE '%' || #{val} || '%'</if>
+		<if test = "key == 'all'"> WHERE 1 = 1</if>
+	</select>
+	<select id="memberSelect" resultType="co.dotory.member.service.MemberVO">
+		SELECT * FROM DT_MEMBER WHERE MEMBER_ID = #{memberId}
+		<if test="memberPassword != null"> AND MEMBER_PASSWORD = #{memberPw}</if>
+	</select>
+	<insert id="memberInsert" parameterType="co.dotory.member.service.MemberVO">
+		INSERT INTO DT_MEMBER(member_id,member_pw,member_name,member_tel,member_addr,member_img)
+					VALUES(#{member_id},#{member_pw},#{member_name},#{member_tel},#{member_addr},#{member_img});
+	</insert>
+	<update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
+		UPDATE MEMBER
+		<set>
+			<if test="memberPw != null">member_pw = #{memberPw}</if>
+			<if test="memberName != null">member_Name = #{memberName}</if>
+			<if test="memberTel != null">member_Tel = #{memberTel}</if>
+			<if test="memberAddr != null">member_Addr = #{memberAddr}</if>
+			<if test="member != null">member_pw = #{memberPw}</if>
+			<if test="memberPw != null">member_pw = #{memberPw}</if>
+		
+		
+		</set>
+	</update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

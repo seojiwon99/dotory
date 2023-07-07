@@ -14,6 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.MainCommand;
 import co.dotory.common.Command;
+import co.dotory.member.command.MemberIdcheck;
+import co.dotory.member.command.MemberList;
+import co.dotory.member.command.MemberLogin;
+import co.dotory.member.command.MemberLoginForm;
+import co.dotory.member.command.MemberLogout;
+import co.dotory.member.command.MemberRegist;
+import co.dotory.member.command.MemberSearch;
 
 
 
@@ -30,6 +37,13 @@ public class FrontController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainCommand());
+		map.put("/memberLoginForm.do", new MemberLoginForm());
+		map.put("/memberLogin.do", new MemberLogin());
+		map.put("/memberLogout.do", new MemberLogout());
+		map.put("/memberRegist.do", new MemberRegist());
+		map.put("/memberIdcheck.do", new MemberIdcheck());
+		map.put("/memberList.do", new MemberList());
+		map.put("/memberSearch.do", new MemberSearch());
 	}
 
 	

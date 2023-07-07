@@ -1,25 +1,28 @@
 package co.dotory.member.command;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.common.Command;
 import co.dotory.member.service.MemberService;
-import co.dotory.member.service.MemberVO;
 import co.dotory.member.serviceImpl.MemberServiceImpl;
 
-public class MemberList implements Command{
+public class MemberIdcheck implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		MemberService memberservice = new MemberServiceImpl();
-		List<MemberVO> members = new ArrayList<>();
+		MemberService memberService = new MemberServiceImpl();
+		String result = "Ajax:";
 		
-		members = memberservice.memberList();
-		req.setAttribute("members", members);
- 		return "member/memberList";
+		String id = req.getParameter("id");
+		boolean check = memberService.ismemberIdCheck(id);
+		
+		if(check) {
+			result += "1";
+		}else {
+			result += "0";
+		}
+		return result;
 	}
+
 }
