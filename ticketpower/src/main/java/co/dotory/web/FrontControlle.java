@@ -25,11 +25,11 @@ import co.dotory.member.command.MemberSearch;
 
 
 @WebServlet("*.do")
-public class FrontController extends HttpServlet {
+public class FrontControlle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 private Map<String,Command> map = new HashMap<>();
 	    
-    public FrontController() {
+    public FrontControlle() {
         super();
         
     }
