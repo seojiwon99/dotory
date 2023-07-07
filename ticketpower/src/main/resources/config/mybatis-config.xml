@@ -8,6 +8,11 @@
 		<setting name="mapUnderscoreToCamelCase" value="true" /> 
 		<setting name="jdbcTypeForNull" value="NULL" />
 	  </settings>
+	  
+	  <typeAliases>
+		<typeAlias alias="boardVO" type="co.dotory.board.service.BoardVO"/>
+	</typeAliases>
+	
 	  <!-- DB 환경 설정(사용자이름 dotory 비밀번호 dotory)  -->
 	  <environments default="development">
 	    <environment id="development">
