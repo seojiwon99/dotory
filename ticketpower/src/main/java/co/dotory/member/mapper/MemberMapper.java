@@ -8,4 +8,5 @@ public interface MemberMapper {
 	List<MemberVO> memberSelectList();
 	int memberUpdate(MemberVO vo);//U
 	int memberDelete(MemberVO vo);//D
+	
 }
