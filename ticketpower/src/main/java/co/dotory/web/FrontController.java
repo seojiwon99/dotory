@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.MainCommand;
 import co.dotory.common.Command;
+import co.dotory.member.command.AdminPageControl;
 
 
 
@@ -30,6 +31,8 @@ public class FrontController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainCommand());
+		map.put("/adminPage.do", new AdminPageControl());
+		
 	}
 
 	

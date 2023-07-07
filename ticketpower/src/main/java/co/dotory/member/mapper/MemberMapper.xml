@@ -1,1 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="co.dotory.member.mapper.MemberMapper">
+<select>
+	SELECT *
+	  FROM DT_MEMBER
+	 WHERE MEMBER_AUTHOR = 'ADMIN'
+</select>
+<update>
+	UPDATE DT_MEMBER
+	   SET MEMBER_PW = #{memberPw}
+	   	   MEMBER_NAME = #{memberName}
+	   	   MEMBER_TEL = #{memberTel}
+	   	   MEMBER_ADDR = #{memberAddr}
+	   	   MEMBER_IMG = #{memberImg}
+	 WHERE MEMBER_AUTHOR = 'ADMIN'
+</update>
+<delete>
+	delete dt_member
+	WHERE MEMBER_AUTHOR = 'ADMIN'
+</delete>
+
+</mapper>
