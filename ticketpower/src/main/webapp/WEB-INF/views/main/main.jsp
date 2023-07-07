@@ -4,14 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Dotory Crew</title>
+  	<link rel="stylesheet" href="css/netflix.css" />
 </head>
 <body>
-	<h1> 정말 쉽지가 않습니다</h1>
-	<h2>메인 커밋 확인입니다!</h2>
-	<h2>하이여</h2>
-	<h3>22</h3>
-	<h3>sadsadsadadsa</h3>
-	<h2>asdasdsasdasd@@@@@</h2>
+	<content>
+		<h1>Welcome to <br> Dotory Crew</h1>
+	</content>
 </body>
 </html>
