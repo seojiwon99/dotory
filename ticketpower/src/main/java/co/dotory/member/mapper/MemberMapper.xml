@@ -1,19 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.dotory.member.mapper.MemberMapper">
+					<!-- 관리자 전용 mapper -->
+	<!-- 회원목록 -->
 	<select id="memberList" resultType="co.dotory.member.service.MemberVO">
-		SELECT * FROM DT_MEMBER
-		<if test = "key == 'name'"> WHERE MEMBER_NAME LIKE '%' || #{val} || '%'</if>
-		<if test = "key == 'all'"> WHERE 1 = 1</if>
+		SELECT member_id = #{memberId} , member_name = #{memberName} , member_img = #{memberImg}
+		  FROM DT_MEMBER
+		 WHERE MEMBER_AUTHOR = 'ADMIN'
 	</select>
+	
+	<!-- 회원상세보기 -->
+	<select id="memberList" resultType="co.dotory.member.service.MemberVO">
+		SELECT *
+		  FROM DT_MEMBER
+		 WHERE MEMBER_AUTHOR = 'ADMIN'
+	</select>
+	
+	<!-- 회원정보수정 -->
+	<update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
+		UPDATE DT_MEMBER
+		   SET MEMBER_ID = #{memberId}
+		   	   MEMBER_PW = #{memberPw}
+		   	   MEMBER_NAME = #{memberName}
+		   	   MEMBER_TEL = #{memberTel}
+		   	   MEMBER_ADDR = #{memberAddr}
+		   	   MEMBER_IMG = #{memberImg}
+		 WHERE MEMBER_AUTHOR = 'ADMIN'
+	</update>
+	
+	<!-- 회원삭제 -->
+	<delete id="memberDelete" >
+		delete dt_member
+		WHERE MEMBER_AUTHOR = 'ADMIN'
+	</delete>							
+							<!-- ========관리자끝========== -->
+							
+							
+							
 	<select id="memberSelect" resultType="co.dotory.member.service.MemberVO">
 		SELECT * FROM DT_MEMBER WHERE MEMBER_ID = #{memberId}
 		<if test="memberPassword != null"> AND MEMBER_PASSWORD = #{memberPw}</if>
 	</select>
+	
 	<insert id="memberInsert" parameterType="co.dotory.member.service.MemberVO">
 		INSERT INTO DT_MEMBER(member_id,member_pw,member_name,member_tel,member_addr,member_img)
 					VALUES(#{member_id},#{member_pw},#{member_name},#{member_tel},#{member_addr},#{member_img});
 	</insert>
+	
 	<update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
 		UPDATE MEMBER
 		<set>
@@ -22,23 +55,9 @@
 			<if test="memberTel != null">member_Tel = #{memberTel}</if>
 			<if test="memberAddr != null">member_Addr = #{memberAddr}</if>
 			<if test="member != null">member_pw = #{memberPw}</if>
-			<if test="memberPw != null">member_pw = #{memberPw}</if>
-		
-		
+			<if test="memberPw != null">member_pw = #{memberPw}</if>	
 		</set>
 	</update>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
