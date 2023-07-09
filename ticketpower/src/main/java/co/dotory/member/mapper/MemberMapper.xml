@@ -4,17 +4,12 @@
 					<!-- 관리자 전용 mapper -->
 	<!-- 회원목록 -->
 	<select id="memberList" resultType="co.dotory.member.service.MemberVO">
-		SELECT member_id = #{memberId} , member_name = #{memberName} , member_img = #{memberImg}
-		  FROM DT_MEMBER
-		 WHERE MEMBER_AUTHOR = 'ADMIN'
-	</select>
-	
-	<!-- 회원상세보기 -->
-	<select id="memberList" resultType="co.dotory.member.service.MemberVO">
 		SELECT *
 		  FROM DT_MEMBER
-		 WHERE MEMBER_AUTHOR = 'ADMIN'
+		 
 	</select>
+	
+
 	
 	<!-- 회원정보수정 -->
 	<update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
@@ -25,19 +20,19 @@
 		   	   MEMBER_TEL = #{memberTel}
 		   	   MEMBER_ADDR = #{memberAddr}
 		   	   MEMBER_IMG = #{memberImg}
-		 WHERE MEMBER_AUTHOR = 'ADMIN'
+		
 	</update>
 	
 	<!-- 회원삭제 -->
-	<delete id="memberDelete" >
+<!-- 	<delete id="memberDelete" >
 		delete dt_member
-		WHERE MEMBER_AUTHOR = 'ADMIN'
-	</delete>							
+		
+	</delete>	 -->						
 							<!-- ========관리자끝========== -->
 							
 							
 							
-	<select id="memberSelect" resultType="co.dotory.member.service.MemberVO">
+<!-- 	<select id="memberSelect" resultType="co.dotory.member.service.MemberVO">
 		SELECT * FROM DT_MEMBER WHERE MEMBER_ID = #{memberId}
 		<if test="memberPassword != null"> AND MEMBER_PASSWORD = #{memberPw}</if>
 	</select>
@@ -57,7 +52,7 @@
 			<if test="member != null">member_pw = #{memberPw}</if>
 			<if test="memberPw != null">member_pw = #{memberPw}</if>	
 		</set>
-	</update>
+	</update> -->
 
 
 

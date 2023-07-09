@@ -11,8 +11,9 @@ prefix="tiles"%>
   <body>
     	<div class="container">
       <!-- 헤더 -->
-      <tiles:insertAttribute name="header" />
+      <tiles:insertAttribute name="header" /> 
       <!-- body -->
+      
       <tiles:insertAttribute name="body" />
       <!-- 푸터 -->
       <tiles:insertAttribute name="footer" />

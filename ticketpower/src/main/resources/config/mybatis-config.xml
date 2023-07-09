@@ -11,6 +11,7 @@
 	  
 	  <typeAliases>
 		<typeAlias alias="boardVO" type="co.dotory.board.service.BoardVO"/>
+		<typeAlias alias="MemberVO" type="co.dotory.member.service.MemberVO"/>
 	</typeAliases>
 	
 	  <!-- DB 환경 설정(사용자이름 dotory 비밀번호 dotory)  -->
@@ -27,6 +28,6 @@
 	  </environments>
 	  <!-- Mapper(SQL)를 연결한다 맵퍼 만들고 연결해보기 -->
 	  <mappers>
-	    <!-- <package name="co.dotory"/> --> 
+	    <mapper resource="co/dotory/member/mapper/MemberMapper.xml" />
 	  </mappers>
 </configuration>
