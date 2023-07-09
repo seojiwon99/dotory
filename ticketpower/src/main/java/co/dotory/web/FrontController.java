@@ -49,6 +49,9 @@ public class FrontController extends HttpServlet {
 		//관리자 
 		map.put("/adminMainPage.do", new adminMainControl());
 		map.put("/adminMemberPage.do", new adminMemberPageControl());
+		
+		
+		
 		map.put("/adminMoviePage.do", new adminMoviePageControl());
 		
 	}
