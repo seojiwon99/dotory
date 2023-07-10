@@ -9,8 +9,14 @@ import co.dotory.board.service.BoardVO;
 public interface BoardMapper {
 	
 	// 게시판 목록
-	public List<BoardVO> boardSelectList();
+	public List<BoardVO> boardSelectList(int page);
 	
 	// 게시판 목록(ajax)
 	public List<BoardVO> boardSelectList(@Param("key") String key, @Param("val") String val);
+
+	// 게시글 등록
+	public int boardAdd(BoardVO vo);
+	
+	// 게시글 갯수
+	public int totalCnt();
 }

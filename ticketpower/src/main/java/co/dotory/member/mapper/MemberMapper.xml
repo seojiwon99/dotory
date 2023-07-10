@@ -9,25 +9,43 @@
 		 
 	</select>
 	
+	<!-- 회원검색 -->
+	<select id="memberSelectList" resultType="co.dotory.member.service.MemberVO">
+		select *
+		from dt_member
+		<if test="key == 'name'">WHERE MEMBER_NAME LIKE '%' || #{val} || '%'</if>
+		<if test="key ==  'tel'">WHERE MEMBER_TEL LIKE '%' || #{val} || '%'</if>
+		<if test="key == 'addr'"> WHERE MEMBER_ADDR  LIKE '%'|| #{val} || '%'</if>
+		<if test="key == 'all'"> WHERE 1=1</if>
+	</select>
+	
+	<!-- 회원 상세보기 -->
+	<select id="memberSelect">
+		select *
+		  from dt_member
+		 where member_id = #{memberId}
+	</select>
 
 	
 	<!-- 회원정보수정 -->
 	<update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
 		UPDATE DT_MEMBER
-		   SET MEMBER_ID = #{memberId}
-		   	   MEMBER_PW = #{memberPw}
-		   	   MEMBER_NAME = #{memberName}
-		   	   MEMBER_TEL = #{memberTel}
-		   	   MEMBER_ADDR = #{memberAddr}
-		   	   MEMBER_IMG = #{memberImg}
-		
+		<set>
+   		     <if test="memberId != null">MEMBER_NAME = #{memberName},</if>
+		   	 <if test="memberTel != null">MEMBER_TEL = #{memberTel},</if>
+		   	 <if test="memberEdate != null">MEMBER_EDATE = #{memberEdate},</if>
+		   	 <if test="memberAddr != null">MEMBER_ADDR = #{memberAddr},</if>
+		   	 <if test="memberAddr != null">MEMBER_IMG = #{memberImg}</if>
+		</set>
+		WHERE MEMBER_ID = #{memberId}
 	</update>
 	
 	<!-- 회원삭제 -->
-<!-- 	<delete id="memberDelete" >
+ 	<delete id="memberDelete" >
 		delete dt_member
+		where member_id = #{memberId}
 		
-	</delete>	 -->						
+	</delete>					
 							<!-- ========관리자끝========== -->
 	<insert id="memberInsert" parameterType="co.dotory.member.service.MemberVO">
 		INSERT INTO DT_MEMBER(member_Id,member_pw,member_name,member_tel,member_addr)
