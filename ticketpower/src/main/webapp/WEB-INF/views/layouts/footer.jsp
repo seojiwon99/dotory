@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/netflix.css" />
 </head>
 <body>
+	<div class="foot">
 	       <!-- Footer-->
 	    <h1>푸터입니당</h1>
         <footer class="bg-light py-5">
@@ -19,5 +20,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+    </div>
 </body>
 </html>

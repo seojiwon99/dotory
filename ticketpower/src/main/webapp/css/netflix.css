@@ -27,7 +27,16 @@ h1 {
   font-family: sans-serif;
 }
 
-.lay{
-	display: flex;
-	flex-direction: column;
+.lay {
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  text-align: center;
+}
+
+.foot {
+  background-color: black;
+  text-align: center;
 }
