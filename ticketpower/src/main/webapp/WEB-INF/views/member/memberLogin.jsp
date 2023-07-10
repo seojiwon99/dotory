@@ -9,16 +9,8 @@ prefix="tiles"%>
   	<link rel="stylesheet" href="css/netflix.css" />
   </head>
   <body>
-  <div class="lay">
-      <!-- 헤더 -->
-      <tiles:insertAttribute name="header" /> 
-
-      <!-- body -->
-      <tiles:insertAttribute name="body" />
-
-      <!-- 푸터 -->
-      <tiles:insertAttribute name="footer" />
+  <div class="login">
+		<h2>로그인 화면입니다</h2>
   </div>
   </body>
 </html>
-
