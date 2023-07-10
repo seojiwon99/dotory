@@ -18,13 +18,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<MemberVO> memberList(String key, String val) {
+	public List<MemberVO> memberSelectList(String key, String val) {
 		// TODO Auto-generated method stub
-		return map.memberList(key, val);
+		return map.memberSelectList(key, val);
 	}
 
 	@Override
-	public MemberVO memberSelect(MemberVO vo) {
+	public MemberVO memberSelect(String vo) {
 		// TODO Auto-generated method stub
 		return map.memberSelect(vo);
 	}
@@ -36,13 +36,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int memberUpdate(MemberVO vo) {
+	public boolean memberUpdate(MemberVO vo) {
 		// TODO Auto-generated method stub
 		return map.memberUpdate(vo);
 	}
 
 	@Override
-	public int memberDelete(MemberVO vo) {
+	public boolean memberDelete(String vo) {
 		// TODO Auto-generated method stub
 		return map.memberDelete(vo);
 	}

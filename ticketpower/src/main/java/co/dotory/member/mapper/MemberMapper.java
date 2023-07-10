@@ -8,12 +8,12 @@ import co.dotory.member.service.MemberVO;
 
 public interface MemberMapper {
 	List<MemberVO> memberList();
-	List<MemberVO> memberList(@Param("key") String key,@Param("val") String val);
+	List<MemberVO> memberSelectList(@Param("key") String key,@Param("val") String val);
 	
-	MemberVO memberSelect(MemberVO vo);
+	MemberVO memberSelect(String vo);
 	int memberInsert(MemberVO vo);
-	int memberUpdate(MemberVO vo);
-	int memberDelete(MemberVO vo);
+	boolean memberUpdate(MemberVO vo);
+	boolean memberDelete(String vo);
 	
 	boolean ismemberIdCheck(String Id);
 }
