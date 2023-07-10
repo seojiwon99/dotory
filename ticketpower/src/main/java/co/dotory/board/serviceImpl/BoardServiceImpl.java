@@ -15,13 +15,23 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper map = sqlSession.getMapper(BoardMapper.class);
 	
 	@Override
-	public List<BoardVO> boardSelectList() {
-		return map.boardSelectList();
+	public List<BoardVO> boardSelectList(int page) {
+		return map.boardSelectList(page);
 	}
 
 	@Override
 	public List<BoardVO> boardSelectList(String key, String val) {
 		return map.boardSelectList(key, val);
+	}
+
+	@Override
+	public int boardAdd(BoardVO vo) {
+		return map.boardAdd(vo);
+	}
+
+	@Override
+	public int totalCnt() {
+		return map.totalCnt();
 	}
 
 }

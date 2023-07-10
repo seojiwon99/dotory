@@ -4,12 +4,12 @@ import java.util.List;
 
 public interface MemberService {
 	List<MemberVO> memberList();
-	List<MemberVO> memberList(String key, String val);
+	List<MemberVO> memberSelectList(String key, String val);
 	
-	MemberVO memberSelect(MemberVO vo);
+	MemberVO memberSelect(String vo);
 	int memberInsert(MemberVO vo);
-	int memberUpdate(MemberVO vo);
-	int memberDelete(MemberVO vo);
+	boolean memberUpdate(MemberVO vo);
+	boolean memberDelete(String id);
 	
 	boolean ismemberIdCheck(String Id);
 	

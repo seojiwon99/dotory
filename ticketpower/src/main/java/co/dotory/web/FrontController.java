@@ -13,7 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.MainCommand;
+
+import co.dotory.board.command.BoardAdd;
+import co.dotory.board.command.BoardForm;
+import co.dotory.board.command.BoardList;
+
 import co.dotory.common.Command;
+import co.dotory.member.command.AjaxMemberSearchList;
 import co.dotory.member.command.MemberIdcheck;
 import co.dotory.member.command.MemberLogin;
 import co.dotory.member.command.MemberLoginForm;
@@ -21,6 +27,9 @@ import co.dotory.member.command.MemberLogout;
 import co.dotory.member.command.MemberRegist;
 import co.dotory.member.command.MemberSearch;
 import co.dotory.member.command.adminMainControl;
+import co.dotory.member.command.adminMemberDeleteControl;
+import co.dotory.member.command.adminMemberForm;
+import co.dotory.member.command.adminMemberModifyControl;
 import co.dotory.member.command.adminMemberPageControl;
 import co.dotory.movie.command.adminMoviePageControl;
 import co.dotory.movie.command.movieDetailPageControl;
@@ -48,17 +57,26 @@ public class FrontController extends HttpServlet {
 		map.put("/memberIdcheck.do", new MemberIdcheck());
 		map.put("/memberSearch.do", new MemberSearch());
 		
-		//관리자 
+		
+		// board(jiwon)
+		map.put("/boardList.do", new BoardList()); // 게시판 목록화면
+		
+		map.put("/boardForm.do", new BoardForm()); // 게시판 등록화면
+		
+		map.put("/boardAdd.do", new BoardAdd()); // 게시판 등록 로직
+
+		//관리자 (호현)
 		map.put("/adminMainPage.do", new adminMainControl());
-		map.put("/adminMemberPage.do", new adminMemberPageControl());
-		
-		
-		
+		map.put("/adminMemberPage.do", new adminMemberPageControl());	
+		map.put("/adminMemberForm.do", new adminMemberForm());
+		map.put("/adminMemberModify.do", new adminMemberModifyControl());
+		map.put("/adminMemberDelete.do", new adminMemberDeleteControl());
+		map.put("/ajaxMemberSearchList.do", new AjaxMemberSearchList());
 		map.put("/adminMoviePage.do", new adminMoviePageControl());
+
 		//영화
 		map.put("/movieListPage.do", new movieListPageControl());
 		map.put("/movieDetailPage.do", new movieDetailPageControl());
-		
 	}
 
 	
