@@ -1,5 +1,18 @@
 package co.dotory.member.service;
 
-public class MemberVO {
+import java.sql.Date;
 
+import lombok.Data;
+
+@Data
+public class MemberVO {
+	private String memberId;
+	private String memberPw;
+	private String memberName;
+	private String memberTel;
+	private String memberAddr;
+	private Date memberEdate;
+	private String memberAuthor;
+	private String memberDdate;
+	private String memberImg;
 }

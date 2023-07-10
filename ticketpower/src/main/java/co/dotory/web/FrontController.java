@@ -13,10 +13,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.MainCommand;
+
 import co.dotory.board.command.BoardAdd;
 import co.dotory.board.command.BoardForm;
 import co.dotory.board.command.BoardList;
+
 import co.dotory.common.Command;
+import co.dotory.member.command.MemberIdcheck;
+import co.dotory.member.command.MemberLogin;
+import co.dotory.member.command.MemberLoginForm;
+import co.dotory.member.command.MemberLogout;
+import co.dotory.member.command.MemberRegist;
+import co.dotory.member.command.MemberSearch;
+import co.dotory.member.command.adminMainControl;
+import co.dotory.member.command.adminMemberPageControl;
+import co.dotory.movie.command.adminMoviePageControl;
 
 
 
@@ -33,12 +44,29 @@ public class FrontController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainCommand());
+		map.put("/memberLoginForm.do", new MemberLoginForm());
+		map.put("/memberLogin.do", new MemberLogin());
+		map.put("/memberLogout.do", new MemberLogout());
+		map.put("/memberRegist.do", new MemberRegist());
+		map.put("/memberIdcheck.do", new MemberIdcheck());
+		map.put("/memberSearch.do", new MemberSearch());
 		
+
 		map.put("/boardList.do", new BoardList()); // 게시판 목록화면
 		
 		map.put("/boardForm.do", new BoardForm()); // 게시판 등록화면
 		
 		map.put("/boardAdd.do", new BoardAdd()); // 게시판 등록 로직
+
+		//관리자 
+		map.put("/adminMainPage.do", new adminMainControl());
+		map.put("/adminMemberPage.do", new adminMemberPageControl());
+		
+		
+		
+		map.put("/adminMoviePage.do", new adminMoviePageControl());
+		
+
 	}
 
 	

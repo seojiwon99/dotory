@@ -11,6 +11,7 @@
 	  
 	  <typeAliases>
 		<typeAlias alias="boardVO" type="co.dotory.board.service.BoardVO"/>
+		<typeAlias alias="MemberVO" type="co.dotory.member.service.MemberVO"/>
 	</typeAliases>
 	
 	  <!-- DB 환경 설정(사용자이름 dotory 비밀번호 dotory)  -->

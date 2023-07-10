@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles"  prefix="tiles"%>
+pageEncoding="UTF-8"%> <%@ taglib uri="http://tiles.apache.org/tags-tiles"
+prefix="tiles"%>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -24,13 +25,22 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
 </head>
 <body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  	<link rel="stylesheet" href="css/netflix.css" />
+  </head>
+  <body>
+  <div class="lay">
+      <!-- 헤더 -->
+      <tiles:insertAttribute name="header" /> 
 
-        <tiles:insertAttribute name="header"/>
-        
-		<tiles:insertAttribute name="body"/>
- 
-      <tiles:insertAttribute name="footer"/>
+      <!-- body -->
+      <tiles:insertAttribute name="body" />
 
-
-</body>
+      <!-- 푸터 -->
+      <tiles:insertAttribute name="footer" />
+  </div>
+  </body>
 </html>
+
