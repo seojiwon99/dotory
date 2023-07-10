@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.MainCommand;
+import co.dotory.board.command.BoardAdd;
+import co.dotory.board.command.BoardForm;
 import co.dotory.board.command.BoardList;
 import co.dotory.common.Command;
 
@@ -33,6 +35,10 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainCommand());
 		
 		map.put("/boardList.do", new BoardList()); // 게시판 목록화면
+		
+		map.put("/boardForm.do", new BoardForm()); // 게시판 등록화면
+		
+		map.put("/boardAdd.do", new BoardAdd()); // 게시판 등록 로직
 	}
 
 	
