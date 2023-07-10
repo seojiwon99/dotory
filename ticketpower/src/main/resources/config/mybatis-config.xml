@@ -28,6 +28,7 @@
 	  </environments>
 	  <!-- Mapper(SQL)를 연결한다 맵퍼 만들고 연결해보기 -->
 	  <mappers>
-	    <mapper resource="co/dotory/member/mapper/MemberMapper.xml" />
+	    <package name="co.dotory.movie" />
+	    <package name="co.dotory.review" />
 	  </mappers>
 </configuration>

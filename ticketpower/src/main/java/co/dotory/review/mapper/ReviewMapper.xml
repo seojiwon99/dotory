@@ -1,1 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.dotory.review.mapper.ReviewMapper">
+	<select id="reviewList" parameterType="int" resultType="co.dotory.review.service.ReviewVO">
+		SELECT * FROM DT_MOVIE WHERE MOVIE_ID = #{movieId}
+	</select>
+	<insert id="addReview">
+		INSERT INTO DT_REVIEW (REVIEW_ID,REVIEW,REVIEW_DATE,MOVIE_ID,MEMBER_ID)
+		VALUES (REVIEW_SEQ.nextval,#{reviewId},#{reviewDate},#{movieId},#{memberId})
+	</insert>
+	<update id="modifyReview"></update>
+	<delete id="delReview"></delete>
+</mapper>

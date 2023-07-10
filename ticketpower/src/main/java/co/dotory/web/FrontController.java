@@ -23,6 +23,8 @@ import co.dotory.member.command.MemberSearch;
 import co.dotory.member.command.adminMainControl;
 import co.dotory.member.command.adminMemberPageControl;
 import co.dotory.movie.command.adminMoviePageControl;
+import co.dotory.movie.command.movieDetailPageControl;
+import co.dotory.movie.command.movieListPageControl;
 
 
 
@@ -53,6 +55,9 @@ public class FrontController extends HttpServlet {
 		
 		
 		map.put("/adminMoviePage.do", new adminMoviePageControl());
+		//영화
+		map.put("/movieListPage.do", new movieListPageControl());
+		map.put("/movieDetailPage.do", new movieDetailPageControl());
 		
 	}
 
