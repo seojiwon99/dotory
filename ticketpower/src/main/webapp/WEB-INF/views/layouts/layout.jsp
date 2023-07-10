@@ -9,15 +9,16 @@ prefix="tiles"%>
   	<link rel="stylesheet" href="css/netflix.css" />
   </head>
   <body>
-    	<div class="container">
+  <div class="lay">
       <!-- 헤더 -->
       <tiles:insertAttribute name="header" /> 
+
       <!-- body -->
-      
       <tiles:insertAttribute name="body" />
+
       <!-- 푸터 -->
       <tiles:insertAttribute name="footer" />
-      </div>
+  </div>
   </body>
 </html>
 

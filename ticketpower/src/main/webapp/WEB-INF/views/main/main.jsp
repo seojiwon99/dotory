@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Dotory Crew</title>
-  	<link rel="stylesheet" href="css/netflix.css" />
-</head>
-<body>
-	<content>
+	<content class="cont">
 		<h1>Welcome to <br> Dotory Crew</h1>
 		<a href="adminMainPage.do">AdminPage</a>
 	</content>
-</body>
-</html>
