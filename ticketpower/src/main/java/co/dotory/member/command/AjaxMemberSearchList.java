@@ -1,5 +1,6 @@
 package co.dotory.member.command;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,24 +15,27 @@ import co.dotory.member.service.MemberService;
 import co.dotory.member.service.MemberVO;
 import co.dotory.member.serviceImpl.MemberServiceImpl;
 
-public class MemberSearch implements Command {
+public class AjaxMemberSearchList implements Command {
 
 	@Override
-	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		MemberService memberService = new MemberServiceImpl();
-		List<MemberVO> members = new ArrayList<>();
-		ObjectMapper mapper = new ObjectMapper();
+	public String exec(HttpServletRequest req, HttpServletResponse res){
+		MemberService svc = new MemberServiceImpl();
+		List<MemberVO> vo = new ArrayList<>();
 		
+		ObjectMapper mapper = new ObjectMapper();
 		String key = req.getParameter("key");
 		String val = req.getParameter("val");
-		members = memberService.memberSelectList(key,val);
-		
+		vo = svc.memberSelectList(key, val);
+		System.out.println(key+val);
+		System.out.println(123);
 		String str = "Ajax:";
 		try {
-			str += mapper.writeValueAsString(members);
-		}catch(JsonProcessingException e) {
+			str += mapper.writeValueAsString(vo);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return str;
 	}
 
