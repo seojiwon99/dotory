@@ -1,5 +1,8 @@
 package co.dotory.movie.service;
 
-public interface MovieService {
+import java.util.List;
 
+public interface MovieService {
+	public List<MovieVO> movieList();
+	public MovieVO movieDetail(int movieId);
 }

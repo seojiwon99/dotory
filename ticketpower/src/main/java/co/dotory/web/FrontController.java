@@ -51,7 +51,8 @@ public class FrontController extends HttpServlet {
 		map.put("/memberIdcheck.do", new MemberIdcheck());
 		map.put("/memberSearch.do", new MemberSearch());
 		
-
+		
+		// board(jiwon)
 		map.put("/boardList.do", new BoardList()); // 게시판 목록화면
 		
 		map.put("/boardForm.do", new BoardForm()); // 게시판 등록화면
