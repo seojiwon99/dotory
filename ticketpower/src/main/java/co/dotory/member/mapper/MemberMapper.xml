@@ -47,20 +47,20 @@
 		
 	</delete>					
 							<!-- ========관리자끝========== -->
-							
-							
-							
-<!-- 	<select id="memberSelect" resultType="co.dotory.member.service.MemberVO">
-		SELECT * FROM DT_MEMBER WHERE MEMBER_ID = #{memberId}
-		<if test="memberPassword != null"> AND MEMBER_PASSWORD = #{memberPw}</if>
-	</select>
-	
 	<insert id="memberInsert" parameterType="co.dotory.member.service.MemberVO">
-		INSERT INTO DT_MEMBER(member_id,member_pw,member_name,member_tel,member_addr,member_img)
-					VALUES(#{member_id},#{member_pw},#{member_name},#{member_tel},#{member_addr},#{member_img});
+		INSERT INTO DT_MEMBER(member_Id,member_pw,member_name,member_tel,member_addr)
+					VALUES(#{memberId},#{memberPw},#{memberName},#{memberTel},#{memberAddr})
 	</insert>
+	<select id="memberSelect" resultType="co.dotory.member.service.MemberVO">
+		SELECT * FROM DT_MEMBER WHERE MEMBER_ID = #{memberId}
+		<if test="memberPw != null"> AND MEMBER_PW = #{memberPw}</if>
+	</select>
+	<select id="ismemberIdCheck" resultType="boolean">
+		SELECT COUNT(*) AS ID FROM DT_MEMBER WHERE MEMBER_ID = #{id}
+	</select>						
+							
 	
-	<update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
+	<!-- <update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
 		UPDATE MEMBER
 		<set>
 			<if test="memberPw != null">member_pw = #{memberPw}</if>

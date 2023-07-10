@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,5 +15,6 @@
 		<a href="adminMainPage.do">관리자페이지=></a>
 		<a role="button" class="" href="../memberlogin.do">로그인</a>
 	</div>
+
 </body>
 </html>

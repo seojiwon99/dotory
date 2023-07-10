@@ -25,6 +25,7 @@ import co.dotory.member.command.MemberLogin;
 import co.dotory.member.command.MemberLoginForm;
 import co.dotory.member.command.MemberLogout;
 import co.dotory.member.command.MemberRegist;
+import co.dotory.member.command.MemberRegistForm;
 import co.dotory.member.command.MemberSearch;
 import co.dotory.member.command.adminMainControl;
 import co.dotory.member.command.adminMemberDeleteControl;
@@ -53,6 +54,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLoginForm.do", new MemberLoginForm());
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLogout.do", new MemberLogout());
+		map.put("/memberRegistForm.do", new MemberRegistForm());
 		map.put("/memberRegist.do", new MemberRegist());
 		map.put("/memberIdcheck.do", new MemberIdcheck());
 		map.put("/memberSearch.do", new MemberSearch());
@@ -91,7 +93,7 @@ public class FrontController extends HttpServlet {
 				
 				if(!viewPage.endsWith(".do")) {//
 					
-					if(viewPage.startsWith("Ajax:")) {//ajax=호출한페이지에서결과를받는것
+					if(viewPage.startsWith("Ajax")) {//ajax=호출한페이지에서결과를받는것
 						//Ajax처리
 						response.setContentType("text/html; charset=UTF-8");
 						response.getWriter().append(viewPage.substring(5));
