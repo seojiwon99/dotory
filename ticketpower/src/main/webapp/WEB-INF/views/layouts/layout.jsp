@@ -3,7 +3,6 @@ pageEncoding="UTF-8"%> <%@ taglib uri="http://tiles.apache.org/tags-tiles"
 prefix="tiles"%>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
