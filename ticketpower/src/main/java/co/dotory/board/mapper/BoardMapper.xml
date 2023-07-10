@@ -4,8 +4,19 @@
 
 	<select id="boardSelectList" resultType="boardVO">
 		SELECT *
-		  FROM member
-		<if test="key == 'name'">
+		  FROM (
+		  		SELECT rownum rn, a.board_id, a.board_title, a.board_content, a.board_date, a.board_update, a.board_cnt,a.member_id,a.board_reply
+		  		  FROM (
+		  		  	SELECT *
+		  		 	  FROM dt_board
+		  		 	 ORDER BY board_id desc
+				  )a
+			)b
+		WHERE b.rn > (#{page} - 1) *10
+		<![CDATA[
+      	  AND b.rn <= #{page} * 10
+    	]]>
+		<!-- <if test="key == 'name'">
 			WHERE MEMBER_NAME LIKE '%' || #{val} || '%'
 		</if>
 		<if test="key == 'tel'">
@@ -14,7 +25,25 @@
 		<if test="key == 'address'">
 			WHERE MEMBER_ADDRESS LIKE '%' || #{val} || '%'
 		</if>
-		<if test="key == 'all'">where 1 = 1</if>
+		<if test="key == 'all'">where 1 = 1</if> -->
+	
+	</select>
+	
+	<insert id="boardAdd" parameterType="boardVO">
+		<selectKey keyProperty="boardId" resultType="int" order="BEFORE">
+			SELECT max(board_id) + 1 as board_id
+			  FROM dt_board
+		</selectKey>
+		INSERT 
+		  INTO dt_board (board_id, board_title, board_content, member_id)
+		VALUES (#{boardId}, #{boardTitle}, #{boardContent}, #{memberId})
+	</insert>
+
+
+	<!-- 게시글 갯수 -->
+	<select id="totalCnt" resultType="int">
+		SELECT count(*)
+		  FROM dt_board
 	</select>
 
 </mapper>
