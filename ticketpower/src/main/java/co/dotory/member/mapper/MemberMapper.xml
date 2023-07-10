@@ -51,13 +51,10 @@
 		INSERT INTO DT_MEMBER(member_Id,member_pw,member_name,member_tel,member_addr)
 					VALUES(#{memberId},#{memberPw},#{memberName},#{memberTel},#{memberAddr})
 	</insert>
-	<select id="memberSelect" resultType="co.dotory.member.service.MemberVO">
-		SELECT * FROM DT_MEMBER WHERE MEMBER_ID = #{memberId}
-		<if test="memberPw != null"> AND MEMBER_PW = #{memberPw}</if>
-	</select>
-	<select id="ismemberIdCheck" resultType="boolean">
+	
+	 <select id="ismemberIdCheck" resultType="boolean">
 		SELECT COUNT(*) AS ID FROM DT_MEMBER WHERE MEMBER_ID = #{id}
-	</select>						
+	</select> 
 							
 	
 	<!-- <update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
