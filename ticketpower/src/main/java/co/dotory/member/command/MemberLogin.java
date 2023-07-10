@@ -1,5 +1,7 @@
 package co.dotory.member.command;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,10 +21,11 @@ public class MemberLogin implements Command {
 		HttpSession session = req.getSession();
 		String turn = null;
 		
-		memberVO.setMemberId(req.getParameter("memberId"));
-		memberVO.setMemberPw(req.getParameter("memberPw"));
+		String id = req.getParameter("memberId");
+		String pw = req.getParameter("memberPw");
 		
-		memberVO = memberService.memberSelect(memberVO);
+		List<MemberVO> memberSelectList = memberService.memberSelectList(id,pw);
+		
 		
 		if(memberVO != null) {
 			session.setAttribute("id", memberVO.getMemberId());
