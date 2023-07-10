@@ -11,7 +11,7 @@
 	<div class="foot">
 	       <!-- Footer-->
 	    <h1>푸터입니당</h1>
-        <footer class="bg-light py-5">
+        <footer class="bg-light ">
 
         </footer>
         <!-- Bootstrap core JS-->
