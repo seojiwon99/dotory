@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.common.Command;
 
-public class MemberLoginForm implements Command {
+public class MemberRegistForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		
-		return "member/memberLoginForm";
+		// TODO Auto-generated method stub
+		return "member/memberRegistForm";
 	}
 
 }

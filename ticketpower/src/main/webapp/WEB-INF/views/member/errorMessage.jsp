@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div align = "left">
+	<h1>${message }</h1>
+</div>
 </body>
 </html>
