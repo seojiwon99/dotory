@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.dotory.MainCommand;
 
 import co.dotory.board.command.BoardAdd;
+import co.dotory.board.command.BoardDetail;
 import co.dotory.board.command.BoardForm;
 import co.dotory.board.command.BoardList;
 
@@ -25,6 +26,7 @@ import co.dotory.member.command.MemberLogin;
 import co.dotory.member.command.MemberLoginForm;
 import co.dotory.member.command.MemberLogout;
 import co.dotory.member.command.MemberRegist;
+import co.dotory.member.command.MemberRegistForm;
 import co.dotory.member.command.MemberSearch;
 import co.dotory.member.command.adminMainControl;
 import co.dotory.member.command.adminMemberDeleteControl;
@@ -32,6 +34,8 @@ import co.dotory.member.command.adminMemberForm;
 import co.dotory.member.command.adminMemberModifyControl;
 import co.dotory.member.command.adminMemberPageControl;
 import co.dotory.movie.command.adminMoviePageControl;
+import co.dotory.movie.command.movieDetailPageControl;
+import co.dotory.movie.command.movieListPageControl;
 
 
 
@@ -51,6 +55,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLoginForm.do", new MemberLoginForm());
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLogout.do", new MemberLogout());
+		map.put("/memberRegistForm.do", new MemberRegistForm());
 		map.put("/memberRegist.do", new MemberRegist());
 		map.put("/memberIdcheck.do", new MemberIdcheck());
 		map.put("/memberSearch.do", new MemberSearch());
@@ -63,6 +68,8 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/boardAdd.do", new BoardAdd()); // 게시판 등록 로직
 
+		map.put("/boardDetail.do", new BoardDetail()); // 게시판 상세보기
+		
 		//관리자 (호현)
 		map.put("/adminMainPage.do", new adminMainControl());
 		map.put("/adminMemberPage.do", new adminMemberPageControl());	
@@ -72,7 +79,9 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxMemberSearchList.do", new AjaxMemberSearchList());
 		map.put("/adminMoviePage.do", new adminMoviePageControl());
 
-
+		//영화
+		map.put("/movieListPage.do", new movieListPageControl());
+		map.put("/movieDetailPage.do", new movieDetailPageControl());
 	}
 
 	
@@ -87,7 +96,7 @@ public class FrontController extends HttpServlet {
 				
 				if(!viewPage.endsWith(".do")) {//
 					
-					if(viewPage.startsWith("Ajax:")) {//ajax=호출한페이지에서결과를받는것
+					if(viewPage.startsWith("Ajax")) {//ajax=호출한페이지에서결과를받는것
 						//Ajax처리
 						response.setContentType("text/html; charset=UTF-8");
 						response.getWriter().append(viewPage.substring(5));

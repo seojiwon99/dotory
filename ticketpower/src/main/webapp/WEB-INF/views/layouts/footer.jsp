@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/netflix.css" />
 </head>
 <body>
+
 	<div class="foot">
 	       <!-- Footer-->
 	    <h1>푸터입니당</h1>
