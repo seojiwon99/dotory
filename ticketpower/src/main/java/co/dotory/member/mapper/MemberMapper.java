@@ -11,6 +11,7 @@ public interface MemberMapper {
 	List<MemberVO> memberSelectList(@Param("key") String key,@Param("val") String val);
 	
 	MemberVO memberSelect(String vo);
+	MemberVO memberLogin(MemberVO vo);
 	int memberInsert(MemberVO vo);
 	boolean memberUpdate(MemberVO vo);
 	boolean memberDelete(String vo);
