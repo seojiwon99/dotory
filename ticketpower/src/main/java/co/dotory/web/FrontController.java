@@ -75,7 +75,9 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxMemberSearchList.do", new AjaxMemberSearchList());
 		map.put("/adminMoviePage.do", new adminMoviePageControl());
 		
-		
+		//영화
+		map.put("/movieListPage.do", new movieListPageControl());
+		map.put("/movieDetailPage.do", new movieDetailPageControl());
 
 
 	}
