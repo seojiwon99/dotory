@@ -25,10 +25,10 @@
 		<th>가입날짜</th>
 		<td><input id="memberEdate" name ="memberEdate"value="${search.memberEdate}"></td>
 	</tr>
-	<tr>
-		<th>이미지</th>
-		<td><input id="memberImg" name ="memberImg"value="${search.memberImg}"></td>
-	</tr>
+		<th>대표이미지</th>
+		<td>
+		<img class="image" width = "190px" src="images/${member.memberImg }">
+		</td>
 	
 	
 </table>
