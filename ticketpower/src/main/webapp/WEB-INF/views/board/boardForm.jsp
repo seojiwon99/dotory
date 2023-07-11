@@ -22,7 +22,7 @@
                         <tr>
                             <td colspan="4" align="center">
                                 <input type="submit" value="등록" id="addBtn">
-                                <input type="submit" value="취소" id="cancleBtn">
+                                <input type="submit" value="취소" id="cancleBtn">@
                             </td>
                         </tr>
                     </table>
