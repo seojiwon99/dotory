@@ -10,9 +10,21 @@
     <put-attribute name="body" value="/WEB-INF/views/layouts/body.jsp" />
     <put-attribute name="footer" value="/WEB-INF/views/layouts/footer.jsp" />
   </definition>
+  
+    <definition name="admin" template="/WEB-INF/views/adminlayout/layout.jsp">
+    <put-attribute name="title" value="My shop" />
+    <put-attribute name="header" value="/WEB-INF/views/adminlayout/header.jsp" />
+    <put-attribute name="body" value="/WEB-INF/views/adminlayout/body.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/views/adminlayout/aside.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/views/adminlayout/footer.jsp" />
+  </definition>
   <!-- 레이아웃을 먼저 정해야함 푸터헤더바디 정하고 어사이드 -->
+  	<definition name="WILDCARD:admin/*" extends="admin">
+  	<put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp"/>
+  </definition>
   
   	<definition name="WILDCARD:*/*" extends="myapp.homepage">
   		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
   	</definition>
+  	
 </tiles-definitions>

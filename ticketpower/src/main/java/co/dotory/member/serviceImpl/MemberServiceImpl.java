@@ -13,8 +13,8 @@ public class MemberServiceImpl implements MemberService {
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private MemberMapper map = sqlSession.getMapper(MemberMapper.class);
 	@Override
-	public List<MemberVO> memberList() {
-		return map.memberList();
+	public List<MemberVO> memberList(int page) {
+		return map.memberList(page);
 	}
 
 	@Override
@@ -57,6 +57,11 @@ public class MemberServiceImpl implements MemberService {
 	public boolean modifyImage(MemberVO vo) {
 		// TODO Auto-generated method stub
 		return map.updateImage(vo) == 1;
+	}
+
+	@Override
+	public int totalCnt() {
+		return map.totalCnt();
 	}
 
 }
