@@ -32,10 +32,10 @@ public class UserModify implements Command{
 		
 		if(svc.memberUpdate(vo)) {
 			System.out.println("수정완료");
-			return "adminMemberPage.do";
+			return "userInfo.do";
 		}else {
 			System.out.println("수정실패");
-			return "adminMemberForm.do";
+			return "userInfo.do";
 		}
 	}
 
