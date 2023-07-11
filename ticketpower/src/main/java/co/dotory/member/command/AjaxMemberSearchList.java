@@ -26,8 +26,6 @@ public class AjaxMemberSearchList implements Command {
 		String key = req.getParameter("key");
 		String val = req.getParameter("val");
 		vo = svc.memberSelectList(key, val);
-		System.out.println(key+val);
-		System.out.println(123);
 		String str = "Ajax:";
 		try {
 			str += mapper.writeValueAsString(vo);

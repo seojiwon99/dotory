@@ -15,8 +15,10 @@ public class BoardDetail implements Command {
 		BoardService svc = new BoardServiceImpl();
 		String brdNo = req.getParameter("boardId");
 		
-		BoardVO vo = svc.getBoard(Integer.parseInt(brdNo));
+		// 조회수
+		/* svc.addCnt(Integer.parseInt(brdNo)); */
 		
+		BoardVO vo = svc.getBoard(Integer.parseInt(brdNo));
 		req.setAttribute("board", vo);
 		
 		return "board/boardDetail";
