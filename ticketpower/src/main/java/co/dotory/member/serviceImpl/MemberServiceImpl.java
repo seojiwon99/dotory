@@ -53,4 +53,10 @@ public class MemberServiceImpl implements MemberService {
 		return map.ismemberIdCheck(id);
 	}
 
+	@Override
+	public boolean modifyImage(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return map.updateImage(vo) == 1;
+	}
+
 }

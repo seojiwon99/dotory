@@ -13,7 +13,7 @@ import co.dotory.member.service.MemberService;
 import co.dotory.member.service.MemberVO;
 import co.dotory.member.serviceImpl.MemberServiceImpl;
 
-public class ImageUploadControl implements Command {
+public class ImageUpload implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
