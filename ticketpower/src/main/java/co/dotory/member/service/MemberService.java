@@ -11,6 +11,6 @@ public interface MemberService {
 	boolean memberUpdate(MemberVO vo);
 	boolean memberDelete(String id);
 	
-	boolean ismemberIdCheck(String Id);
+	boolean ismemberIdCheck(String id);
 	
 }

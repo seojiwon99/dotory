@@ -48,9 +48,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean ismemberIdCheck(String Id) {
+	public boolean ismemberIdCheck(String id) {
 		// TODO Auto-generated method stub
-		return map.ismemberIdCheck(Id);
+		return map.ismemberIdCheck(id);
 	}
 
 }
