@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.dotory.MainCommand;
 
 import co.dotory.board.command.BoardAdd;
+import co.dotory.board.command.BoardDetail;
 import co.dotory.board.command.BoardForm;
 import co.dotory.board.command.BoardList;
 
@@ -63,6 +64,8 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/boardAdd.do", new BoardAdd()); // 게시판 등록 로직
 
+		map.put("/boardDetail.do", new BoardDetail());
+		
 		//관리자 (호현)
 		map.put("/adminMainPage.do", new adminMainControl());
 		map.put("/adminMemberPage.do", new adminMemberPageControl());	
@@ -71,6 +74,8 @@ public class FrontController extends HttpServlet {
 		map.put("/adminMemberDelete.do", new adminMemberDeleteControl());
 		map.put("/ajaxMemberSearchList.do", new AjaxMemberSearchList());
 		map.put("/adminMoviePage.do", new adminMoviePageControl());
+		
+		
 
 
 	}

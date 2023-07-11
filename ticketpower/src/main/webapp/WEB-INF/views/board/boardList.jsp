@@ -19,7 +19,7 @@
                         <c:forEach items="${board}" var="b">
                             <tr>
                                 <td>${b.boardId}</td>
-                                <td><a href="" style="color: black; text-decoration: none;">${b.boardTitle}</a><span
+                                <td><a href="boardDetail.do?boardId=${b.boardId}" style="color: black; text-decoration: none;">${b.boardTitle}</a><span
                                         style="color:red;">[${b.boardReply}]</span></td>
                                 <td>${b.memberId}</td>
                                 <td>${b.boardDate}</td>

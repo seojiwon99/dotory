@@ -45,5 +45,11 @@
 		SELECT count(*)
 		  FROM dt_board
 	</select>
+	
+	<select id="getBoard">
+		SELECT *
+		  FROM dt_board
+		 WHERE board_id = #{boardId}
+	</select>
 
 </mapper>

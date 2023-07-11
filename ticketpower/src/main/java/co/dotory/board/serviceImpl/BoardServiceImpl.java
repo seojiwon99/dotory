@@ -34,4 +34,9 @@ public class BoardServiceImpl implements BoardService{
 		return map.totalCnt();
 	}
 
+	@Override
+	public BoardVO getBoard(int boardId) {
+		return map.getBoard(boardId);
+	}
+
 }

@@ -16,5 +16,8 @@ public interface BoardService {
 	// 게시글 갯수
 	public int totalCnt();
 	
+	// 게시글 상세보기
+	public BoardVO getBoard(int boardId);
+	
 
 }
