@@ -13,7 +13,7 @@ public class adminMainControl implements Command {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
 		System.out.println(123);
-		return "admin/adminMain.tiles";
+		return "admin/adminMain";
 	}
 
 }

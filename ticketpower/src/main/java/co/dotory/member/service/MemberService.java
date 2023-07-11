@@ -3,7 +3,7 @@ package co.dotory.member.service;
 import java.util.List;
 
 public interface MemberService {
-	List<MemberVO> memberList();
+	List<MemberVO> memberList(int page);
 	List<MemberVO> memberSelectList(String key, String val);
 	
 	MemberVO memberSelect(String vo);
@@ -12,5 +12,8 @@ public interface MemberService {
 	boolean memberDelete(String id);
 	
 	boolean ismemberIdCheck(String Id);
+	
+	// 멤버 갯수
+		public int totalCnt();
 	
 }
