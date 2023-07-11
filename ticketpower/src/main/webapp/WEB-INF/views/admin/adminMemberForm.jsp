@@ -24,8 +24,17 @@
 	</tr>
 	<tr>
 		<th>가입날짜</th>
+
 		<td><input type="text" id="memberEdate" name ="memberEdate" readonly value="${search.memberEdate}"></td>
 	</tr>
+
+		<td><input id="memberEdate" name ="memberEdate"value="${search.memberEdate}"></td>
+	</tr>
+		<th>대표이미지</th>
+		<td>
+		<img class="image" width = "190px" src="images/${member.memberImg }">
+		</td>
+
 	
 </table>
 	<div align="center">
