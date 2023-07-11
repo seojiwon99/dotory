@@ -14,7 +14,7 @@
 		<th>연락처</th><td><input type="text" class="tel" value="${member.memberTel }"></td>
 	</tr>
 	<tr>
-		<th>권한</th><td><input type="text" class="author" value="${member.memberAuthor }"></td>
+		<th>권한</th><td><input type="text" class="addr" value="${member.memberAddr }"></td>
 	</tr>
 	<tr>
 		<th>대표이미지</th>
@@ -59,19 +59,18 @@
 		document.getElementById('image').click();
 	})
 	document.querySelector('#saveBtn').addEventListener('click',function (e) {
-		let id = document.querySelector('td.uid').innerText;
-		let pw = document.querySelector('input.passwd').value;
+		let id = document.querySelector('td.id').innerText;
 		let nm = document.querySelector('input.name').value;
-		let ph = document.querySelector('input.phone').value;
+		let ph = document.querySelector('input.tel').value;
 		let ad = document.querySelector('input.addr').value;
-		console.log(id, pw, nm, ph, ad)
+		console.log(id, name, tel, author)
 		
 		let xhtp = new XMLHttpRequest();
 		//xhtp.open('get', 'memberModify.do?uid='+id+'&upw='+pw+'&unm='+nm+'&uph='+ph+'&uad='+ad);
 		//xhtp.send(); 
-		xhtp.open('post', 'memberModify.do');
+		xhtp.open('post', 'adminMemberModify.do');
 		xhtp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8')
-		xhtp.send('uid='+id+'&upw='+pw+'&unm='+nm+'&uph='+ph+'&uad='+ad);
+		xhtp.send('memberId='+id+'&memberName='+name+'&memberTel='+tel+'&memberAddr='+addr);
 		xhtp.onload = function () {
 			console.log(xhtp.responseText);
 			let result = JSON.parse(xhtp.responseText);
