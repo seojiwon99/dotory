@@ -21,14 +21,15 @@ public class MemberLogin implements Command {
 		
 		memberVO.setMemberId(req.getParameter("memberId"));
 		memberVO.setMemberPw(req.getParameter("memberPw"));
-//		String pw = req.getParameter("memberPw");
 		
 		memberVO = memberService.memberLogin(memberVO);
 		
 		
 		if(memberVO != null) {
 			session.setAttribute("id", memberVO.getMemberId());
+			session.setAttribute("pw", memberVO.getMemberPw());
 			session.setAttribute("name", memberVO.getMemberName());
+			session.setAttribute("edate", memberVO.getMemberDdate());
 			session.setAttribute("author", memberVO.getMemberAuthor());
 			if (memberVO.getMemberAuthor().equals("ADMIN")) {
 				turn = "admin/adminMain";
