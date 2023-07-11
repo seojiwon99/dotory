@@ -27,8 +27,6 @@ public class movieDetailPageControl implements Command {
 		
 		//리뷰 리스트
 		List<ReviewVO> review = reviewService.reviewList(id);
-	
-		
 		req.setAttribute("movieDetail", movie);
 		req.setAttribute("reviewList", review);
 		return "movie/movieDetail";
