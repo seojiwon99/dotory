@@ -7,8 +7,17 @@
 		  FROM (
 		  		SELECT rownum rn, a.board_id, a.board_title, a.board_content, a.board_date, a.board_update, a.board_cnt,a.member_id,a.board_reply
 		  		  FROM (
-		  		  	SELECT *
-		  		 	  FROM dt_board
+		  		  	SELECT bo.*, (select count(*) from dt_reply r where r.board_id = bo.board_id )as board_reply
+		  		 	  FROM dt_board bo
+	  		 	<if test='key.equals("name")'>
+					WHERE MEMBER_ID LIKE '%' || #{val} || '%'
+				</if>
+				<if test='key.equals("title")'>
+					WHERE BOARD_TITLE LIKE '%' || #{val} || '%'
+				</if>
+				<if test='key.equals("all")'>
+					WHERE 1 = 1
+				</if>
 		  		 	 ORDER BY board_id desc
 				  )a
 			)b
@@ -16,17 +25,21 @@
 		<![CDATA[
       	  AND b.rn <= #{page} * 10
     	]]>
-		<!-- <if test="key == 'name'">
-			WHERE MEMBER_NAME LIKE '%' || #{val} || '%'
-		</if>
-		<if test="key == 'tel'">
-			WHERE MEMBER_TEL LIKE '%' || #{val} || '%'
-		</if>
-		<if test="key == 'address'">
-			WHERE MEMBER_ADDRESS LIKE '%' || #{val} || '%'
-		</if>
-		<if test="key == 'all'">where 1 = 1</if> -->
+	</select>
 	
+	<!-- 게시글 갯수 -->
+	<select id="totalCnt" resultType="int">
+		SELECT count(*)
+		  FROM dt_board
+		<if test='key == "name"'>
+			WHERE MEMBER_ID LIKE '%' || #{val} || '%'
+		</if>
+		<!-- <if test='key.equals("title")'>
+			WHERE BOARD_TITLE LIKE '%' || #{val} || '%'
+		</if>
+		<if test='key.equals("all")'>
+			WHERE 1 = 1
+		</if> -->
 	</select>
 	
 	<insert id="boardAdd" parameterType="boardVO">
@@ -40,11 +53,7 @@
 	</insert>
 
 
-	<!-- 게시글 갯수 -->
-	<select id="totalCnt" resultType="int">
-		SELECT count(*)
-		  FROM dt_board
-	</select>
+	
 	
 	<!-- 상세보기 -->
 	<select id="getBoard">
@@ -52,5 +61,11 @@
 		  FROM dt_board
 		 WHERE board_id = #{boardId}
 	</select>
+	
+	<update id="addCnt" parameterType="int">
+		UPDATE dt_board
+		   SET board_cnt = board_cnt + 1
+		 WHERE board_id = #{boardId}
+	</update>
 
 </mapper>

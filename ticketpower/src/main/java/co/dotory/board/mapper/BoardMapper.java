@@ -12,7 +12,7 @@ public interface BoardMapper {
 	public List<BoardVO> boardSelectList(int page);
 	
 	// 게시판 목록(ajax)
-	public List<BoardVO> boardSelectList(@Param("key") String key, @Param("val") String val);
+	public List<BoardVO> boardSelectList(@Param("key") String key, @Param("val") String val, @Param("page") int page);
 
 	// 게시글 등록
 	public int boardAdd(BoardVO vo);
@@ -20,6 +20,11 @@ public interface BoardMapper {
 	// 게시글 갯수
 	public int totalCnt();
 
+	public int totalCnt(@Param("key")String key, @Param("val") String val);
+	
 	// 게시글 상세보기
 	public BoardVO getBoard(int boardId);
+	
+	public int addCnt(int boardId);
+	
 }
