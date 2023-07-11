@@ -30,7 +30,6 @@ public class AjaxMemberSearchList implements Command {
 		try {
 			str += mapper.writeValueAsString(vo);
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
