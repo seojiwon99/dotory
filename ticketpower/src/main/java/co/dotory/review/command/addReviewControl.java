@@ -27,7 +27,7 @@ public class addReviewControl implements Command {
 		vo.setReview(review);
 		vo.setReviewLike(Integer.parseInt(reviewLike));
 		ReviewService service = new ReviewServiceImpl();
-		
+		//ㅎㅇ
 		
 		if(service.addReview(vo)) {
 			result +="1";
