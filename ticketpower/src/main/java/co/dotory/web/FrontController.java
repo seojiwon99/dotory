@@ -30,6 +30,7 @@ import co.dotory.member.command.MemberSearch;
 import co.dotory.member.command.UserInfo;
 import co.dotory.member.command.UserMain;
 import co.dotory.member.command.UserModify;
+import co.dotory.member.command.UserModifyForm;
 import co.dotory.member.command.adminMainControl;
 import co.dotory.member.command.adminMemberDeleteControl;
 import co.dotory.member.command.adminMemberForm;
@@ -90,6 +91,7 @@ public class FrontController extends HttpServlet {
 		map.put("/userInfo.do", new UserInfo());
 		map.put("/userModify.do", new UserModify());
 		map.put("/imageUpload.do", new ImageUpload());
+		map.put("/userModifyForm.do", new UserModifyForm());
 	}
 
 	
