@@ -69,7 +69,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
   <tr>
     <td colspan="2" align="center">
-      <a href="userModify.do">정보 수정하기 </a>
+      <a href="userModifyForm.do?memberId=user1&memberName=${search.memberName }&memberTel=${search.memberTel}&memberAddr=${search.memberAddr}&memberEdate=${search.memberEdate}">정보 수정하기 </a>
     </td>
   </tr>
   <th>

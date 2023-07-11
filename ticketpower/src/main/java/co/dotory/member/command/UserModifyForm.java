@@ -1,19 +1,16 @@
 package co.dotory.member.command;
 
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.common.Command;
-import co.dotory.member.service.MemberService;
 import co.dotory.member.service.MemberVO;
-import co.dotory.member.serviceImpl.MemberServiceImpl;
 
-public class UserModify implements Command {
-
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
+public class UserModifyForm implements Command{
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
 		String id = req.getParameter("memberId");
@@ -21,22 +18,18 @@ public class UserModify implements Command {
 		String tel = req.getParameter("memberTel");
 		String addr = req.getParameter("memberAddr");
 		String img = req.getParameter("memberImg");
-
-		System.out.println(id + name + tel + addr);
-		MemberService svc = new MemberServiceImpl();
+		String eDate =req.getParameter("memberEdate");
 		MemberVO vo = new MemberVO();
 		vo.setMemberId(id);
 		vo.setMemberName(name);
 		vo.setMemberTel(tel);
 		vo.setMemberAddr(addr);
 		vo.setMemberImg(img);
-		System.out.println(vo);
-		if (svc.memberUpdate(vo)) {
-			System.out.println("수정완료");
-			return "userInfo.do";
-		} else {
-			System.out.println("수정실패");
-			return "userInfo.do";
-		}
+		req.setAttribute("search",vo);
+		req.setAttribute("eDate", eDate);
+	
+		
+		return "user/userModify";
 	}
+
 }

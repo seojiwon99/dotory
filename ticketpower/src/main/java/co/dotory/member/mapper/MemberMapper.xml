@@ -31,11 +31,10 @@
 	<update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
 		UPDATE DT_MEMBER
 		<set>
-   		     <if test="memberId != null">MEMBER_NAME = #{memberName},</if>
+   		     <if test="memberName != null">MEMBER_NAME = #{memberName},</if>
 		   	 <if test="memberTel != null">MEMBER_TEL = #{memberTel},</if>
 		   	 <if test="memberEdate != null">MEMBER_EDATE = #{memberEdate},</if>
 		   	 <if test="memberAddr != null">MEMBER_ADDR = #{memberAddr},</if>
-		   	 <if test="memberAddr != null">MEMBER_IMG = #{memberImg}</if>
 		</set>
 		WHERE MEMBER_ID = #{memberId}
 	</update>
