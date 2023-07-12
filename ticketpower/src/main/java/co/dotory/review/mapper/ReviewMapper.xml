@@ -4,17 +4,17 @@
 	<select id="reviewList" parameterType="int" resultType="co.dotory.review.service.ReviewVO">
 		SELECT * FROM DT_REVIEW WHERE MOVIE_ID = #{movieId}
 	</select>
-	<insert id="addReview">
+	<insert id="addReview" parameterType="co.dotory.review.service.ReviewVO">
 		INSERT INTO DT_REVIEW (REVIEW_ID,REVIEW,REVIEW_UPDATE,MOVIE_ID,MEMBER_ID,REVIEW_LIKE)
 		VALUES (REVIEW_SEQ.nextval,#{review},NULL,#{movieId},#{memberId},#{reviewLike})
 	</insert>
-	<update id="modifyReview">
+	<update id="modifyReview" parameterType="co.dotory.review.service.ReviewVO">
 		UPDATE DT_REVIEW
 		SET    REVIEW        = #{review},
 			   REVIEW_UPDATE = SYSDATE 
 		WHERE  REVIEW_ID     = #{reviewId}
 	</update>
-	<delete id="delReview">
+	<delete id="delReview" parameterType="co.dotory.review.service.ReviewVO">
 		DELETE DT_REVIEW
 		WHERE  REVIEW_ID     = #{reviewId}
 	</delete>
