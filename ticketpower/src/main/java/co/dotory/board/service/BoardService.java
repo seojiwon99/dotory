@@ -8,7 +8,7 @@ public interface BoardService {
 	public List<BoardVO> boardSelectList(int page);
 	
 	// 게시판 목록 검색(ajax)
-	public List<BoardVO> boardSelectList(String key, String val);
+	public List<BoardVO> boardSelectList(String key, String val, int page);
 	
 	// 게시판 등록
 	public int boardAdd(BoardVO vo);
@@ -16,5 +16,11 @@ public interface BoardService {
 	// 게시글 갯수
 	public int totalCnt();
 	
-
+	public int totalCnt(String key,String val);
+	
+	// 게시글 상세보기
+	public BoardVO getBoard(int boardId);
+	
+	// 조회수 추가
+	public boolean addCnt(int boardId);
 }

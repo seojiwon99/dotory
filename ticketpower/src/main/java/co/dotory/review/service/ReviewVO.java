@@ -14,4 +14,5 @@ public class ReviewVO {
 	private Date reviewUpdate;
 	private int movieId;
 	private String memberId;
+	private int reviewLike;
 }

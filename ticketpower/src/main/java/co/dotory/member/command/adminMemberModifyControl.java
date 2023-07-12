@@ -19,7 +19,6 @@ public class adminMemberModifyControl implements Command {
 		String name = req.getParameter("memberName");
 		String tel = req.getParameter("memberTel");
 		String addr = req.getParameter("memberAddr");
-		String img = req.getParameter("memberImg");
 		
 		
 		MemberService svc = new MemberServiceImpl();
@@ -28,7 +27,6 @@ public class adminMemberModifyControl implements Command {
 		vo.setMemberName(name);
 		vo.setMemberTel(tel);
 		vo.setMemberAddr(addr);
-		vo.setMemberImg(img);
 		System.out.println(vo);
 		
 		if(svc.memberUpdate(vo)) {

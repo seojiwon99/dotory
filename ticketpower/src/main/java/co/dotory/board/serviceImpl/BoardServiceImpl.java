@@ -20,8 +20,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<BoardVO> boardSelectList(String key, String val) {
-		return map.boardSelectList(key, val);
+	public List<BoardVO> boardSelectList(String key, String val, int page) {
+		return map.boardSelectList(key, val, page);
 	}
 
 	@Override
@@ -33,5 +33,23 @@ public class BoardServiceImpl implements BoardService{
 	public int totalCnt() {
 		return map.totalCnt();
 	}
+
+	@Override
+	public BoardVO getBoard(int boardId) {
+		return map.getBoard(boardId);
+	}
+
+	@Override
+	public boolean addCnt(int boardId) {
+		return map.addCnt(boardId) == 1;
+	}
+
+	@Override
+	public int totalCnt(String key, String val) {
+		return map.totalCnt(key,val);
+	}
+
+	
+
 
 }

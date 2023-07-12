@@ -28,7 +28,6 @@ public class BoardList implements Command {
 		req.setAttribute("page", dto);
 		
 		return "board/boardList";
-//		ssdadsa
 	}
 
 }

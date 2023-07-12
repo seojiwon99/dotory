@@ -14,6 +14,8 @@
 		<h1>헤더입니당</h1>
 		<a href="adminMainPage.do">관리자페이지=></a>
 		<a role="button" class="" href="memberLoginForm.do">로그인</a>
+    	<a href="userMain.do"> <=유저페이지 </a>        	
+   		
 	</div>
 
 </body>

@@ -15,21 +15,21 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public List<ReviewVO> reviewList(int movieId) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.reviewList(movieId);
 	}
 	@Override
 	public boolean addReview(ReviewVO vo) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.addReview(vo) == 1;
 	}
 	@Override
 	public boolean delReview(ReviewVO vo) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.delReview(vo) == 1;
 	}
 	@Override
 	public boolean modifyReview(ReviewVO vo) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.modifyReview(vo) == 1;
 	}
 }
