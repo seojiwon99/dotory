@@ -1,17 +1,15 @@
 package co.dotory.member.command;
 
-
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.common.Command;
-import co.dotory.member.service.MemberService;
 import co.dotory.member.service.MemberVO;
-import co.dotory.member.serviceImpl.MemberServiceImpl;
 
-public class adminMemberModifyControl implements Command {
+public class UserModifyForm implements Command{
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
@@ -19,23 +17,19 @@ public class adminMemberModifyControl implements Command {
 		String name = req.getParameter("memberName");
 		String tel = req.getParameter("memberTel");
 		String addr = req.getParameter("memberAddr");
-		
-		
-		MemberService svc = new MemberServiceImpl();
+		String img = req.getParameter("memberImg");
+		String eDate =req.getParameter("memberEdate");
 		MemberVO vo = new MemberVO();
 		vo.setMemberId(id);
 		vo.setMemberName(name);
 		vo.setMemberTel(tel);
 		vo.setMemberAddr(addr);
-		System.out.println(vo);
+		vo.setMemberImg(img);
+		req.setAttribute("search",vo);
+		req.setAttribute("eDate", eDate);
+	
 		
-		if(svc.memberUpdate(vo)) {
-			System.out.println("수정완료");
-			return "adminMemberPage.do";
-		}else {
-			System.out.println("수정실패");
-			return "adminMemberForm.do";
-		}
+		return "user/userModify";
 	}
 
 }

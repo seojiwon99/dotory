@@ -8,12 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import co.dotory.common.Command;
 
 
-public class adminMainControl implements Command {
+public class UserMain implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		System.out.println(123);
-		return "admin/adminMain";
+		return "user/userMain.tiles";
 	}
 
 }

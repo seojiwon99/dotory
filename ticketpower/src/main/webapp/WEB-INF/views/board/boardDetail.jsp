@@ -12,18 +12,29 @@
                         <td>${board.memberId}</td>
                     </tr>
                     <tr>
-                        <th>작성일</th>@
+                        <th>작성일</th>
                         <td>${board.boardDate}</td>
                         <th>조회수</th>
                         <td>${board.boardCnt}</td>
                     </tr>
                     <tr>
+                    	<th>좋아요</th>
+                    	<td>${board.boardDate}</td>
+                    </tr>
+                    <tr>
                         <td colspan="4">
-                            <textarea cols="110" rows="30">${board.boardContent}</textarea>
+                            <textarea cols="70" rows="30">${board.boardContent}</textarea>
                         </td>
                     </tr>
+                    <tr>
+                    	<td colspan="4">
+                    		 <a href="boardList.do">목록으로</a>
+                    	</td>
+                    </tr>
+                   
                 </table>
             </div>
         </div>
     </div>
+    
 </header>

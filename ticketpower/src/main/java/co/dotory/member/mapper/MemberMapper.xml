@@ -5,8 +5,24 @@
 	<!-- 회원목록 -->
 	<select id="memberList" resultType="co.dotory.member.service.MemberVO">
 		SELECT *
-		  FROM DT_MEMBER
-		 
+		  FROM (
+		  		SELECT rownum rn, a.member_id, a.member_name, a.member_tel, a.member_addr
+		  		  FROM (
+		  		  	SELECT *
+		  		 	  FROM dt_member
+		  		 	 ORDER BY member_id desc
+				  )a
+			)b
+		WHERE b.rn > (#{page} - 1) *10
+		<![CDATA[
+      	  AND b.rn <= #{page} * 10
+    	]]>
+	</select>
+	
+	<!-- member갯수 -->
+	<select id="totalCnt" resultType="int">
+		SELECT count(*)
+		  FROM dt_member
 	</select>
 	
 	<!-- 회원검색 -->
@@ -31,11 +47,10 @@
 	<update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
 		UPDATE DT_MEMBER
 		<set>
-   		     <if test="memberId != null">MEMBER_NAME = #{memberName},</if>
+			 <if test="memberName != null">MEMBER_ID = #{memberId},</if>
+   		     <if test="memberName != null">MEMBER_NAME = #{memberName},</if>
 		   	 <if test="memberTel != null">MEMBER_TEL = #{memberTel},</if>
-		   	 <if test="memberEdate != null">MEMBER_EDATE = #{memberEdate},</if>
 		   	 <if test="memberAddr != null">MEMBER_ADDR = #{memberAddr},</if>
-		   	 <if test="memberAddr != null">MEMBER_IMG = #{memberImg}</if>
 		</set>
 		WHERE MEMBER_ID = #{memberId}
 	</update>
