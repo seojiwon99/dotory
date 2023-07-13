@@ -12,7 +12,7 @@ public class MovieVO {
 	private String movieName;
 	private int movieAge;
 	private String movieRuntime;
-	private int movieLike;
+	private double movieLike;
 	private String movieGenre;
 	private String movieSummary;
 	private String moviePosterImg;
