@@ -36,7 +36,10 @@ import co.dotory.member.command.adminMemberDeleteControl;
 import co.dotory.member.command.adminMemberForm;
 import co.dotory.member.command.adminMemberModifyControl;
 import co.dotory.member.command.adminMemberPageControl;
+import co.dotory.movie.command.AdminMovieDeleteControl;
+import co.dotory.movie.command.AdminMovieFormControl;
 import co.dotory.movie.command.AdminMoviePlusControl;
+import co.dotory.movie.command.adminMovieAddControl;
 import co.dotory.movie.command.adminMoviePageControl;
 import co.dotory.movie.command.movieDetailPageControl;
 import co.dotory.movie.command.movieListPageControl;
@@ -84,7 +87,10 @@ public class FrontController extends HttpServlet {
 		map.put("/adminMemberDelete.do", new adminMemberDeleteControl());
 		map.put("/ajaxMemberSearchList.do", new AjaxMemberSearchList());
 		map.put("/adminMoviePage.do", new adminMoviePageControl());
+		map.put("/adminMovieAdd.do", new adminMovieAddControl());
 		map.put("/adminMovieAddControl.do", new AdminMoviePlusControl());
+		map.put("/adminMovieForm.do", new AdminMovieFormControl());
+		map.put("/adminMovieDelete.do", new AdminMovieDeleteControl());
 
 		//영화
 		map.put("/movieListPage.do", new movieListPageControl());

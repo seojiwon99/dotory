@@ -17,4 +17,9 @@
 		INSERT INTO DT_MOVIE (movie_id , movie_name , movie_age , movie_genre , movie_runtime , movie_summary , movie_poster_img , movie_back_img , movie_release)
 			 VALUES (#{movieId} , #{movieName} , #{movieAge} , #{movieGenre} , #{movieRuntime} , #{movieSummary} , #{moviePosterImg} , #{movieBackImg} , #{movieRelease})
 	</insert>
+	
+	<delete id="movieDelete" > 
+	DELETE FROM dt_movie 
+		  where movie_id=#{movieId}
+</delete>
 </mapper>
