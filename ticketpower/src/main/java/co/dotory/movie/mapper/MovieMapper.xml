@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.dotory.movie.mapper.MovieMapper">
 	<select id="movieList" resultType="co.dotory.movie.service.MovieVO">
-		SELECT * FROM DT_MOVIE
-		ORDER BY MOVIE_ID
+		SELECT a.movie_id,a.movie_name,a.movie_age,a.movie_genre,a.movie_runtime,a.movie_summary,a.movie_poster_img,a.movie_back_img,a.movie_release,NVL(ROUND(AVG(b.review_like),1),0) AS movie_Like
+		FROM DT_MOVIE a, dt_review b
+		WHERE a.movie_id = b.movie_id(+) 
+		group by a.movie_id, a.movie_name, a.movie_age, a.movie_genre, a.movie_runtime, 
+		a.movie_summary, a.movie_poster_img, a.movie_back_img, a.movie_release
+		order by movie_id
 	</select>
 	<select id="movieDetail" resultType="co.dotory.movie.service.MovieVO" parameterType="int">
 		SELECT * FROM DT_MOVIE WHERE MOVIE_ID = #{movieId}

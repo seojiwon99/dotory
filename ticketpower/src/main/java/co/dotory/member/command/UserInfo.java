@@ -4,6 +4,7 @@ package co.dotory.member.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.dotory.common.Command;
 import co.dotory.member.service.MemberService;
@@ -14,7 +15,11 @@ public class UserInfo implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		String id = req.getParameter("uid");
+		HttpSession session = req.getSession();
+		
+		String id = (String) session.getAttribute("id");
+		System.out.println(id);
+		/* String id = req.getParameter("id"); */
 		MemberVO vo = new MemberVO();
 		MemberService svc = new MemberServiceImpl();
 		vo = svc.memberSelect(id);

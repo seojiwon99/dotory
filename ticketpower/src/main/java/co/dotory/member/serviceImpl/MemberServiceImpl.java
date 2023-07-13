@@ -45,13 +45,13 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean memberUpdate(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return map.memberUpdate(vo);
+		return map.memberUpdate(vo) == 1;
 	}
 
 	@Override
 	public boolean memberDelete(String vo) {
 		// TODO Auto-generated method stub
-		return map.memberDelete(vo);
+		return map.memberDelete(vo) == 1;
 	}
 
 	@Override

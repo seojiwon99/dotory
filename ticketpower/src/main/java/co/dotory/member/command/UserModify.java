@@ -1,4 +1,4 @@
-package co.dotory.member.command;
+	package co.dotory.member.command;
 
 import java.text.SimpleDateFormat;
 
@@ -16,27 +16,26 @@ public class UserModify implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
+		
 		String id = req.getParameter("memberId");
-		String name = req.getParameter("memberName");
-		String tel = req.getParameter("memberTel");
-		String addr = req.getParameter("memberAddr");
-		String img = req.getParameter("memberImg");
-
-		System.out.println(id + name + tel + addr);
+		System.out.println(id);
+		
+		String result = "Ajax:";
 		MemberService svc = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-		vo.setMemberId(id);
-		vo.setMemberName(name);
-		vo.setMemberTel(tel);
-		vo.setMemberAddr(addr);
-		vo.setMemberImg(img);
+		vo.setMemberId(req.getParameter("memberId"));
+		vo.setMemberName(req.getParameter("memberName"));
+		vo.setMemberTel(req.getParameter("memberTel"));
+		vo.setMemberAddr(req.getParameter("memberAddr"));
+		vo.setMemberImg(req.getParameter("memberImg"));
 		System.out.println(vo);
+		//return "Ajax:" + ""
 		if (svc.memberUpdate(vo)) {
 			System.out.println("수정완료");
-			return "userInfo.do";
+			return result += "1";
 		} else {
 			System.out.println("수정실패");
-			return "userInfo.do";
+			return result += "0";
 		}
 	}
 }

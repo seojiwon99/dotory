@@ -12,10 +12,11 @@ public interface MemberMapper {
 	MemberVO memberSelect(String vo);
 	MemberVO memberLogin(MemberVO vo);
 	int memberInsert(MemberVO vo);
-	boolean memberUpdate(MemberVO vo);
-	boolean memberDelete(String vo);
+	int memberUpdate(MemberVO vo);
+	int memberDelete(String vo);
 	public int updateImage(MemberVO member);	
 	boolean ismemberIdCheck(String Id);
+	
 	
 	//member갯수
 	public int totalCnt();
