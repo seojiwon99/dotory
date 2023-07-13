@@ -2,8 +2,8 @@
 body {
   margin: 0;
   height: 1000px;
-  background-color: black;
-  background: url(../images/netflixback.jpg);
+  background-color: white;
+ /*  background: url(../images/netflixback.jpg); */
 }
 
 .cont {

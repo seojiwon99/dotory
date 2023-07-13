@@ -35,7 +35,7 @@ public class MemberLogin implements Command {
 				turn = "admin/adminMain";
 			}
 			if (memberVO.getMemberAuthor().equals("USER")) {
-				turn = "main/main";
+				turn = "movieListPage.do";
 			}
 		} else {
 			req.setAttribute("message", "잘못된 입력값입니다.");
