@@ -70,8 +70,11 @@
 	 <select id="ismemberIdCheck" resultType="boolean">
 		SELECT COUNT(*) AS ID FROM DT_MEMBER WHERE MEMBER_ID = #{id}
 	</select> 
-							
 	
+	<select id="memberLogin" resultType="co.dotory.member.service.MemberVO">
+		SELECT * FROM DT_MEMBER WHERE MEMBER_ID = #{memberId}
+		<if test="memberPw != null"> AND MEMBER_PW = #{memberPw}</if>
+	</select>
 	<!-- <update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
 		UPDATE MEMBER
 		<set>

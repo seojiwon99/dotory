@@ -6,6 +6,7 @@ public interface MemberService {
 	List<MemberVO> memberList(int page);
 	List<MemberVO> memberSelectList(String key, String val);
 	MemberVO memberSelect(String vo);
+	MemberVO memberLogin(MemberVO vo);
 	int memberInsert(MemberVO vo);
 	boolean memberUpdate(MemberVO vo);
 	boolean memberDelete(String id);

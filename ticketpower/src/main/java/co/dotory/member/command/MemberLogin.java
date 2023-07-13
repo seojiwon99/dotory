@@ -1,7 +1,5 @@
 package co.dotory.member.command;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,17 +19,24 @@ public class MemberLogin implements Command {
 		HttpSession session = req.getSession();
 		String turn = null;
 		
-		String id = req.getParameter("memberId");
-		String pw = req.getParameter("memberPw");
+		memberVO.setMemberId(req.getParameter("memberId"));
+		memberVO.setMemberPw(req.getParameter("memberPw"));
 		
-		List<MemberVO> memberSelectList = memberService.memberSelectList(id,pw);
+		memberVO = memberService.memberLogin(memberVO);
 		
 		
 		if(memberVO != null) {
 			session.setAttribute("id", memberVO.getMemberId());
+			session.setAttribute("pw", memberVO.getMemberPw());
 			session.setAttribute("name", memberVO.getMemberName());
+			session.setAttribute("edate", memberVO.getMemberDdate());
 			session.setAttribute("author", memberVO.getMemberAuthor());
-			turn = "main.do";
+			if (memberVO.getMemberAuthor().equals("ADMIN")) {
+				turn = "admin/adminMain";
+			}
+			if (memberVO.getMemberAuthor().equals("USER")) {
+				turn = "main/main";
+			}
 		} else {
 			req.setAttribute("message", "잘못된 입력값입니다.");
 			turn = "member/errorMessage";

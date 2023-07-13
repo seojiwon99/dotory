@@ -22,7 +22,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return map.memberSelectList(key, val);
 	}
-
+	
+	@Override
+	public MemberVO memberLogin(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return map.memberLogin(vo);
+	}
 	@Override
 	public MemberVO memberSelect(String vo) {
 		// TODO Auto-generated method stub
