@@ -45,7 +45,7 @@ document.getElementById("loginBtn").addEventListener("click",function(e){
 		document.getElementById("memberPw").focus();
 	}
 	else{
-		alert("환영합니다!")
+		
 	}
 });
 </script>

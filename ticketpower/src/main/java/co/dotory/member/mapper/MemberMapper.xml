@@ -71,6 +71,10 @@
 		SELECT COUNT(*) AS ID FROM DT_MEMBER WHERE MEMBER_ID = #{id}
 	</select> 
 	
+	<select id="ismemberCheck" resultType="boolean">
+		SELECT COUNT(*) AS ID FROM DT_MEMBER WHERE MEMBER_ID = #{id} AND MEMBER_PW = #{pw}
+	</select> 
+	
 	<select id="memberLogin" resultType="co.dotory.member.service.MemberVO">
 		SELECT * FROM DT_MEMBER WHERE MEMBER_ID = #{memberId}
 		<if test="memberPw != null"> AND MEMBER_PW = #{memberPw}</if>
