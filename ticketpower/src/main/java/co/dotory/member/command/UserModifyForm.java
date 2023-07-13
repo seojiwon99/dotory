@@ -18,7 +18,7 @@ public class UserModifyForm implements Command{
 		String tel = req.getParameter("memberTel");
 		String addr = req.getParameter("memberAddr");
 		String img = req.getParameter("memberImg");
-		String eDate =req.getParameter("memberEdate");
+		String eDate = req.getParameter("memberEdate");
 		MemberVO vo = new MemberVO();
 		vo.setMemberId(id);
 		vo.setMemberName(name);

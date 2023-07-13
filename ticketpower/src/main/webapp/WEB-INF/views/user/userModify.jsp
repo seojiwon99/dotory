@@ -24,7 +24,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	</tr>
 	<tr>
 		<th>가입날짜</th>
-		<td><input id="memberEdate" name ="memberEdate"value="${eDate}" readonly></td>
+		<td><input id="memberEdate" name ="memberEdate"value="${search.memberEdate}" readonly></td>
 		
     <th>대표이미지</th>
     <td>

@@ -63,7 +63,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
   <tr>
     <th>대표이미지</th>
     <td>
-      <img class="image" width="190px" src="images/${member.memberImg }" />
+      <img class="image" width="190px" src="images/${search.memberImg }" />
     </td>
   </tr>
 
