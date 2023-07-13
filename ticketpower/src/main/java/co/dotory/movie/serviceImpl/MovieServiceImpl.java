@@ -22,5 +22,9 @@ public class MovieServiceImpl implements MovieService{
 		// TODO Auto-generated method stub
 		return mapper.movieDetail(movieId);
 	}
+	@Override
+	public int movieAdd(MovieVO vo) {
+		return mapper.movieAdd(vo);
+	}
 
 }
