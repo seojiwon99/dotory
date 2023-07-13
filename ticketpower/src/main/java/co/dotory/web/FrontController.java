@@ -39,6 +39,7 @@ import co.dotory.member.command.adminMemberModifyControl;
 import co.dotory.member.command.adminMemberPageControl;
 import co.dotory.movie.command.AdminMovieDeleteControl;
 import co.dotory.movie.command.AdminMovieFormControl;
+import co.dotory.movie.command.AdminMovieModifyControl;
 import co.dotory.movie.command.AdminMoviePlusControl;
 import co.dotory.movie.command.adminMovieAddControl;
 import co.dotory.movie.command.adminMoviePageControl;
