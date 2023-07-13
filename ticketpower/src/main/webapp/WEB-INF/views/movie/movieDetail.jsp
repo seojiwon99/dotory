@@ -25,20 +25,6 @@
 	
 	<!-- 자바스크립트로 처리할까? -->
 	<ul id="reviewUl">
-		<!-- <c:forEach items="${reviewList }" var="r">
-			<li>
-				<div>
-					<input type="text" value="${r.memberId }" />
-					<h4>${r.reviewDate }</h4>
-					<input type="text" value="${r.review }" />
-					<div>
-						<button class="modBtn">수정</button>
-						<button class="delBtn">삭제</button>
-					</div>
-				</div>
-			</li> -->
-			<!-- </c:forEach> -->
-			<br>
 	</ul>
 	<script>
 		const movieId = document.getElementById("movieIdInput");
@@ -46,11 +32,10 @@
 		const review = document.getElementById("reviewInput");
 		const reviewLike = document.getElementById("reviewLikeInput");
 		const registBtn = document.getElementById("registBtn");
-		const modBtn = document.querySelectorAll(".modBtn");
-		const delBtn = document.querySelectorAll(".delBtn");
 		
 		
 		registBtn.addEventListener("click",clickRegistBtn)
+		//댓글등록버튼 이벤트
 		function clickRegistBtn(){
 			$.ajax({
 				type:"POST",
@@ -66,8 +51,8 @@
 				}
 			})
 		}
+		//댓글 리스트 보여주는 함수
 		function showReview(){
-
 			$.ajax({
 				type:"POST",
 				url:"showReview.do",
@@ -80,25 +65,84 @@
 						{
 							
 							$("#reviewUl").append($("<li/>").append($("<div/>")
-										.append($("<input/>").val(review.memberId).attr("readonly",true).attr("placeholder","리뷰를 입력하세요."))
+										.append($("<h3/>").text(review.memberId))
 										.append($("<h4/>").text(convertDate(review.reviewDate)))
-										.append($("<input/>").val(review.review).attr("readonly",true).attr("placeholder","김치")))
-										.append($("<button/>").text("수정").on("click",(e)=>{
-											const {children} = e.currentTarget.parentElement.children[0]
-											$(children[0]).attr("readonly",false)
-											// console.log($(children[1]).attr("readonly",false))
-											$(children[2]).attr("readonly",false)
-										}))
-										.append($("<button/>").text("삭제")))
+										.append($("<input/>").addClass("review").val(review.review).attr("readonly",true).attr("placeholder","김치"))
+										.append($("<input/>").val(review.reviewId).attr("type","hidden")))
+										.append($("<button/>").text("수정").on("click",clickEditBtn))
+										.append($("<button/>").text("삭제").on("click",clickRemoveBtn)))
 							$("#reviewUl").append("<br>")
 						}
 					)
 				}
 			})
 		}
-		
-		showReview();
 
+		function clickRemoveBtn(e){
+			const target = $(e.target);
+			const reviewId = target.parent().children("div").children("input").last();
+			const isOk = confirm("삭제하시겠습니까?");
+			if(isOk){
+				$.ajax({
+					type:"POST",
+					url:"removeReview.do",
+					data:{
+						reviewId:reviewId.val(),
+					},success:function(data){
+						if(data === "1"){
+							alert("삭제됨");
+							target.parent().remove()
+						} else {
+							alert("삭제안됨.");
+						}
+					},
+					error:function(err){
+						console.log(err);
+					}
+				})
+			} else {
+				alert("취소됨");
+			}
+			
+		}
+		//수정클릭함수
+		function clickEditBtn(e){
+			const target = $(e.target);
+			target.off("click");
+			target.parent().children("div").children("input").attr("readonly",false)
+			target.text("수정완료").on("click",clickEditCompleteBtn)
+		}
+
+		//수정완료 클릭함수
+		function clickEditCompleteBtn(e){
+			const target = $(e.target);
+			const review = target.parent().children("div").children("input").first()
+			const reviewId = target.parent().children("div").children("input").last()
+			target.off("click");
+			console.log(review.val());
+			console.log(reviewId.val());
+			$.ajax({
+				type:"POST",
+				url:"modifyReview.do",
+				data:{
+					review:review.val(),
+					reviewId:reviewId.val()
+				},
+				success:function(data){
+					if(data === "1"){
+						review.attr("readonly",true);
+						target.text("수정").on("click",clickEditBtn)
+					} else {
+						alert("수정실패");	
+					}
+				},error:function(err){
+					console.log(err)
+				}
+			})
+		}
+
+		
+		//날짜 형식 바꾸는 함수
 		function convertDate(date){
 			let nowDate = new Date(date)
 			if(date == undefined){
@@ -110,8 +154,8 @@
 			const dateString = year+"-"+month+"-"+day;
 			return dateString;
 		}
+		//리뷰 만들기 함수
 		function makeReview(data){
-
 			if(data === "1"){
 				$("#reviewUl").append($("<li/>").append($("<div/>")
 				.append($("<h3/>").text(memberId.value))
@@ -121,6 +165,10 @@
 				console.log("오류발생");
 			}
 		}
+
+
+
+		showReview(); 
 	</script>
 
 </body>
