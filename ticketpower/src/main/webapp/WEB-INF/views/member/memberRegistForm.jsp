@@ -40,7 +40,7 @@
 			<input type="text" id="address" placeholder="주소" class="setAddr" readOnly><br>
 			<input type="text" id="detailAddress" placeholder="상세주소"  oninput ="setAddr()">
 			<input type="text" id="extraAddress" placeholder="참고항목"  readOnly>
-			<input type="text" id="memberAddr" name="memberAddr">
+			<input type="hidden" id="memberAddr" name="memberAddr">
         </div>
         <div class="phone">
             <input id="memberTel" name="memberTel" type="text"  maxlength="11" oninput="changePhone1()" placeholder="전화번호를 입력해 주세요.">
