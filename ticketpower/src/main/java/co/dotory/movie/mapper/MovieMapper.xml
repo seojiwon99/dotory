@@ -3,8 +3,18 @@
 <mapper namespace="co.dotory.movie.mapper.MovieMapper">
 	<select id="movieList" resultType="co.dotory.movie.service.MovieVO">
 		SELECT * FROM DT_MOVIE
+		ORDER BY MOVIE_ID
 	</select>
 	<select id="movieDetail" resultType="co.dotory.movie.service.MovieVO" parameterType="int">
 		SELECT * FROM DT_MOVIE WHERE MOVIE_ID = #{movieId}
 	</select>
+	<!-- 관리자 -->
+	<insert id="movieAdd" >
+		 <selectKey keyProperty="movieId" resultType="int" order="BEFORE">
+			SELECT max(movie_id) + 1 as movie_id
+			  FROM dt_movie
+		</selectKey> 
+		INSERT INTO DT_MOVIE (movie_id , movie_name , movie_age , movie_genre , movie_runtime , movie_summary , movie_poster_img , movie_back_img , movie_release)
+			 VALUES (#{movieId} , #{movieName} , #{movieAge} , #{movieGenre} , #{movieRuntime} , #{movieSummary} , #{moviePosterImg} , #{movieBackImg} , #{movieRelease})
+	</insert>
 </mapper>
