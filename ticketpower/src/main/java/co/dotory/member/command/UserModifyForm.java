@@ -5,28 +5,25 @@ import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.dotory.common.Command;
+import co.dotory.member.service.MemberService;
 import co.dotory.member.service.MemberVO;
+import co.dotory.member.serviceImpl.MemberServiceImpl;
 
 public class UserModifyForm implements Command{
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		String id = req.getParameter("memberId");
-		String name = req.getParameter("memberName");
-		String tel = req.getParameter("memberTel");
-		String addr = req.getParameter("memberAddr");
-		String img = req.getParameter("memberImg");
-		String eDate =req.getParameter("memberEdate");
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		System.out.println(id);
+		/* String id = req.getParameter("id"); */
 		MemberVO vo = new MemberVO();
-		vo.setMemberId(id);
-		vo.setMemberName(name);
-		vo.setMemberTel(tel);
-		vo.setMemberAddr(addr);
-		vo.setMemberImg(img);
-		req.setAttribute("search",vo);
-		req.setAttribute("eDate", eDate);
+		MemberService svc = new MemberServiceImpl();
+		vo = svc.memberSelect(id);
+		req.setAttribute("search", vo);
 	
 		
 		return "user/userModify";

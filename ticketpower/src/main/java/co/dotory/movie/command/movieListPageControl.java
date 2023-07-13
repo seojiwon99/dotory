@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.dotory.common.Command;
 import co.dotory.movie.service.MovieService;
@@ -17,7 +18,9 @@ public class movieListPageControl implements Command {
 		
 		MovieService service = new MovieServiceImpl();
 		List<MovieVO> list = service.movieList();
+		HttpSession session = req.getSession();
 		
+		session.getAttribute("id");
 		req.setAttribute("movieList", list);
 		
 		
