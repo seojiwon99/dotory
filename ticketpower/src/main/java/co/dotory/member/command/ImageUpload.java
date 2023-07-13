@@ -21,29 +21,26 @@ public class ImageUpload implements Command {
 		String savePath = req.getServletContext().getRealPath("/images");
 		String enc = "UTF-8";
 		int maxSize = 1024 * 1024 * 15;
-		String json = "";
+		String result = "Ajax:";
 		try {
+			MemberService service = new MemberServiceImpl();
 			MultipartRequest multi = new MultipartRequest(req, savePath, maxSize, enc, new DefaultFileRenamePolicy());
 			String id= multi.getParameter("id");
 			String fileName = multi.getFilesystemName("image");
-			
 			MemberVO vo = new MemberVO();
 			vo.setMemberId(id);
 			vo.setMemberImg(fileName);
-			
-			MemberService service = new MemberServiceImpl();
-			
+			System.out.println(vo.toString());
 			if(service.modifyImage(vo)) {
 				//{"retCode": "Success", "path": "fileName"}
-				json = "{\"retCode\": \"Success\", \"path\": \""+ fileName +" \"}";
+				result += fileName;
 			} else {
-				json = "{\"retCode\": \"Fail\"}";
+				result += "0";
 			}
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return json + ".json";
+		return result;
 	}
 
 }

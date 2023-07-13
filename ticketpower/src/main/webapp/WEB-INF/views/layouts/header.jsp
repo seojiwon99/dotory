@@ -11,11 +11,17 @@
 </head>
 <body>
 	<div class="head">
-		<a role="button" class="" href="main.do">dotory</a>
+		<a role="button" class="" href="main.do">dotory메인으로</a>
 		<!-- <a href="adminMainPage.do">관리자페이지=></a> -->
+		
 		<a role="button" class="" href="memberLoginForm.do">로그인</a>
+		
+		
 		<a role="button" class="" href="memberRegistForm.do.do">회원가입</a>
-    	<!-- <a href="userMain.do"> <=유저페이지 </a>      -->   	
+		
+    	<c:if test="${id ne null}">
+    		<a href="userInfo.do?id=${id}">마이페이지</a>
+    	</c:if>   	
    		
 	</div>
 
