@@ -33,6 +33,7 @@ public class MemberLogin implements Command {
 			session.setAttribute("addr", memberVO.getMemberAddr());
 			session.setAttribute("edate", memberVO.getMemberEdate());
 			session.setAttribute("author", memberVO.getMemberAuthor());
+			session.setAttribute("img", memberVO.getMemberImg());
 			if (memberVO.getMemberAuthor().equals("ADMIN")) {
 				turn = "admin/adminMain";
 			}

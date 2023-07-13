@@ -69,14 +69,27 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
   <tr>
     <td colspan="2" align="center">
-      <a href="userModifyForm.do?memberId=${search.memberId }&memberName=${search.memberName }&memberTel=${search.memberTel}&memberAddr=${search.memberAddr}&memberEdate=${search.memberEdate}">정보 수정하기 </a>
+      <a href="userPick.do">내가 찜한 영화 목록</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center">
+      <a href="#">내가 좋아요한 게시글 목록</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center">
+      <a
+        href="userModifyForm.do?memberId=${search.memberId }&memberName=${search.memberName }&memberTel=${search.memberTel}&memberAddr=${search.memberAddr}&memberEdate=${search.memberEdate}&memberImage=${search.memberImg}"
+        >정보 수정하기
+      </a>
     </td>
   </tr>
   <th>
-    <a href="userMain.do"> 목록으로 돌아가기 </a>
+    <a href="userMain.do"> 메인으로 돌아가기 </a>
   </th>
 </table>
 
-<script>
-
-</script>
+<script></script>

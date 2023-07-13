@@ -1,11 +1,9 @@
 	package co.dotory.member.command;
 
-import java.security.KeyStore.Entry.Attribute;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.dotory.common.Command;
 import co.dotory.member.service.MemberService;
@@ -18,29 +16,26 @@ public class UserModify implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		HttpSession session = req.getSession();
 		
-		String id = (String) session.getAttribute("id");
-		String name = (String) session.getAttribute("name");
-		String tel = (String) session.getAttribute("tel");
-		String addr = (String) session.getAttribute("addr");
-		String img = (String) session.getAttribute("image");
-		System.out.println(id + name + tel + addr);
+		String id = req.getParameter("memberId");
+		System.out.println(id);
 		
+		String result = "Ajax:";
 		MemberService svc = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		vo.setMemberId(req.getParameter("memberId"));
-		vo.setMemberPw(req.getParameter("memberPw"));
+		vo.setMemberName(req.getParameter("memberName"));
 		vo.setMemberTel(req.getParameter("memberTel"));
 		vo.setMemberAddr(req.getParameter("memberAddr"));
 		vo.setMemberImg(req.getParameter("memberImg"));
 		System.out.println(vo);
+		//return "Ajax:" + ""
 		if (svc.memberUpdate(vo)) {
 			System.out.println("수정완료");
-			return "userInfo.do";
+			return result += "1";
 		} else {
 			System.out.println("수정실패");
-			return "userInfo.do";
+			return result += "0";
 		}
 	}
 }

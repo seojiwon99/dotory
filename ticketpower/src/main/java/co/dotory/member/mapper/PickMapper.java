@@ -7,8 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import co.dotory.member.service.PickVO;
 
 public interface PickMapper {
-	List<PickVO> pickList();
-	List<PickVO> pickList(@Param("key") String key,@Param("val") String val);
+	List<PickVO> userPickList(int page);
+	List<PickVO> userPickList(@Param("key") String key,@Param("val") String val, @Param("page") int page);
 	
 	PickVO pickSelect(PickVO vo);
 	int pickInsert(PickVO vo);

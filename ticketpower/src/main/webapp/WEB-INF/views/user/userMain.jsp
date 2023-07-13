@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <title>유저메인</title>
 
-        <h3>This is user main Page</h3>
+        <h3>사용자 페이지 메인입니다</h3>
     <table class="table">
         <tr>
         	<th>
