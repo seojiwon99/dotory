@@ -13,7 +13,7 @@
 <body>
     <div class="wrapper" align="center">
         <div class="title"><h1 style="font-size: 21px;">회원가입</h1></div>
-        <form id="frm" method="post" name = "frm">
+        <form id="frm" method="post" name = "frm" onsubmit="return false">
         <div class="id">
             <input id="memberId" name="memberId" type="text" placeholder="아이디를 입력해 주세요.(4글자이상)" oninput="putId()">
             <div id="idError" class="error"></div>
@@ -34,8 +34,16 @@
             <input id="memberPw2" name="memberPw2" type="password" placeholder="비밀번호를 다시 입력해 주세요.">
             <div id="passwordCheckError" class="error"></div>
         </div>
+        <div class="addr">
+		    <input type="text" id="postcode" placeholder="우편번호" >
+			<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+			<input type="text" id="address" placeholder="주소" class="setAddr" readOnly><br>
+			<input type="text" id="detailAddress" placeholder="상세주소"  oninput ="setAddr()">
+			<input type="text" id="extraAddress" placeholder="참고항목"  readOnly>
+			<input type="text" id="memberAddr" name="memberAddr">
+        </div>
         <div class="phone">
-            <input id="memberTel" name="memberTel" type="text"  maxlength="11" oninput="changePhone1()">
+            <input id="memberTel" name="memberTel" type="text"  maxlength="11" oninput="changePhone1()" placeholder="전화번호를 입력해 주세요.">
 		</div>
         <div class="auth">
             <div id="certificationNumber">000000</div>
@@ -44,8 +52,9 @@
 
         <div class="timer">
             <div id="timeLimit">03:00</div>
-            <button type="button" disabled id="completion" onclick="checkCompletion()">인증확인</button>
+            <button type="button" disabled id="completion" value = "No" onclick="checkCompletion()">인증확인</button>
         </div>
+        
         <div class="line">
             <hr>
         </div>
@@ -55,17 +64,27 @@
         </form>
     </div>
 </body>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 //휴대폰 번호 입력 부분
 
 function changePhone1(){
     const phone = document.getElementById("memberTel").value // 010
     if(phone.length === 11){
-      document.getElementById("sendMessage").focus();
-      document.getElementById("sendMessage").setAttribute("style","background-color:yellow;")
-      document.getElementById("sendMessage").disabled = false;
+    	if(document.getElementById("idDecide").value == "No"){
+    		alert("아이디 작성을 완료해주세요")
+        	document.getElementById("memberId").focus();
+    		document.getElementById("memberTel").value = "";
+    	}else{
+    		document.getElementById("idError").innerHTML=""
+    		document.getElementById("sendMessage").setAttribute("style","background-color:yellow;")
+			document.getElementById("sendMessage").disabled = false;
+    	}
     }
 }
+
 
 // 문자인증+타이머 부분
 function initButton(){
@@ -85,6 +104,7 @@ function putId(){
 		    document.getElementById("idcheck").disabled = false;
 	}
 }
+//아이디 중복확인
 function idCheck(){
 	let id = document.getElementById("memberId").value;
 	let url = "memberIdcheck.do?id="+id;
@@ -102,6 +122,7 @@ function viewHtml(data){
 		document.getElementById("idDecide").disabled = false;
 	}
 }
+//아이디확정
 function setId(){
 	document.getElementById("memberId").readOnly = true;
 	document.getElementById("idcheck").disabled = true;
@@ -136,26 +157,69 @@ const getToken = () => {
     time--;
   }, 50);
 };
-
+//문자인증완료
 function checkCompletion(){
   alert("문자 인증이 완료되었습니다.")
+  document.getElementById("completion").value = "Yes"
   initButton();
   document.getElementById("completion").innerHTML="인증완료"
-  document.getElementById("signUpButton").disabled = false;
-  document.getElementById("signUpButton").setAttribute("style","background-color:yellow;")
+  if(document.getElementById("idDecide").value === "Yes" && document.getElementById("completion").value === "Yes"){
+	  document.getElementById("signUpButton").disabled = false;
+	  document.getElementById("signUpButton").setAttribute("style","background-color:yellow;")
+  }
 }
-
+//주소세팅
+function setAddr(){
+	var mAddr = "";
+	var addr = document.getElementById("address").value
+	var detail = document.getElementById("detailAddress").value
+	mAddr = addr +" " + detail;
+	document.getElementById("memberAddr").value = mAddr;
+}
+//주소삽입
+function execDaumPostcode() {
+	  new daum.Postcode({
+        oncomplete: function(data) {
+            
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+			if (data.userSelectedType === 'R') { 
+                addr = data.roadAddress;
+            } else { 
+                addr = data.jibunAddress;
+            }
+			if(data.userSelectedType === 'R'){
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraAddr += data.bname;
+                }
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                if(extraAddr !== ''){
+                	document.getElementById("extraAddress").readOnly = false;
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+                document.getElementById("extraAddress").value = extraAddr;
+            
+            } else {
+                document.getElementById("extraAddress").value = '';
+            }
+			document.getElementById('postcode').value = data.zonecode;
+            document.getElementById("address").value = addr;
+            document.getElementById("detailAddress").focus();
+            document.getElementById("extraAddress").readOnly = true;
+        }
+    }).open();
+  }
 
 // 가입부분 체크
 
 function signUpCheck(){
-
   let userId = document.getElementById("memberId").value
   let name = document.getElementById("memberName").value
   let password = document.getElementById("memberPw").value
   let passwordCheck = document.getElementById("memberPw2").value
   let check = true;
-
   // 이메일확인
   if(userId != null){
 	let chk = document.getElementById("idDecide").value;
@@ -170,7 +234,6 @@ function signUpCheck(){
     document.getElementById("idError").innerHTML="아이디에는 공백이 올 수 없습니다."
     check = false
   }
-
 
   // 이름확인
   if(name===""){
@@ -203,7 +266,7 @@ function signUpCheck(){
   }else{
     //document.getElementById("passwordCheckError").innerHTML=""
   }
-
+	
   
   if(check){
     document.getElementById("idError").innerHTML=""
