@@ -24,8 +24,10 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public MemberVO memberLogin(MemberVO vo) {
-		// TODO Auto-generated method stub
+	public MemberVO memberLogin(String id, String pw) {
+		MemberVO vo = new MemberVO();
+		vo.setMemberId(id);
+		vo.setMemberPw(pw);
 		return map.memberLogin(vo);
 	}
 	@Override
@@ -57,7 +59,7 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return map.ismemberIdCheck(id);
 	}
-
+	
 	@Override
 	public boolean modifyImage(MemberVO vo) {
 		// TODO Auto-generated method stub
