@@ -3,7 +3,7 @@
 <mapper namespace="co.dotory.member.mapper.PickMapper">
 					
 	<!-- 전체 좋아요 목록 -->
-	<select id="pickList" resultType="boardVO">
+<!-- 	<select id="userPickList" resultType="boardVO">
 		SELECT *
 		  FROM (
 		  		SELECT rownum rn, a.board_id, a.board_title, a.board_content, a.board_date, a.board_update, a.board_cnt,a.member_id,a.board_reply
@@ -26,6 +26,17 @@
 		<![CDATA[
       	  AND b.rn <= #{page} * 10
     	]]>
+	</select> -->
+	<select id="userPickList" resultType="co.dotory.member.service.PickVO">
+		select * from tab
+	</select>
+	
+	<select id="totalCnt" resultType="int">
+		SELECT count(*)
+		  FROM dt_pick
+		<if test='key == "name"'>
+			WHERE MEMBER_ID LIKE '%' || #{val} || '%'
+		</if>
 	</select>
 	
 	

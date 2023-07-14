@@ -49,6 +49,26 @@ public class BoardServiceImpl implements BoardService{
 		return map.totalCnt(key,val);
 	}
 
+	@Override
+	public int goodChk(String memeberId, int boardId) {
+		return map.goodChk(memeberId, boardId);
+	}
+
+	@Override
+	public boolean insertGood(String memeberId, int boardId) {
+		return map.insertGood(memeberId, boardId) == 1;
+	}
+
+	@Override
+	public boolean deleteGood(String memeberId, int boardId) {
+		return map.deleteGood(memeberId, boardId) == 1;
+	}
+
+	@Override
+	public int getGood(int boardId) {
+		return map.getGood(boardId);
+	}
+
 	
 
 

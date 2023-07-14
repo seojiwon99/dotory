@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.dotory.board.mapper.ReplyMapper">
+	
+	<select id="getReply" parameterType="int">
+		SELECT reply_id
+		     , reply
+		     , reply_update
+		     , reply_date
+		     , member_id
+		     , board_id
+		     , parent_num
+		     , (level-1) as reply_level
+	      FROM dt_reply
+	     WHERE board_id = #{boardId}
+	     START WITH parent_num IS NULL
+	   CONNECT BY PRIOR reply_id = parent_num
+		 ORDER SIBLINGS BY reply_id
+	</select>
+	
+	<!-- <insert id="replyAdd" parameterType="replyVO">
+		<selectKey keyProperty="replyId,replyDate" resultType="map" order="BEFORE">
+			SELECT count(reply_id) + 1 as reply_id
+			     , sysdate as reply_date
+			  FROM dt_reply
+		</selectKey>
+			INSERT  
+			  INTO dt_reply (reply_id,reply,board_id,member_id)
+			VALUES (#{replyId}, #{reply}, #{boardId},#{memberId})
+	</insert> -->
+</mapper>

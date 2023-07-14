@@ -75,7 +75,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
   <tr>
     <td colspan="2" align="center">
-      <a href="#">내가 좋아요한 게시글 목록</a>
+      <a href="userGood.do">내가 좋아요한 게시글 목록</a>
     </td>
   </tr>
 

@@ -12,7 +12,7 @@
                             <th>글 제목</th>
                             <td><input type="text" name="brdtitle" id="brdtitle"></td>
                             <th>회원 정보</th>
-                            <td><input type="text" name="memberid" value="user1" id="memberid" readonly></td>
+                            <td><input type="text" name="memberid" value="${id}" id="memberid" readonly></td>
                         </tr>
                         <tr>
                             <th>글 내용</th>
@@ -22,7 +22,7 @@
                         <tr>
                             <td colspan="4" align="center">
                                 <input type="submit" value="등록" id="addBtn">
-                                <input type="submit" value="취소" id="cancleBtn">
+                                <input type="button" value="취소" id="cancleBtn">
                             </td>
                         </tr>
                     </table>
@@ -32,6 +32,10 @@
     </div>
 </header>
 <script type="text/javascript">
+	$('#cancleBtn').on('click',function(){
+		location.href = "boardList.do";
+	})
+	
     $('form[name="myFrm"]').on('submit',submitForm);
     
     function submitForm(e){

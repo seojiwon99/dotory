@@ -23,4 +23,19 @@ public interface BoardService {
 	
 	// 조회수 추가
 	public boolean addCnt(int boardId);
+	
+	// 좋아요 여부
+	public int goodChk(String memeberId, int boardId);
+	
+	// 좋아요 여부 넣기
+	public boolean insertGood(String memeberId, int boardId);
+	
+	// 좋아요 여부 삭제
+	public boolean deleteGood(String memeberId, int boardId);
+	
+	// 좋아요 수 가져오기
+	public int getGood(int boardId);
+
+	// 좋아요 수 수정
+	/* public boolean updateGood(String memeberId, int boardId); */
 }
