@@ -5,7 +5,7 @@
 	<select id="boardSelectList" resultType="boardVO">
 		SELECT *
 		  FROM (
-		  		SELECT rownum rn, a.board_id, a.board_title, a.board_content, a.board_date, a.board_update, a.board_cnt,a.member_id,a.board_reply
+		  		SELECT rownum board_num, a.board_id, a.board_title, a.board_content, a.board_date, a.board_update, a.board_cnt,a.member_id,a.board_reply
 		  		  FROM (
 		  		  	SELECT bo.*, (select count(*) from dt_reply r where r.board_id = bo.board_id )as board_reply
 		  		 	  FROM dt_board bo
@@ -21,9 +21,9 @@
 		  		 	 ORDER BY board_id desc
 				  )a
 			)b
-		WHERE b.rn > (#{page} - 1) *10
+		WHERE b.board_num > (#{page} - 1) *10
 		<![CDATA[
-      	  AND b.rn <= #{page} * 10
+      	  AND b.board_num <= #{page} * 10
     	]]>
 	</select>
 	
@@ -57,8 +57,8 @@
 	
 	<!-- 상세보기 -->
 	<select id="getBoard">
-		SELECT *
-		  FROM dt_board
+		SELECT b.*, (SELECT count(*) FROM dt_good WHERE board_id = #{boardId}) as board_good
+		  FROM dt_board b
 		 WHERE board_id = #{boardId}
 	</select>
 	
@@ -67,5 +67,32 @@
 		   SET board_cnt = board_cnt + 1
 		 WHERE board_id = #{boardId}
 	</update>
-
+	
+	<!-- 좋아요여부 -->
+	<select id="goodChk" resultType="int">
+		SELECT count(*)
+		  FROM dt_good
+		 WHERE member_id = #{memberId}
+		   AND board_id = #{boardId} 
+	</select>
+	
+	<insert id="insertGood">
+		INSERT 
+		  INTO dt_good
+		VALUES (#{boardId},#{memberId})
+	</insert>
+	
+	<delete id="deleteGood">
+		DELETE
+		  FROM dt_good
+		 WHERE member_id = #{memberId}
+		   AND board_id = #{boardId}
+	</delete>
+	
+	<select id="getGood" parameterType="int" resultType="int">
+		SELECT count(*)
+		  FROM dt_good
+		 WHERE board_id = #{boardId}
+	</select
+	>
 </mapper>
