@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.dotory.board.service.BoardService;
 import co.dotory.board.service.BoardVO;
@@ -17,6 +18,10 @@ public class BoardList implements Command {
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
 		BoardService svc = new BoardServiceImpl();
 		
+		HttpSession session = req.getSession();
+		
+	
+		
 		String page = req.getParameter("page");
 		page = page == null ? "1" : page;
 		
@@ -26,7 +31,7 @@ public class BoardList implements Command {
 		
 		req.setAttribute("board", list);
 		req.setAttribute("page", dto);
-		
+	
 		return "board/boardList";
 	}
 

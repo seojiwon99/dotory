@@ -17,6 +17,8 @@ public class BoardVO {
 	private int boardCnt;
 	private String memberId;
 	private int boardReply;
+	private int boardGood;
+	private int boardNum;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date boardDate;
