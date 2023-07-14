@@ -27,7 +27,7 @@
 						</tr>
 					</table>
 					<button type="submit" id="loginBtn" >로그인</button>
-					<button>취소</button>
+					<button type="button" onclick="location.href='main.do' ">취소</button>
 				</div><br>
 			</form>
 		</div>

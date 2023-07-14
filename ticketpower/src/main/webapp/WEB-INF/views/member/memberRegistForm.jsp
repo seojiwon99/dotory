@@ -46,12 +46,13 @@
             <input id="memberTel" name="memberTel" type="text"  maxlength="11" oninput="changePhone1()" placeholder="전화번호를 입력해 주세요.">
 		</div>
         <div class="auth">
-            <div id="certificationNumber">000000</div>
+            <input type="text" id="certificationNumber" readOnly>
+            <input type="text" id="telCode" placeholder="인증번호">
             <button type="button" disabled id="sendMessage" onclick="getToken()">인증번호 전송</button>
         </div>
 
         <div class="timer">
-            <div id="timeLimit">03:00</div>
+            <div id="timeLimit">60:00</div>
             <button type="button" disabled id="completion" value = "No" onclick="checkCompletion()">인증확인</button>
         </div>
         
@@ -91,7 +92,7 @@ function initButton(){
   document.getElementById("sendMessage").disabled = true;
   document.getElementById("completion").disabled = true;
   document.getElementById("certificationNumber").innerHTML = "000000";
-  document.getElementById("timeLimit").innerHTML = "03:00";
+  document.getElementById("timeLimit").innerHTML = "00:00";
   document.getElementById("sendMessage").setAttribute("style","background-color:none;")
   document.getElementById("completion").setAttribute("style","background-color:none;")
 }
@@ -142,8 +143,8 @@ const getToken = () => {
 
   if (processID != -1) clearInterval(processID);
   const token = String(Math.floor(Math.random() * 1000000)).padStart(6, "0");
-  document.getElementById("certificationNumber").innerText = token;
-  let time = 180;
+  document.getElementById("certificationNumber").value = token;
+  let time = 3600;
   processID = setInterval(function () {
     if (time < 0 || document.getElementById("sendMessage").disabled) {
       clearInterval(processID);
@@ -159,6 +160,10 @@ const getToken = () => {
 };
 //문자인증완료
 function checkCompletion(){
+	var code = document.getElementById("telCode").value;
+	var num = document.getElementById("certificationNumber").value;
+	console.log(num);
+	if(num == code){
   alert("문자 인증이 완료되었습니다.")
   document.getElementById("completion").value = "Yes"
   initButton();
@@ -166,6 +171,7 @@ function checkCompletion(){
   if(document.getElementById("idDecide").value === "Yes" && document.getElementById("completion").value === "Yes"){
 	  document.getElementById("signUpButton").disabled = false;
 	  document.getElementById("signUpButton").setAttribute("style","background-color:yellow;")
+  }
   }
 }
 //주소세팅
