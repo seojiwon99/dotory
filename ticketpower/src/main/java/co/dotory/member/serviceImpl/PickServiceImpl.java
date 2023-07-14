@@ -50,6 +50,25 @@ public class PickServiceImpl implements PickService{
 		return 0;
 	}
 
+	@Override
+	public PickVO moviePick(int movieId, String memberId) {
+		// TODO Auto-generated method stub
+		return map.moviePick(movieId, memberId);
+	}
+
+	@Override
+	public boolean moviePickCheck(PickVO vo) {
+		// TODO Auto-generated method stub
+		return map.moviePickCheck(vo) == 1;
+	}
+
+	@Override
+	public boolean moviePickUnCheck(PickVO vo) {
+		// TODO Auto-generated method stub
+		return map.moviePickUnCheck(vo) == 1;
+	}
+
+	
 
 }
 

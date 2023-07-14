@@ -8,6 +8,6 @@ import lombok.Data;
 public class PickVO {
 	private int pickId;
 	private int movieId;
-	private String membereId;
+	private String memberId;
 	private Date pickDate;
 }

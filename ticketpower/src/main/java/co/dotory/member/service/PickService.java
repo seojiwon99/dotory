@@ -10,5 +10,7 @@ public interface PickService {
 	int pickDelete(PickVO vo);
 	boolean ispickIdCheck(String Id);
 	int totalCnt();
-	
+	PickVO moviePick(int movieId, String memberId);
+	boolean moviePickCheck(PickVO vo);
+	boolean moviePickUnCheck(PickVO vo);
 }

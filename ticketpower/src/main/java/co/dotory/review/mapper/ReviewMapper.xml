@@ -2,8 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.dotory.review.mapper.ReviewMapper">
 	<select id="reviewList" parameterType="int" resultType="co.dotory.review.service.ReviewVO">
-		SELECT * FROM DT_REVIEW WHERE MOVIE_ID = #{movieId}
+		SELECT * 
+		FROM DT_REVIEW 
+		WHERE MOVIE_ID = #{movieId} 
+		ORDER BY REVIEW_DATE DESC
 	</select>
+	<select id="pageReviewList" resultType="co.dotory.review.service.ReviewVO" >
+		<![CDATA[
+		select * 
+		from (select rownum rn, a.*
+    		from (select * from dt_review
+            where movie_id = #{movieId}
+            order by review_date desc) a
+            where rownum <= (#{page} * 10)
+    		) b
+		where b.rn > (#{page} -1) * 10
+	]]>
+	</select>
+	<select id="reviewOne" parameterType="int" resultType="co.dotory.review.service.ReviewVO">
+		select * from dt_review where review_id = #{reviewId}
+	</select>
+	
 	<insert id="addReview" parameterType="co.dotory.review.service.ReviewVO">
 		INSERT INTO DT_REVIEW (REVIEW_ID,REVIEW,REVIEW_UPDATE,MOVIE_ID,MEMBER_ID,REVIEW_LIKE)
 		VALUES (REVIEW_SEQ.nextval,#{review},NULL,#{movieId},#{memberId},#{reviewLike})
@@ -18,4 +37,7 @@
 		DELETE DT_REVIEW
 		WHERE  REVIEW_ID     = #{reviewId}
 	</delete>
+	<select id="totalCnt" resultType="int" parameterType="co.dotory.review.service.ReviewVO">
+		SELECT COUNT(*) FROM DT_REVIEW where movie_id = #{movieId}
+	</select>
 </mapper>

@@ -3,30 +3,19 @@
 <mapper namespace="co.dotory.member.mapper.PickMapper">
 					
 	<!-- 전체 좋아요 목록 -->
-	<select id="pickList" resultType="boardVO">
-		SELECT *
-		  FROM (
-		  		SELECT rownum rn, a.board_id, a.board_title, a.board_content, a.board_date, a.board_update, a.board_cnt,a.member_id,a.board_reply
-		  		  FROM (
-		  		  	SELECT bo.*, (select count(*) from dt_reply r where r.board_id = bo.board_id )as board_reply
-		  		 	  FROM dt_board bo
-	  		 	<if test='key.equals("name")'>
-					WHERE MEMBER_ID LIKE '%' || #{val} || '%'
-				</if>
-				<if test='key.equals("title")'>
-					WHERE BOARD_TITLE LIKE '%' || #{val} || '%'
-				</if>
-				<if test='key.equals("all")'>
-					WHERE 1 = 1
-				</if>
-		  		 	 ORDER BY board_id desc
-				  )a
-			)b
-		WHERE b.rn > (#{page} - 1) *10
-		<![CDATA[
-      	  AND b.rn <= #{page} * 10
-    	]]>
+	<select id="moviePick" resultType="co.dotory.member.service.PickVO">
+		SELECT * FROM dt_pick where movie_id = #{movieId} AND member_id = #{memberId}
 	</select>
+	
+	<insert id="moviePickCheck" parameterType="co.dotory.member.service.PickVO">
+		insert into dt_pick
+		values (#{movieId},#{memberId})
+	</insert>
+	
+	<delete id="moviePickUnCheck" parameterType="co.dotory.member.service.PickVO">
+		delete dt_pick
+		where movie_id = #{movieId} AND member_id = #{memberId}
+	</delete>
 	
 	
 </mapper>

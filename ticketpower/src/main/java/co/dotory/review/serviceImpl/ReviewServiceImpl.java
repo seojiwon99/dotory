@@ -32,4 +32,19 @@ public class ReviewServiceImpl implements ReviewService{
 		// TODO Auto-generated method stub
 		return mapper.modifyReview(vo) == 1;
 	}
+	@Override
+	public int totalCnt(ReviewVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.totalCnt(vo);
+	}
+	@Override
+	public ReviewVO reviewOne(int reviewId) {
+		// TODO Auto-generated method stub
+		return mapper.reviewOne(reviewId);
+	}
+	@Override
+	public List<ReviewVO> pageReviewList(int movieId, int page) {
+		// TODO Auto-generated method stub
+		return mapper.pageReviewList(movieId, page);
+	}
 }
