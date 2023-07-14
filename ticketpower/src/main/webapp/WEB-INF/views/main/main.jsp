@@ -38,7 +38,7 @@
                                     <div class="form-group last">
                                         <input type="submit" class="btn btn-warning btn-block btn-lg" value="로그인" />
                                     </div>
-                                    <p class="privacy text-center">We will not share your email. Read our <a href="privacy.html">privacy policy</a>.</p>
+                                    <p class="privacy text-center">계정이 없나요? 다음으로 이동하세요 <a href="memberRegistForm.do">회원가입</a>.</p>
                                 </form>
                             </div>				
 

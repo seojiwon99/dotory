@@ -26,11 +26,28 @@
 							</td>
 						</tr>
 					</table>
-					<input type="submit" value="로그인" />
-					<button>취소</button>
+					<button type="submit" id="loginBtn" >로그인</button>
+					<button type="button" onclick="location.href='main.do' ">취소</button>
 				</div><br>
 			</form>
 		</div>
 	</div>
+<script type="text/javascript">
+document.getElementById("loginBtn").addEventListener("click",function(e){
+	if(document.getElementById("memberId").value == ""){
+		e.preventDefault();
+		alert("ID를 확인해주세요");
+		document.getElementById("memberId").focus();
+	}
+	else if(document.getElementById("memberPw").value == ""){
+		e.preventDefault();
+		alert("PW를 확인해주세요");
+		document.getElementById("memberPw").focus();
+	}
+	else{
+		
+	}
+});
+</script>
 </body>
 </html>
