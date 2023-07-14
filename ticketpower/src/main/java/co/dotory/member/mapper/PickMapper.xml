@@ -6,7 +6,7 @@
 
 	<select id="moviePick" resultType="co.dotory.member.service.PickVO">
 		SELECT * FROM dt_pick where movie_id = #{movieId} AND member_id = #{memberId}
-  </select>
+  	</select>
 <!-- 	<select id="userPickList" resultType="boardVO">
 		SELECT *
 		  FROM (

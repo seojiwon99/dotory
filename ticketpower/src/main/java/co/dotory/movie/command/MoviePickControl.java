@@ -17,7 +17,6 @@ public class MoviePickControl implements Command {
 		String movieId = req.getParameter("movieId");
 		String result = "Ajax:";
 		
-		System.out.println(memberId+movieId);
 		PickService service = new PickServiceImpl();
 		PickVO vo = service.moviePick(Integer.parseInt(movieId), memberId);
 		

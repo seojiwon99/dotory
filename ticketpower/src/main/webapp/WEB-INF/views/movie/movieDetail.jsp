@@ -128,7 +128,7 @@ li{
 		const registBtn = document.getElementById("registBtn");
 		
 		registBtn.addEventListener("click",clickRegistBtn)
-		likeBtn.addEventListener("click",clickLikeBtn)
+		
 
 
 
