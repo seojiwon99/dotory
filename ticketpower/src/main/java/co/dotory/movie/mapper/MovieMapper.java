@@ -9,4 +9,5 @@ public interface MovieMapper {
 	MovieVO movieDetail(int movieId);
 	int movieAdd(MovieVO vo);
 	int movieDelete(int id);
+	MovieVO movieModify(MovieVO vo);
 }

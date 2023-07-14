@@ -3,9 +3,9 @@
 <mapper namespace="co.dotory.movie.mapper.MovieMapper">
 	<select id="movieList" resultType="co.dotory.movie.service.MovieVO">
 		SELECT a.movie_id,a.movie_name,a.movie_age,a.movie_genre,a.movie_runtime,a.movie_summary,a.movie_poster_img,a.movie_back_img,a.movie_release,NVL(ROUND(AVG(b.review_like),1),0) AS movie_Like
-		FROM DT_MOVIE a, dt_review b
-		WHERE a.movie_id = b.movie_id(+) 
-		group by a.movie_id, a.movie_name, a.movie_age, a.movie_genre, a.movie_runtime, 
+		  FROM DT_MOVIE a, dt_review b
+		 WHERE a.movie_id = b.movie_id(+) 
+	  GROUP BY a.movie_id, a.movie_name, a.movie_age, a.movie_genre, a.movie_runtime, 
 		a.movie_summary, a.movie_poster_img, a.movie_back_img, a.movie_release
 		order by movie_id
 	</select>
@@ -24,6 +24,12 @@
 	
 	<delete id="movieDelete" > 
 	DELETE FROM dt_movie 
-		  where movie_id=#{movieId}
-</delete>
+		  WHERE movie_id=#{movieId}
+	</delete>
+	
+	<update id="movieModify" parameterType="MovieVO">
+		UPDATE dt_movie
+		   SET movie_id=#{movieId} , movie_name=#{movieName} , movie_age=#{movieAge} , movie_genre=#{movieGenre} , movie_runtime=#{movieRuntime} , movie_like=#{movieLike} , movie_summary=#{movieSummary} , movie_poster_img=#{moviePosterImg} , movie_back_img=#{movieBackImg} , movie_release=#{movieRelease}
+		 WHERE movie_id = #{movieId}
+	</update>
 </mapper>

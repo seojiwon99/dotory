@@ -19,56 +19,56 @@
                     <tr>
                         <td> 
                             <img src="https://image.tmdb.org/t/p/w500/${search.moviePosterImg}" style="width:80px">
-                            <input type="file" name="file" accept="image/*" id="bizFile" style="display: none;">
+                            <input type="file" name="movieposterimg" accept="image/*" id="movieposterimg" style="display: none;">
                             <span id="fileName">${search.moviePosterImg}</span>
-                            <label for="bizFile" class="btn fileBtn">파일선택</label>
+                            <label for="movieposterimg" class="btn fileBtn">파일선택</label>
                         </td>
                     </tr> 
                 </c:if>
                 <c:if test="${search.movieId > 188813}">
-                   <td><img src="images/${search.moviePosterImg}" style="width:80px"/><input type="file" id="memberImg" name="memberImg" value="${search.moviePosterImg}"></td>
+                   <td><img src="images/${search.moviePosterImg}" style="width:80px"/><input type="file" id="movieImg" name="movieImg" value="${search.moviePosterImg}"></td>
                 </c:if>
                 <tr>
                     <th>아이디</th>
                 </tr>
                 <tr>
-                    <td><input type="text" id="memberId" name="memberId" value="${search.movieId}"></td>
+                    <td><input type="text" id="movieid" name="movieid" value="${search.movieId}"></td>
                 </tr>
                 <tr>
                     <th>제목</th>
                 </tr>
                 <tr>
-                    <td><input type="text" id="memberName" name="memberName" value="${search.movieName}"></td>
+                    <td><input type="text" id="moviename" name="moviename" value="${search.movieName}"></td>
                 </tr>
                 <tr>
                     <th>등급</th>
                 </tr>
                 <tr>
-                    <td><input type="text" id="memberAge" name="memberAge" value="${search.movieAge}"></td>
+                    <td><input type="text" id="movieage" name="movieage" value="${search.movieAge}"></td>
                 </tr>
                 <tr>
                     <th>장르</th>
                 </tr>
                 <tr>
-                    <td><input type="text" id="memberGenre" name="memberGenre" value="${search.movieGenre}"></td>
+                    <td><input type="text" id="moviegenre" name="moviegenre" value="${search.movieGenre}"></td>
                 </tr>
                 <tr>
                     <th>상영시간</th>
                 </tr>
                 <tr>
-                    <td><input type="text" id="memberRuntime" name="memberRuntime" value="${search.movieRuntime}"></td>
+                    <td><input type="text" id="movieruntime" name="movieruntime" value="${search.movieRuntime}"></td>
                 </tr>
                 <tr>
                     <th>좋아요</th>
                 </tr>
                 <tr>
-                    <td><input type="text" id="memberLike" name="memberLike" value="${search.movieLike}"></td>
+                    <td><input type="text" id="movieLike" name="movieLike" value="${search.movieLike}"></td>
                 </tr>
                 <tr>
                     <th>줄거리</th>
                 </tr>
                 <tr>
-                    <td><input type="text" id="memberSummary" name="memberSummary" value="${search.movieSummary}"></td>
+                    <td><input type="text" id="moviesummary" name="moviesummary" value="${search.movieSummary}"></td>
                 </tr>
                 <tr>
                     <th>배경이미지</th>
@@ -77,21 +77,28 @@
                     <tr>
                         <td> 
                             <img src="https://image.tmdb.org/t/p/w500/${search.movieBackImg}" style="width:80px">
-                            <input type="file" name="file" accept="image/*" id="bizFile" style="display: none;">
+                            <input type="file" name="moviebackimg" accept="image/*" id="moviebackimg" style="display: none;">
                             <span id="fileName">${search.movieBackImg}</span>
-                            <label for="bizFile" class="btn fileBtn">파일선택</label>
+                            <label for="moviebackimg" class="btn fileBtn">파일선택</label>
                         </td>
                     </tr> 
                 </c:if>
                 <c:if test="${search.movieId > 188813}">
-                   <td><img src="images/${search.moviePosterImg}" style="width:80px"/><input type="file" id="memberImg" name="memberImg" value="${search.moviePosterImg}"></td>
+                   <td><img src="images/${search.moviePosterImg}" style="width:80px"/><input type="file" id="movieImg" name="movieImg" value="${search.moviePosterImg}"></td>
                 </c:if>
+                <tr>
+                    <th>개봉날짜</th>
+                </tr>
+                <tr>
+                    <td><input type="date" id="movierelease" name="movierelease" value="${search.movieRelease}"></td>
+                </tr>
             </table>
                 <div align="center">
                     <input type="submit" id="modify" name="modify" value="수정">
                     <input type="reset" id="reset" name="reset" value="초기화">
                     <input type="submit" id="modify" name="modify" value="뒤로가기" onclick='return submit2(this.form);'>
                 </div>
+                
         </form>
     </body>
     </html>
