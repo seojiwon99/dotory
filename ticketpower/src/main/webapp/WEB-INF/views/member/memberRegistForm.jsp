@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" style="background-color:black" >
 
 <head>
     <title>회원가입 페이지</title>
@@ -11,17 +11,17 @@
 </head>
 
 <body>
-    <div class="wrapper" align="center">
+    <div class="wrapper" align="center"	style="background-image:url('images/Regist.jpg');">
+   	 <div class="outer">
         <div class="title"><h1 style="font-size: 21px;">회원가입</h1></div>
         <form id="frm" method="post" name = "frm" onsubmit="return false">
         <div class="id">
-            <input id="memberId" name="memberId" type="text" placeholder="아이디를 입력해 주세요.(4글자이상)" oninput="putId()">
-            <div id="idError" class="error"></div>
-        </div>
-        <div class="idCheck">
+            <input id="memberId" name="memberId" type="text" placeholder="아이디를 입력해 주세요." oninput="putId()">
         	<button type="button" disabled id="idcheck"  onclick="idCheck()">중복체크</button>
         	<button type="button" disabled id="idDecide" value="No" onclick="setId()">사용하기</button>
         </div>
+        <div id="idError" class="error"></div>
+        <br>
         <div class="name">
             <input id="memberName" name="memberName" type="text" placeholder="이름을 입력해 주세요.">
             <div id="nameError" class="error"></div>
@@ -34,25 +34,30 @@
             <input id="memberPw2" name="memberPw2" type="password" placeholder="비밀번호를 다시 입력해 주세요.">
             <div id="passwordCheckError" class="error"></div>
         </div>
-        <div class="addr">
-		    <input type="text" id="postcode" placeholder="우편번호" >
-			<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-			<input type="text" id="address" placeholder="주소" class="setAddr" readOnly><br>
-			<input type="text" id="detailAddress" placeholder="상세주소"  oninput ="setAddr()">
-			<input type="text" id="extraAddress" placeholder="참고항목"  readOnly>
+        
+		
+		<div class="addr2">
+			<input type="text" id="address" placeholder="주소" class="setAddr" readOnly>
+			<input type="text" id="extraAddress" placeholder="기타주소"  readOnly>
 			<input type="hidden" id="memberAddr" name="memberAddr">
         </div>
+        <br>
+        <div class="addr">
+        <input type="text" id="detailAddress" placeholder="상세주소()"  oninput ="setAddr()">
+		    <input type="hidden" id="postcode" placeholder="우편번호" >
+			<input type="button" onclick="execDaumPostcode()" value="주소 찾기"><br>
+		</div>
+        <br>
         <div class="phone">
             <input id="memberTel" name="memberTel" type="text"  maxlength="11" oninput="changePhone1()" placeholder="전화번호를 입력해 주세요.">
 		</div>
         <div class="auth">
             <input type="text" id="certificationNumber" readOnly>
-            <input type="text" id="telCode" placeholder="인증번호">
             <button type="button" disabled id="sendMessage" onclick="getToken()">인증번호 전송</button>
         </div>
-
-        <div class="timer">
+		<div class="timer">
             <div id="timeLimit">60:00</div>
+            <input type="text" id="telCode" placeholder="인증번호">
             <button type="button" disabled id="completion" value = "No" onclick="checkCompletion()">인증확인</button>
         </div>
         
@@ -63,6 +68,7 @@
             <button type="submit" id="signUpButton" disabled onclick="signUpCheck()">가입하기</button>
         </div>
         </form>
+        </div>
     </div>
 </body>
 
@@ -128,6 +134,7 @@ function setId(){
 	document.getElementById("memberId").readOnly = true;
 	document.getElementById("idcheck").disabled = true;
 	document.getElementById("idDecide").value = "Yes";
+	document.getElementById("idcheck").setAttribute("style","background-color:none;")
 	alert("아이디가 확정되었습니다.")
 }
 
@@ -139,6 +146,7 @@ const getToken = () => {
   // 인증확인 버튼 활성화
   document.getElementById("completion").setAttribute("style","background-color:yellow;")
   document.getElementById("completion").disabled = false;
+  document.getElementById("sendMessage").setAttribute("style","background-color:none;")
   document.getElementById("memberTel").readOnly = true;
 
   if (processID != -1) clearInterval(processID);
@@ -171,6 +179,7 @@ function checkCompletion(){
   if(document.getElementById("idDecide").value === "Yes" && document.getElementById("completion").value === "Yes"){
 	  document.getElementById("signUpButton").disabled = false;
 	  document.getElementById("signUpButton").setAttribute("style","background-color:yellow;")
+	  document.getElementById("completion").setAttribute("style","background-color:none;")
   }
   }
 }

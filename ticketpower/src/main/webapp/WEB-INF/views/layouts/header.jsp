@@ -22,6 +22,9 @@
                     <li><a href="#package">Pricing</a></li>
                     <li><a href="#testi">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
+                 	<c:if test="${session.getAttribute} != null">
+    					 <li><a href="memberLogout.do">로그아웃</a></li>
+    				</c:if>
                 </ul>
             </div>
         </div>

@@ -14,10 +14,12 @@ html {
 }
 
 body {
-    width: 45%;
-    border: 1px solid black;
+    width: 100%;
+    border: 1px solid rgb(192, 192, 192)
 }
-
+title {
+	font-color:white;
+}
 input{
     border: 1px solid black;
     border-radius: 3px;
@@ -29,12 +31,18 @@ input{
 
 
 .wrapper {
-    padding: 10px;
+    padding: 30px;
+    
+}
+.outer {
+	border: 1px solid white;
+    border-radius:3px;
+    border-color: white;
 }
 
 div {
     padding-top: 3px;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
 }
 
 .title {
@@ -42,64 +50,106 @@ div {
     font-weight: 700;
 }
 
-.email input {
-    width: 100%;
+.id input {
+	margin-left : 20px;
+    width: 220px;
+    margin-right : 10px;
 }
 .name input {
-    width: 100%;
+    width: 340px;
 }
-
+.name {
+	margin-top : -20px;
+	width:100%;
+}
 .password input {
-    width: 100%;
+    width: 340px;
 }
-
+.id {
+	width:60%;
+	display:inline-block;
+	margin-bottom :-20px;
+}
 .passwordCheck input {
-    width: 100%;
+    width: 340px;
+}
+.addr{
+	float:center;
+}
+.addr2{
+	float:center;
+}
+.addr2 #address{
+	width: 198px;
+}
+.addr #detailAddress{
+	width: 265px;
+}
+.addr2 #extraAddress{
+	width: 140px;
 }
 
 .phone {
     justify-content: space-between;
     line-height: 35px;
+    width:100%;
 }
-
-#memberPhone {
-    width: 50%;
+.phone input{
+	width:350px;
+	float:center;
 }
 
 .auth {
-    display: flex;
+	width:100%;
+    float:center;
     justify-content: space-between;
+    display:block;
 }
 .timer {
-    display: flex;
+	width:100%;
     justify-content: space-between;
+    display:inline-block;
 }
 
-.auth div {
-    width: 30%;
-    text-align: center;
+.auth input {
+	margin-left:30px;
     font-weight: 700;
     font-size: 15px;
+    width:150px;
+    display:inline;
+    padding:0px;
 }
 
 .auth button {
-    width: 70%;
+	margin-left : 10px;
+    width: 100px;
+    display:inline;
 }
-
 .timer div {
-    width: 30%;
-    text-align: center;
+    width: 200px;
     font-weight: 700;
     font-size: 15px;
+    float:center;
+    display:inline;
+    margin-right:10px;
+}
+.timer input {
+	margin-right : 10px;
+	padding : 0px;
+	width:150px;
+	display:inline;
+	text-align:center;
 }
 
 .timer button {
-    width: 70%;
+	margin-right:20px;
+    width: 100px;
+    display:inline;
 }
 
 
 .signUp button {
-    width: 100%;
+    width: 350px;
     cursor:pointer;
 }
 
