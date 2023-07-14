@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
-<form action="adminMemberModify.do" style="margin-top: 50px;">
+<form action="adminMemberModify.do" style="margin-top: 50px;" >
 <table class="table" border="1" align="center">
 
 	<tr>

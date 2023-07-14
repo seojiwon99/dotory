@@ -8,7 +8,6 @@
     </head>
 
     <body>
-        <h3>adminMovieadd</h3>
         <form action="adminMovieAddControl.do" name="myFrm" enctype="multipart/form-data" method="post">
             <table align="center">
                 <!-- <tr>
