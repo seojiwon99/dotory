@@ -3,6 +3,10 @@
 <mapper namespace="co.dotory.member.mapper.PickMapper">
 					
 	<!-- 전체 좋아요 목록 -->
+
+	<select id="moviePick" resultType="co.dotory.member.service.PickVO">
+		SELECT * FROM dt_pick where movie_id = #{movieId} AND member_id = #{memberId}
+  </select>
 <!-- 	<select id="userPickList" resultType="boardVO">
 		SELECT *
 		  FROM (
@@ -37,7 +41,18 @@
 		<if test='key == "name"'>
 			WHERE MEMBER_ID LIKE '%' || #{val} || '%'
 		</if>
+
 	</select>
+	
+	<insert id="moviePickCheck" parameterType="co.dotory.member.service.PickVO">
+		insert into dt_pick
+		values (#{movieId},#{memberId})
+	</insert>
+	
+	<delete id="moviePickUnCheck" parameterType="co.dotory.member.service.PickVO">
+		delete dt_pick
+		where movie_id = #{movieId} AND member_id = #{memberId}
+	</delete>
 	
 	
 </mapper>

@@ -20,8 +20,9 @@ public class ShowReviewControl implements Command {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		String id = req.getParameter("movieId");
+		String page = req.getParameter("page");
 		ReviewService service = new ReviewServiceImpl();
-		List<ReviewVO> list = service.reviewList(Integer.parseInt(id));
+		List<ReviewVO> list = service.pageReviewList(Integer.parseInt(id),Integer.parseInt(page));
 		String result = "Ajax:";
 		
 		try {

@@ -13,6 +13,10 @@ public interface PickMapper {
 	int pickInsert(PickVO vo);
 	int pickDelete(PickVO vo);
 	boolean ispickIdCheck(String Id);
+	PickVO moviePick(@Param("movieId") int movieId, @Param("memberId") String memberId );
+	int moviePickCheck(PickVO vo);
+	int moviePickUnCheck(PickVO vo);
 	public int totalCnt();
 	public int totalCnt(@Param("key")String key, @Param("val") String val);
+
 }

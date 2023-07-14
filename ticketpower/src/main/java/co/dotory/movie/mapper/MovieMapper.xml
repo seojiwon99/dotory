@@ -6,8 +6,8 @@
 		  FROM DT_MOVIE a, dt_review b
 		 WHERE a.movie_id = b.movie_id(+) 
 	  GROUP BY a.movie_id, a.movie_name, a.movie_age, a.movie_genre, a.movie_runtime, 
-		a.movie_summary, a.movie_poster_img, a.movie_back_img, a.movie_release
-		order by movie_id
+			   a.movie_summary, a.movie_poster_img, a.movie_back_img, a.movie_release
+	  ORDER BY movie_id
 	</select>
 	<select id="movieDetail" resultType="co.dotory.movie.service.MovieVO" parameterType="int">
 		SELECT * FROM DT_MOVIE WHERE MOVIE_ID = #{movieId}
@@ -29,7 +29,15 @@
 	
 	<update id="movieModify" parameterType="MovieVO">
 		UPDATE dt_movie
-		   SET movie_id=#{movieId} , movie_name=#{movieName} , movie_age=#{movieAge} , movie_genre=#{movieGenre} , movie_runtime=#{movieRuntime} , movie_like=#{movieLike} , movie_summary=#{movieSummary} , movie_poster_img=#{moviePosterImg} , movie_back_img=#{movieBackImg} , movie_release=#{movieRelease}
+		   SET movie_id=#{movieId} , movie_name=#{movieName} , movie_age=#{movieAge} , movie_genre=#{movieGenre} , movie_runtime=#{movieRuntime}   , movie_summary=#{movieSummary} , movie_poster_img=#{moviePosterImg} , movie_back_img=#{movieBackImg} , movie_release=#{movieRelease}
 		 WHERE movie_id = #{movieId}
 	</update>
+	
+	<select id="movieSelectList" resultType="co.dotory.movie.service.MovieVO">
+		select *
+		from dt_movie
+		<if test="key == 'id'">WHERE MOVIE_ID LIKE '%' || #{val} || '%'</if>
+		<if test="key ==  'name'">WHERE MOVIE_NAME LIKE '%' || #{val} || '%'</if>
+		<if test="key == 'all'"> WHERE 1=1</if>
+	</select>
 </mapper>
