@@ -1,28 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="css/netflix.css" />
-</head>
-<body>
+<!-- /.footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="col-sm-4 col-sm-offset-4">
+            <!-- /.social links -->
+            <div class="social text-center">
+                <ul>
+                    <li><a class="wow fadeInUp" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="wow fadeInUp" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="wow fadeInUp" href="https://plus.google.com/" data-wow-delay="0.4s"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a class="wow fadeInUp" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+            </div>	
+            <div class="text-center wow fadeInUp" style="font-size: 14px;">Copyright Backyard 2015 - Template by</div>
+            <a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
+        </div>	
+    </div>	
+</footer>
 
-	<div class="foot">
-	       <!-- Footer-->
-	    <h1>푸터입니당</h1>
-        <footer class="bg-light ">
-
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-
-    </div>
-
-</body>
-</html>
+<!-- /.javascript files -->
+<!-- <script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/owl.carousel.min.js"></script> -->
+<!-- <script>
+                            new WOW().init();
+</script> -->

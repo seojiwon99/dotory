@@ -4,6 +4,17 @@
 
 <head>
 <style>
+
+body{
+	background-color:black;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	color:rgb(240,240,240);
+}
+
+
+
 .card-text {
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -28,14 +39,19 @@ img {
 	height: 300px;
 }
 
-li {
+/* li {
 	height: 600px;
+} */
+
+.mv_list{
+	background-color:rgba(0,0,0,0.3);
 }
+
 </style>
 </head>
 
 <body>
-	<div style="width: 90vw;">
+	<div class="mv_list" style="width: 90vw;">
 		<ul style="display: flex; flex-wrap: wrap;">
 			<c:forEach items="${movieList}" var="m">
 				<li>

@@ -31,8 +31,12 @@ public class MovieServiceImpl implements MovieService{
 		return mapper.movieDelete(id);
 	}
 	@Override
-	public MovieVO movieModify(MovieVO vo) {
+	public int movieModify(MovieVO vo) {
 		return mapper.movieModify(vo);
+	}
+	@Override
+	public List<MovieVO> movieSelectList(String key, String val) {
+		return mapper.movieSelectList(key, val);
 	}
 
 }
