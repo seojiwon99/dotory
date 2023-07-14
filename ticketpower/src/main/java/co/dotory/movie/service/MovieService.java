@@ -7,5 +7,6 @@ public interface MovieService {
 	public MovieVO movieDetail(int movieId);
 	public int movieAdd(MovieVO vo);
 	public int movieDelete(int id);
-	public MovieVO movieModify(MovieVO vo);
+	public int movieModify(MovieVO vo);
+	public List<MovieVO> movieSelectList(String key, String val);
 }

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         <!DOCTYPE html>
         <html>
 
@@ -9,8 +9,21 @@
         </head>
 
         <body>
-            <form action="adminMovieAdd.do">
-                <h3>adminmovielist</h3>
+        <div align="center">
+			<div>
+				<form>
+					<label>검색할 키 선택</label>
+					<select name="key" id="key">
+						<option value="id">영화ID</option>
+						<option value="name">영화제목</option>
+						<option value="all">전체</option>
+					</select>
+					<input type="text" id="val" name="val">
+					<button type="button" id="search" onclick="movieSearch()">검색</button>
+				</form>
+			</div>
+		</div>
+            <form action="adminMovieAdd.do">               
                 <table class="table" border="5" align="center">
                     <thead>
                         <tr>
@@ -47,11 +60,11 @@
                     <input type="button" id="delete" name="delete" value="삭제">
                 </div>
             </form>
-            <script>
+            <script type="text/javascript">
+                
                 let check = [];
                 $(document).ready(function () {
                     $('#delete').click(function () {
-                        console.log($('input:checkbox[name=check]:checked').parent().parent());
                         $('input:checkbox[name=check]').each(function (index) {
                             if ($(this).is(":checked")) {
                                 check.push($(this).attr("id"))
@@ -75,9 +88,53 @@
                             }
                         });
                     })
+               
                 })
+                function movieSearch(){
+                let key = document.getElementById("key").value;
+                let val = document.getElementById("val").value;
+                let payload = "key="+key+"&val="+val;
+                let url="ajaxMovieSearchList.do";
+                fetch(url,{
+                    method: "POST",
+                    headers:{
+                        "Content-type": "application/x-www-form-urlencoded"
+                    },
+                    body:payload
+                }).then(response => response.json())
+                .then(json => viewHtml(json));
+            }
+            
+            function viewHtml(datas){
+                document.querySelector('tbody').remove();
+                const tbody= document.createElement('tbody');
+                tbody.innerHTML = datas.map(data => htmlConvert(data)).join('');
+                document.querySelector('table').appendChild(tbody);
+            }
+            
+            
+            function htmlConvert(data){
+                let url="https://image.tmdb.org/t/p/w500/+"
+                console.log(data);
+                let str = '<tr>';                                                           
+                str+= '<td align="center"><input type="checkbox" id="'+ data.movieId +'" name="check"></td>';
+                str+= '<td align="center"><a href="adminMovieForm.do?movieid='+ data.movieId + '">'+ data.movieId + '</a></td>';
+             	if(data.movieId < 188814){
+                     str += '<td align="center"><img src="https://image.tmdb.org/t/p/w500/'+ data.moviePosterImg +'"style="width:80px"></td>';
 
+                }else if(data.movieId > 188813){
+                    str += '<td align="center"><img src="images/'+ data.moviePosterImg +'"style="width:80px"></td>';
 
+                }
+        
+                str+= '<td align="center">'+ data.movieName + '</td>';
+                str+= '<td align="center">'+ data.movieAge + '</td>';
+                str+= '<td align="center">'+ data.movieGenre + '</td>';
+                str +=	'</tr>';
+                return str;
+        
+            }
+		
 
             </script>
         </body>
