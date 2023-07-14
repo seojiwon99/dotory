@@ -7,4 +7,7 @@ public interface ReviewService {
 	boolean addReview(ReviewVO vo);
 	boolean delReview(ReviewVO vo);
 	boolean modifyReview(ReviewVO vo);
+	int totalCnt(ReviewVO vo);
+	ReviewVO reviewOne(int reviewId);
+	List<ReviewVO> pageReviewList(int movieId,int page);
 }

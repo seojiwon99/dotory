@@ -30,9 +30,9 @@ public class addReviewControl implements Command {
 		//ㅎㅇ
 		
 		if(service.addReview(vo)) {
-			result +="1";
+			result += "1";
 		} else {
-			result +="0";
+			result += "0";
 		}
 		
 		return result;
