@@ -5,7 +5,6 @@
 <head></head>
 <body>
 <div align="center">
-	<div><h1>회원목록</h1></div>
 	<div>
 		<form>
 			<label>검색할 키 선택</label>
