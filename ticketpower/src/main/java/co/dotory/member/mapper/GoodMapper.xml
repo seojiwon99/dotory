@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.dotory.member.mapper.GoodMapper">
+
+	<select id="userGoodList" resultType="co.dotory.member.service.GoodVO">
+		select * from tab
+	</select>
+	
+		<!-- 게시글 갯수 -->
+	<select id="totalCnt" resultType="int">
+		SELECT count(*)
+		  FROM dt_good
+		<if test='key == "name"'>
+			WHERE MEMBER_ID LIKE '%' || #{val} || '%'
+		</if>
+	</select>
+	
+</mapper>

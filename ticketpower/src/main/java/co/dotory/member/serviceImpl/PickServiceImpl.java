@@ -15,12 +15,12 @@ public class PickServiceImpl implements PickService{
 	private PickMapper map = sqlSession.getMapper(PickMapper.class);
 	
 	@Override
-	public List<PickVO> UserPickList(int page) {
+	public List<PickVO> userPickList(int page) {
 		return map.userPickList(page);
 	}
 
 	@Override
-	public List<PickVO> UserPickList(String key, String val, int page) {
+	public List<PickVO> userPickList(String key, String val, int page) {
 		return map.userPickList(key, val, page);
 	}
 
@@ -46,8 +46,12 @@ public class PickServiceImpl implements PickService{
 
 	@Override
 	public int totalCnt() {
-		// TODO Auto-generated method stub
-		return 0;
+		return map.totalCnt();
+	}
+	
+	@Override
+	public int totalCnt(String key, String val) {
+		return map.totalCnt(key,val);
 	}
 
 

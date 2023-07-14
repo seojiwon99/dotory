@@ -18,8 +18,6 @@ public class UserInfo implements Command {
 		HttpSession session = req.getSession();
 		
 		String id = (String) session.getAttribute("id");
-		System.out.println(id);
-		/* String id = req.getParameter("id"); */
 		MemberVO vo = new MemberVO();
 		MemberService svc = new MemberServiceImpl();
 		vo = svc.memberSelect(id);
