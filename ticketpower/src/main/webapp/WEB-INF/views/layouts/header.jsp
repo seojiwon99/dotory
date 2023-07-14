@@ -16,7 +16,7 @@
 		
 		<c:if test="${sessionScope.id==null}">
 			<a role="button" class="login" onclick="login();" href="memberLoginForm.do">로그인</a>
-			<a role="button" class="" href="memberRegistForm.do.do">회원가입</a>
+			<a role="button" class="" href="memberRegistForm.do">회원가입</a>
 		</c:if>
 		<c:if test="${sessionScope.id!=null}">
 			<a role="button" class="login" onclick="login();" href="memberLogout.do">로그아웃</a>
