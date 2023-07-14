@@ -37,6 +37,7 @@ public class MemberLogin implements Command {
 			session.setAttribute("author", memberVO.getMemberAuthor());
 
 			session.setAttribute("img", memberVO.getMemberImg());
+			
 
 			if (memberVO.getMemberAuthor().equals("ADMIN")) {
 				return "adminMainPage.do";
