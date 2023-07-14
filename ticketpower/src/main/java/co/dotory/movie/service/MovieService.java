@@ -6,4 +6,6 @@ public interface MovieService {
 	public List<MovieVO> movieList();
 	public MovieVO movieDetail(int movieId);
 	public int movieAdd(MovieVO vo);
+	public int movieDelete(int id);
+	public MovieVO movieModify(MovieVO vo);
 }

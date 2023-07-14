@@ -21,7 +21,7 @@ public class UserPickList implements Command {
 		
 		PageDTO dto = new PageDTO(Integer.parseInt(page), svc.totalCnt());
 		
-		List<PickVO> list = svc.UserPickList(Integer.parseInt(page));
+		List<PickVO> list = svc.userPickList(Integer.parseInt(page));
 		
 		req.setAttribute("pick", list);
 		req.setAttribute("page", dto);

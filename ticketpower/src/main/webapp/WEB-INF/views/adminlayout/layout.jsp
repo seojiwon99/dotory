@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/font.css">
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="css/admin.css">
+  <script src="js/jquery-3.7.0.min.js"></script>
   <script src="https://kit.fontawesome.com/257f34c49d.js" crossorigin="anonymous"></script>
 </head>
 

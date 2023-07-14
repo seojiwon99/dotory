@@ -16,7 +16,10 @@ import co.dotory.MainCommand;
 import co.dotory.board.command.BoardAdd;
 import co.dotory.board.command.BoardDetail;
 import co.dotory.board.command.BoardForm;
+import co.dotory.board.command.BoardGood;
 import co.dotory.board.command.BoardList;
+import co.dotory.board.command.BoardSearch;
+import co.dotory.board.command.ReplyAdd;
 import co.dotory.common.Command;
 import co.dotory.member.command.AjaxMemberSearchList;
 import co.dotory.member.command.ImageUpload;
@@ -27,6 +30,7 @@ import co.dotory.member.command.MemberLogout;
 import co.dotory.member.command.MemberRegist;
 import co.dotory.member.command.MemberRegistForm;
 import co.dotory.member.command.MemberSearch;
+import co.dotory.member.command.UserGoodList;
 import co.dotory.member.command.UserInfo;
 import co.dotory.member.command.UserMain;
 import co.dotory.member.command.UserModify;
@@ -37,7 +41,10 @@ import co.dotory.member.command.adminMemberDeleteControl;
 import co.dotory.member.command.adminMemberForm;
 import co.dotory.member.command.adminMemberModifyControl;
 import co.dotory.member.command.adminMemberPageControl;
+import co.dotory.movie.command.AdminMovieDeleteControl;
+import co.dotory.movie.command.AdminMovieFormControl;
 import co.dotory.movie.command.AdminMoviePlusControl;
+import co.dotory.movie.command.adminMovieAddControl;
 import co.dotory.movie.command.adminMoviePageControl;
 import co.dotory.movie.command.movieDetailPageControl;
 import co.dotory.movie.command.movieListPageControl;
@@ -77,6 +84,12 @@ public class FrontController extends HttpServlet {
 
 		map.put("/boardDetail.do", new BoardDetail()); // 게시판 상세보기
 		
+		map.put("/boardSearch.do", new BoardSearch()); // 게시글 검색
+		
+		map.put("/boardGood.do", new BoardGood()); // 좋아요
+		
+		map.put("/replyAdd.do", new ReplyAdd()); // 댓글 등록
+		
 		//관리자 (호현)
 		map.put("/adminMainPage.do", new adminMainControl());
 		map.put("/adminMemberPage.do", new adminMemberPageControl());	
@@ -85,7 +98,10 @@ public class FrontController extends HttpServlet {
 		map.put("/adminMemberDelete.do", new adminMemberDeleteControl());
 		map.put("/ajaxMemberSearchList.do", new AjaxMemberSearchList());
 		map.put("/adminMoviePage.do", new adminMoviePageControl());
+		map.put("/adminMovieAdd.do", new adminMovieAddControl());
 		map.put("/adminMovieAddControl.do", new AdminMoviePlusControl());
+		map.put("/adminMovieForm.do", new AdminMovieFormControl());
+		map.put("/adminMovieDelete.do", new AdminMovieDeleteControl());
 
 		//영화
 		map.put("/movieListPage.do", new movieListPageControl());
@@ -101,6 +117,7 @@ public class FrontController extends HttpServlet {
 		map.put("/userModify.do", new UserModify());
 		map.put("/imageUpload.do", new ImageUpload());
 		map.put("/userModifyForm.do", new UserModifyForm());
+		map.put("/userGood.do", new UserGoodList());
 		//좋아요
 		map.put("/userPick.do", new UserPickList());
 		//이미지 업로드

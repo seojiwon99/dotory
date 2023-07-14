@@ -9,6 +9,7 @@ public class adminMovieAddControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
+		
 		return "admin/adminMovieAdd.tiles";
 	}
 

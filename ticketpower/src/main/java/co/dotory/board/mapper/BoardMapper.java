@@ -25,6 +25,18 @@ public interface BoardMapper {
 	// 게시글 상세보기
 	public BoardVO getBoard(int boardId);
 	
+	// 게시글 조회수
 	public int addCnt(int boardId);
 	
+	// 좋아요 여부
+	public int goodChk(@Param("memberId") String memberId , @Param("boardId") int boardId);
+	
+	// 좋아요 기록 추가
+	public int insertGood(@Param("memberId") String memberId , @Param("boardId") int boardId);
+	
+	// 좋아요 기록 삭제
+	public int deleteGood(@Param("memberId") String memberId , @Param("boardId") int boardId);
+	
+	// 좋아요 수ㅜ 가져오기
+	public int getGood(@Param("boardId") int boardId);
 }

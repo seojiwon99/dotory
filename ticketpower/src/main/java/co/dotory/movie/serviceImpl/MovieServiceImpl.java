@@ -26,5 +26,13 @@ public class MovieServiceImpl implements MovieService{
 	public int movieAdd(MovieVO vo) {
 		return mapper.movieAdd(vo);
 	}
+	@Override
+	public int movieDelete(int id) {
+		return mapper.movieDelete(id);
+	}
+	@Override
+	public MovieVO movieModify(MovieVO vo) {
+		return mapper.movieModify(vo);
+	}
 
 }
