@@ -23,7 +23,6 @@ public class AdminMoviePlusControl implements Command {
 		String savePath = req.getServletContext().getRealPath("/images");
 		int maxSize = 1024 * 1024 * 10;
 		String enc = "UTF-8";
-		String result = "Ajax:";
 		
 		try {
 			MultipartRequest multi = new MultipartRequest(req, savePath, maxSize, enc, new DefaultFileRenamePolicy());
@@ -54,15 +53,13 @@ public class AdminMoviePlusControl implements Command {
 			vo.setMoviePosterImg(posterimg);
 			vo.setMovieBackImg(backimg);
 			vo.setMovieRelease(Date.valueOf(releaseDate));
-			if (svc.movieAdd(vo) == 0) {
-				result += "0";
-			} else {
-				result += "1";
-			}
+			svc.movieAdd(vo);
+				
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return result;
+		return "adminMoviePage.do";
 	}
 
 }

@@ -60,46 +60,7 @@
             frm.submit();
             return true;
         }
-        // $('form[name="myFrm"]').on('submit',submitForm);
 
-        // function submitForm(e){
-        //     e.preventDefault();
-
-        //     let name = $('#name').val();
-        //     let age = $('#age').val();
-        //     let genre = $('#genre').val();
-        //     let runtime = $('#runtime').val();
-        //     let summary = $('#summary').val();
-        //     let posterimg = $('#posterimg').val();
-        //     let backimg = $('#backimg').val();
-        //     let release = $('#release').val();
-
-        //     if(name ==null || name=='' || age ==null || age=='' 
-        //     || genre ==null || genre=='' || runtime ==null || runtime==''
-        //     || summary ==null || summary=='' || release ==null || release==''){
-        //         alert("값을 입력해주세요");
-        //         return false;
-        //     }else {
-        //         $.ajax({
-        //             url:$('form[name="myFrm"]').attr('action'),
-        //             method: "POST",
-        //             data: $('form[name="myFrm"]').serialize(),
-        //             success: function(result){
-        //                 console.log(result);
-        //                 if(result == 0){
-        //                     alert("등록실패");
-        //                 }else if(result == 1){
-        //                     alert("등록성공");
-        //                     location.href = "adminMoviePage.do";
-        //                 }
-        //             },
-        //             error:function(err){
-        //                 console.log(err);
-        //                 alert("에러발생");
-        //             }
-        //         })
-        //     }
-        // }
     </script>
 
     </html>
