@@ -12,13 +12,12 @@
         <div align="center">
 			<div>
 				<form>
-					<label>검색할 키 선택</label>
-					<select name="key" id="key">
+					<select name="key" id="key" class="form-select form-select-sm" aria-label=".form-select-sm example">
 						<option value="id">영화ID</option>
 						<option value="name">영화제목</option>
 						<option value="all">전체</option>
 					</select>
-					<input type="text" id="val" name="val">
+					<input type="text" id="val" name="val" class="form-control" aria-describedby="addon-wrapping" Placeholder="값을 입력하세요">
 					<button type="button" id="search" onclick="movieSearch()">검색</button>
 				</form>
 			</div>
