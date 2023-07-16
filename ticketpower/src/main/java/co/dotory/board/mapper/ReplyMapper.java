@@ -11,4 +11,6 @@ public interface ReplyMapper {
 	
 	// 댓글 등록
 	public int replyAdd(ReplyVO vo);
+
+	public boolean replyDelete(int id);
 }

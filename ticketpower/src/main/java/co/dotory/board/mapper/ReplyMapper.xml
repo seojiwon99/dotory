@@ -18,6 +18,12 @@
 		 ORDER SIBLINGS BY reply_id
 	</select>
 	
+	<delete id ="replyDelete" >
+		delete 
+		  from dt_reply
+		 where reply_id = #{replyId}
+	</delete>
+	
 	<!-- <insert id="replyAdd" parameterType="replyVO">
 		<selectKey keyProperty="replyId,replyDate" resultType="map" order="BEFORE">
 			SELECT count(reply_id) + 1 as reply_id

@@ -9,5 +9,7 @@ public interface ReplyService {
 	
 	// 댓글 등록
 	public boolean replyAdd(ReplyVO vo);
+
+	public boolean replyDelte(int id);
 	
 }

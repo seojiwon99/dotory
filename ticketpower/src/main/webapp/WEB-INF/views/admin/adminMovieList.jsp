@@ -131,10 +131,7 @@
                 str+= '<td align="center">'+ data.movieGenre + '</td>';
                 str +=	'</tr>';
                 return str;
-        
             }
-		
-
             </script>
         </body>
 
