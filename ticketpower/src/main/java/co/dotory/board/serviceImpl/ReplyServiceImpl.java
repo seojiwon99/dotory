@@ -23,4 +23,9 @@ public class ReplyServiceImpl implements ReplyService{
 		return map.replyAdd(vo) == 1;
 	}
 
+	@Override
+	public boolean replyDelte(int id) {
+		return map.replyDelete(id); 
+	}
+
 }

@@ -23,10 +23,16 @@
 					background-color: lightgray;
 				}
 
-				th {
-					background-color: gray;
+				.table>thead {
+			     padding: 0.5rem 0.5rem;
+			    color: var(--bs-table-color-state,var(--bs-table-color-type,var(--bs-table-color)));
+			    background-color: gray;
+			    border-bottom-width: var(--bs-border-width);
+			    box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state,var(--bs-table-bg-type,var(--bs-table-accent-bg))); 
 				}
-
+				.title{
+					background-color:gray;
+				}
 				tr {
 					text-align: center;
 				}
