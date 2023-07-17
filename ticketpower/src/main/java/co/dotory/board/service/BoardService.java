@@ -36,6 +36,8 @@ public interface BoardService {
 	// 좋아요 수 가져오기
 	public int getGood(int boardId);
 
+	public boolean boardDelete(int boardid);
+
 	// 좋아요 수 수정
 	/* public boolean updateGood(String memeberId, int boardId); */
 }

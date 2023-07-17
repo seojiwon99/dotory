@@ -14,7 +14,17 @@
 				/* Align the text to the right */
 				margin-right: 20px;
 				/* Add right margin for additional space */
-				padding-left: 80px;
+				width: 50px;
+			}
+			form{
+				margin: 0 auto;
+				width:700px;
+			}
+			.input-group-text{
+				width:100px;
+			}
+			input[type='text']{
+				text-align: center;
 			}
 		</style>
 		<form action="adminMemberModify.do" style="margin-top: 50px;">
@@ -22,29 +32,29 @@
 			<table class="table" border="2" align="center">
 
 				<tr>
-					<th>아이디</th>
-					<td><input type="text" id="memberId" name="memberId" readonly value="${search.memberId}"></td>
+					<th><span class="input-group-text" id="inputGroup-sizing-default">아이디</span></th>
+					<td><input type="text" class="form-control" id="memberId" name="memberId" readonly value="${search.memberId}"></td>
 				</tr>
 				<tr>
-					<th>이름</th>
-					<td><input type="text" id="memberName" name="memberName" value="${search.memberName}"></td>
+					<th><span class="input-group-text" id="inputGroup-sizing-default">이름</span></th>
+					<td><input type="text" class="form-control" id="memberName" name="memberName" value="${search.memberName}"></td>
 				</tr>
 				<tr>
-					<th>전화번호</th>
-					<td><input type="text" id="memberTel" name="memberTel" value="${search.memberTel}"></td>
+					<th><span class="input-group-text" id="inputGroup-sizing-default">전화번호</span></th>
+					<td><input type="text" class="form-control" id="memberTel" name="memberTel" value="${search.memberTel}"></td>
 				</tr>
 				<tr>
-					<th>주소</th>
-					<td><input type="text" id="memberAddr" name="memberAddr" value="${search.memberAddr}"></td>
+					<th><span class="input-group-text" id="inputGroup-sizing-default">주소</span></th>
+					<td><input type="text" class="form-control" id="memberAddr" name="memberAddr" value="${search.memberAddr}"></td>
 				</tr>
 				<tr>
-					<th>가입날짜</th>
+					<th><span class="input-group-text" id="inputGroup-sizing-default">가입날짜</span></th>
 
-					<td><input type="text" id="memberEdate" name="memberEdate" readonly value="${search.memberEdate}">
+					<td><input type="text" class="form-control" id="memberEdate" name="memberEdate" readonly value="${search.memberEdate}">
 					</td>
 				</tr>
 				<tr>
-					<th>대표이미지</th>
+					<th><span class="input-group-text" id="inputGroup-sizing-default">대표이미지</span></th>
 					<td>
 						<img width="190px" src="images/${search.memberImg}.jpg">
 					</td>
@@ -53,8 +63,8 @@
 
 			</table>
 			<div align="center">
-				<input type="submit" class="btn-outline-secondary" id="modify" name="modify" value="수정">
-				<input type="submit" class="btn-outline-secondary" id="delete" name="delete" value="삭제"
+				<input type="submit" class="btn btn-secondary" id="modify" name="modify" value="수정">
+				<input type="submit" class="btn btn-secondary" id="delete" name="delete" value="삭제"
 					onclick='return submit2(this.form);'>
 			</div>
 		</form>

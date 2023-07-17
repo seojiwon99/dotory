@@ -5,6 +5,7 @@
   box-sizing: border-box
 }
 
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -86,6 +87,19 @@ ul ol,
 ul ul {
   margin-bottom: 0
 }
+.form-select.form-select-sm, 
+.input-group.flex-nowrap,
+form-control{
+		width:570px;
+		margin: 0 auto;
+		border-top:30px;
+}
+table{
+		width: 900px;
+		margin: 0 auto;
+		height: 700px;
+		margin-top:30px;
+}
 
 dt {
   font-weight: 700
@@ -132,7 +146,7 @@ a {
 }
 
 a:hover {
-  color: white;
+  color: red;
   text-decoration: none
 }
 
@@ -204,16 +218,7 @@ button:focus:not(:focus-visible) {
   outline: 0
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit
-}
+
 
 button,
 input {
@@ -462,7 +467,7 @@ small {
 
 .form-control:disabled,
 .form-control[readonly] {
-  background-color: #e9ecef;
+  background-color: white;
   opacity: 1
 }
 
@@ -653,8 +658,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #6c757d;
+  border-color: #6c757d;
   box-shadow: none
 }
 
@@ -1604,11 +1609,16 @@ input[type=submit].btn-block {
   color: #495057;
   text-align: center;
   white-space: nowrap;
-  background-color: #939ba2;
+  background-color: lightgray;
   border: 1px solid #ced4da;
-  border-radius: .25rem
+  border-radius: .25rem;
+  justify-content: center;
 }
-
+th{
+	
+    height: 17px;
+	
+}
 .input-group-text input[type=checkbox],
 .input-group-text input[type=radio] {
   margin-top: 0

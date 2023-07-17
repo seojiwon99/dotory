@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link rel="stylesheet" href="css/admin.css"> 
         <!DOCTYPE html>
         <html>
 
@@ -12,7 +13,7 @@
                     width: 80%;
                 }
 
-                td {
+                td,span,th {
                     text-align: center;
                 }
 
@@ -21,12 +22,7 @@
                     border-color: #6c757d;
                 }
 
-                #modify,
-                #reset,
-                #back {
-                    color: gray;
-                    border-color: #6c757d;
-                }
+  
             </style>
         </head>
 
@@ -35,15 +31,15 @@
                 <table class="table" border="1" align="center">
 
                     <tr>
-                        <th>이미지</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">이미지</span></th>
                     </tr>
                     <c:if test="${search.movieId < 188814}">
                         <tr>
                             <td>
                                 <img src="https://image.tmdb.org/t/p/w500/${search.moviePosterImg}" style="width:80px">
                                 <!-- <input type="file" id="movieImg" name="movieImg"> -->
-                                <input type="file" name="movieposterimg" accept="image/*" id="movieposterimg">
-                                <span id="fileName">${search.moviePosterImg}</span>
+                                <input type="file" class="form-control" name="movieposterimg" accept="image/*" id="movieposterimg">
+                                
                                 <!-- <label for="movieposterimg" class="btn fileBtn">파일선택</label> -->
                             </td>
                         </tr>
@@ -52,56 +48,55 @@
                         <td>
                             <img src="images/${search.moviePosterImg}" style="width:80px" />
                             <!-- <input type="file" id="movieImg" name="movieImg"> -->
-                            <input type="file" name="movieposterimg" accept="image/*" id="movieposterimg">
-                            <span id="fileName">${search.moviePosterImg}</span>
+                            <input type="file" class="form-control" name="movieposterimg" accept="image/*" id="movieposterimg">
                             <!-- <label for="movieposterimg" class="btn fileBtn">파일선택</label>	 -->
                         </td>
                     </c:if>
 
                     <tr>
-                        <th>아이디</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">아이디</span></th>
                     </tr>
                     <tr>
-                        <td><input type="text" id="movieid" name="movieid" value="${search.movieId}"
-                                style="width: 70px; text-align: center;" readonly></td>
+                        <td><input type="text" class="form-control" id="movieid" name="movieid" value="${search.movieId}"
+                                style=" text-align: center;" readonly></td>
                     </tr>
                     <tr>
-                        <th>제목</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">제목</span></th>
                     </tr>
                     <tr>
-                        <td><input type="text" id="moviename" name="moviename" value="${search.movieName}"
-                                style="width: 500px; text-align: center;"></td>
+                        <td><input type="text" class="form-control" id="moviename" name="moviename" value="${search.movieName}"
+                                style=" text-align: center;"></td>
                     </tr>
                     <tr>
-                        <th>등급</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">등급</span></th>
                     </tr>
                     <tr>
-                        <td><input type="text" id="movieage" name="movieage" value="${search.movieAge}"
-                                style="width: 70px; text-align: center"></td>
+                        <td><input type="text" class="form-control" id="movieage" name="movieage" value="${search.movieAge}"
+                                style=" text-align: center"></td>
                     </tr>
                     <tr>
-                        <th>장르</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">장르</span></th>
                     </tr>
                     <tr>
-                        <td><input type=" text" id="moviegenre" name="moviegenre" value="${search.movieGenre}"></td>
+                        <td><input type="text" class="form-control" id="moviegenre" name="moviegenre" value="${search.movieGenre}" style="text-align: center;"></td>
                     </tr>
                     <tr>
-                        <th>상영시간</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">상영시간</span></th>
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" id="movieruntime" name="movieruntime" value="${search.movieRuntime}"
-                                style="width: 70px; text-align: center">
+                            <input type="text" class="form-control" id="movieruntime" name="movieruntime" value="${search.movieRuntime}"
+                                style=" text-align: center">
                         </td>
                     </tr>
                     <tr>
-                        <th>좋아요</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">좋아요</span></th>
                     </tr>
                     <tr>
                         <td>${search.movieLike}</td>
                     </tr>
                     <tr>
-                        <th>줄거리</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">줄거리</span></th>
                     </tr>
                     <tr>
                         <div class="form-floating">
@@ -114,7 +109,7 @@
                     </tr>
 
                     <tr>
-                        <th>배경이미지</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">배경이미지</span></th>
                     </tr>
                     <c:if test="${search.movieId < 188814}">
                         <tr>
@@ -138,7 +133,7 @@
                         </td>
                     </c:if>
                     <tr>
-                        <th>개봉날짜</th>
+                        <th><span class="input-group-text" id="inputGroup-sizing-default">개봉날짜</span></th>
                     </tr>
                     <tr>
                         <td><input type="date" id="movierelease" name="movierelease" value="${search.movieRelease}">
@@ -146,9 +141,9 @@
                     </tr>
                 </table>
                 <div align="center">
-                    <input type="submit" id="modify" name="modify" value="수정">
-                    <input type="reset" id="reset" name="reset" value="초기화">
-                    <input type="submit" id="back" name="back" value="뒤로가기" onclick='return submit2(this.form);'>
+                    <input type="submit" id="modify" name="modify" value="수정" class="btn btn-secondary">
+                    <input type="reset" id="reset" name="reset" value="초기화" class="btn btn-secondary">
+                    <input type="submit" id="back" name="back" value="뒤로가기" onclick='return submit2(this.form);' class="btn btn-secondary">
                 </div>
 
             </form>

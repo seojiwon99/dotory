@@ -93,6 +93,13 @@
 		SELECT count(*)
 		  FROM dt_good
 		 WHERE board_id = #{boardId}
-	</select
-	>
+	</select>
+	
+	<!-- 관리자게시글삭제 -->
+	
+	<delete id="boardDelete">
+		DELETE 
+		  FROM DT_BOARD
+		 WHERE BOARD_ID=#{boardId}
+	</delete>
 </mapper>

@@ -13,7 +13,7 @@ public class MemberLogout implements Command {
 		HttpSession session = req.getSession();
 		session.invalidate();
 		req.setAttribute("message", "로그아웃 완료");
-		return "movieListPage.do";
+		return "main.do";
 	}
 
 }
