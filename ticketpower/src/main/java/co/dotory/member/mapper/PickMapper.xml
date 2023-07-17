@@ -34,6 +34,10 @@
 		</if>
 	</select>
 
+	<select id="moviePick">
+		SELECT * FROM DT_PICK WHERE MOVIE_ID = #{movieId} AND member_id = #{memberId}
+  	</select>
+
 	<insert id="moviePickCheck" parameterType="co.dotory.member.service.PickVO">
 		INSERT INTO DT_PICK
 		VALUES (#{movieId},#{memberId})
