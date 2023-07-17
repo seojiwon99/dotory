@@ -39,7 +39,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="boardList.do" class="nav-link">
+            <a href="adminboardList.do" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 게시판관리

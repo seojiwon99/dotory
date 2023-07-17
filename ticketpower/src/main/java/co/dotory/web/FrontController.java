@@ -45,10 +45,13 @@ import co.dotory.member.command.adminMemberPageControl;
 import co.dotory.movie.command.AdminMovieDeleteControl;
 import co.dotory.movie.command.AdminMovieFormControl;
 import co.dotory.movie.command.AdminMoviePlusControl;
+import co.dotory.movie.command.MoviePickControl;
 import co.dotory.movie.command.adminMovieAddControl;
 import co.dotory.movie.command.adminMoviePageControl;
 import co.dotory.movie.command.movieDetailPageControl;
 import co.dotory.movie.command.movieListPageControl;
+import co.dotory.review.command.ModifyReviewControl;
+import co.dotory.review.command.RemoveReviewControl;
 import co.dotory.review.command.ShowReviewControl;
 import co.dotory.review.command.addReviewControl;
 
@@ -108,10 +111,13 @@ public class FrontController extends HttpServlet {
 		//영화
 		map.put("/movieListPage.do", new movieListPageControl());
 		map.put("/movieDetailPage.do", new movieDetailPageControl());
+		map.put("/moviePick.do", new MoviePickControl());
 		
 		//리뷰
 		map.put("/showReview.do", new ShowReviewControl());
 		map.put("/addReview.do", new addReviewControl());
+		map.put("/removeReview.do", new RemoveReviewControl());
+		map.put("/modifyReview.do", new ModifyReviewControl());
 		
 		//사용자
 		map.put("/userMain.do", new UserMain());
