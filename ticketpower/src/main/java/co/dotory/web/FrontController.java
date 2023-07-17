@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.MainCommand;
+import co.dotory.board.command.AdminReplyDeleteControl;
 import co.dotory.board.command.BoardAdd;
 import co.dotory.board.command.BoardDetail;
 import co.dotory.board.command.BoardForm;
@@ -102,6 +103,7 @@ public class FrontController extends HttpServlet {
 		map.put("/adminMovieAddControl.do", new AdminMoviePlusControl());
 		map.put("/adminMovieForm.do", new AdminMovieFormControl());
 		map.put("/adminMovieDelete.do", new AdminMovieDeleteControl());
+		map.put("/adminReplyDelte.do", new AdminReplyDeleteControl());
 
 		//영화
 		map.put("/movieListPage.do", new movieListPageControl());

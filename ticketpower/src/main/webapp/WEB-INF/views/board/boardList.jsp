@@ -77,9 +77,22 @@
 </header> -->
 <section id="s_content">
     <div class="s_area">
-        <div class="s_tit aos-init aos-animate" data-aos="fade-down">
-            <h3 class="big">게시판</h3>
-        </div>
+    
+    	<c:choose>
+    		<c:when test="${author == 'ADMIN'}">
+	    		<div class="s_tit aos-init aos-animate" data-aos="fade-down">
+	                <h3 class="big">게시판관리자모드 </h3>
+	            </div>
+    		</c:when>
+    		<c:otherwise>
+    			<div class="s_tit aos-init aos-animate" data-aos="fade-down">
+                    <h3 class="big">게시판 </h3>
+                </div>
+    		</c:otherwise>
+    	</c:choose>
+    	<!-- <div class="s_tit aos-init aos-animate" data-aos="fade-down">
+                    <h3 class="big">게시판 </h3>
+                </div> -->
         <div id="bo_list" style="width:100%">
             <form id="frm" name="frm" action="" method="post">
                 <div class="tbl_head01 tbl_wrap">

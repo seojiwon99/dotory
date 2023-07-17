@@ -18,7 +18,9 @@
                 <ul class="nav navbar-nav">
                     <li><a href="boardList.do">게시판</a></li>
                     <li><a href="userInfo.do">마이페이지</a></li>
+                    <c:if test="${author == 'ADMIN'}">
                     <li><a href="adminMainPage.do">관리자페이지</a></li>
+                    </c:if>
                     <li><a href="#package">Pricing</a></li>
                     <li><a href="#testi">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
