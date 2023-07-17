@@ -6,108 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-	textarea{
-		resize: none;
-	}
-body{
-	background-image: url('https://image.tmdb.org/t/p/original/${movieDetail.movieBackImg}');
-	background-size: contain; 
-	height: 100vh; 
-	width: 100vw;
-	color:rgb(236, 236, 236);
-}
-.mv_container{
-	background-color: rgba(37, 37, 37, 0.836);
-	min-height: 100vh;
-	
-}
-.h1 {
-	display: block;
-	color:white;
-	margin-top: 20px;
-}
-li{
-	list-style: none;
-}
-.mv_review_container .mv_review{
-	display: flex;
-	flex-direction: column;
-	padding-left: 40px;
-	width: 90%;
-}
-
-
-
-.review_input{
-	display: flex;
-	flex-direction: column;
-	width: 70%;
-	box-sizing: border-box;
-}
-
-.review_input textarea{
-	width: 100%;
-}
-
-.review_input_one{
-	margin-bottom: 10px;
-}
-
-#registBtn{
-	width: 80px;
-	align-self: end;
-}
-
-input {
-	background-color: rgba(19, 19, 19, 0.5);
-	border: none;
-	border-radius: 5px;
-}
-
-.mv_btn{
-	border: none;
-	border-radius: 5px;
-}
-
-.mv_btn:hover{
-	color:rgba(236, 236, 236, 0.486);
-}
-
-.mv_btn:not([type="number"]){
-	background-color: blueviolet;
-}
-
-
-textarea {
-	background-color: rgba(19, 19, 19, 0.5);
-	border: none;
-	border-radius: 5px;
-}
-
-.reviewLi div{
-	display: flex;
-	flex-direction: column;
-}
-
-.reviewLi textarea{
-	width: 90%;
-}
-
-.reviewLi .mv_btn:last-child{
-	margin-left: 5px;
-}
-
-*:focus{
-	outline: none !important;
-	border: none;
-}
-
-
-
-</style>
+<link rel="stylesheet" href="css/movieDetail.css">
 </head>
-<body>
+<body style="background-image: url('https://image.tmdb.org/t/p/original/${movieDetail.movieBackImg}');">
 	<div class="container mv_container">
 		<!-- 영화정보 -->
 		<div class="movie_info">
@@ -121,9 +22,12 @@ textarea {
 		</div>
 
 		<!-- 영화정보 끝 -->
-		<div>
-			<button id="likeBtn" class="mv_btn" type="button" class="button">❤</button>
-		</div>
+		<c:if test="${not empty id }">
+			<div class="likeBtn_container">
+			<span>좋아요</span>
+				<button id="likeBtn" class="mv_btn" type="button" class="button">❤</button>
+			</div>
+		</c:if>
 
 		<br>
 		<div class="mv_review_container">
@@ -174,11 +78,11 @@ textarea {
 			</li>		  -->
 		</c:forEach>
 		</ul>
-		<div class="center">
+		<div class="md_center">
 			<div class="pagination">
 				<c:forEach begin="${page.startPage }" varStatus="status"
 					end="${page.endPage }">
-					<button onclick="page(event)">${status.count}</button>
+					<button class="mv_btn btn" onclick="page(event)">${status.count}</button>
 				</c:forEach>
 
 			</div>
@@ -198,7 +102,7 @@ textarea {
 
 
 		if("${pickVo}" != ""){
-			$("#likeBtn").text("💙")
+			$("#likeBtn").text("🧡")
 		}
 
 		$("#likeBtn").on("click",clickLikeBtn)
@@ -212,7 +116,7 @@ textarea {
 				},
 				success: function(data){
 					if(data == 1){
-						$("#likeBtn").text("💙")
+						$("#likeBtn").text("🧡")
 					} else {
 						$("#likeBtn").text("❤")
 					}
@@ -263,10 +167,10 @@ textarea {
 					const list = JSON.parse(data);
 					list.forEach((review)=>
 						{
-							
-							$("#reviewUl").append($("<li/>").addClass("reviewLi").append($("<div/>")
-										.append($("<h3/>").text(review.memberId))
-										.append($("<h4/>").text(review.reviewUpdate ? convertDate(review.reviewUpdate):convertDate(review.reviewDate)))
+							$("#reviewUl").append($("<li/>").addClass("reviewLi").append($("<div/>").addClass("review_container")
+										.append($("<div/>").addClass("mv_user_info").append($("<h3/>").addClass("review_username").text(review.memberId))
+										.append($("<h4/>").addClass("review_date").text(review.reviewUpdate ? convertDate(review.reviewUpdate)+"(수정됨)":convertDate(review.reviewDate)))
+										.append($("<h4/>").text("평점 :" + review.reviewLike+"점")))
 										.append($("<textarea/>").addClass("review").text(review.review).attr("readonly",true).attr("placeholder","김치"))
 										.append($("<input/>").val(review.reviewId).attr("type","hidden")))
 										.append('${id}'=== review.memberId ? $("<button/>").addClass("mv_btn btn").text("수정").on("click",clickEditBtn): "")
@@ -323,14 +227,14 @@ textarea {
 			console.log(review.text(),reviewId.val())
 			target.off("click");
 			reviewDate.text(convertDate());
-			//ajax 없이 테스트용
-			// review.attr("readonly",true);
-			// target.text("수정").on("click",clickEditBtn)
+			// ajax 없이 테스트용
+			review.attr("readonly",true);
+			target.text("수정").on("click",clickEditBtn)
 			$.ajax({
 				type:"POST",
 				url:"modifyReview.do",
 				data:{
-					review:review.text(),
+					review:review.val(),
 					reviewId:reviewId.val(),
 				},
 				success:function(data){
