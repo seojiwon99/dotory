@@ -7,16 +7,12 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <head>
 	<link rel="stylesheet" href="css/userinfo.css" />
 	<title>마이페이지</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Orbit&display=swap" rel="stylesheet">
+	
 </head>
 <body>
 	<h2>회원 상세정보</h2>
 		<div class = "Box">
-			    <h4 class="imgtext">대표이미지</h4>
+			<h3 class="imgtext">대표이미지</h3>
 			      <img class="image" width="190px" src="images/${search.memberImg }" />
 		</div>
 		<br>
