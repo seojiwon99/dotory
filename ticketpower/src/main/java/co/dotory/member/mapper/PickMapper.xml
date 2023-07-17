@@ -33,5 +33,17 @@
 			WHERE MEMBER_ID LIKE '%' || #{val} || '%'
 		</if>
 	</select>
+
+	<insert id="moviePickCheck" parameterType="co.dotory.member.service.PickVO">
+		INSERT INTO DT_PICK
+		VALUES (#{movieId},#{memberId})
+	</insert>
 	
+	<delete id="moviePickUnCheck" parameterType="co.dotory.member.service.PickVO">
+		DELETE DT_PICK
+		WHERE MOVIE_ID = #{movieId} AND member_id = #{memberId}
+		
+	</delete>
+	
+
 </mapper>
