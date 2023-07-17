@@ -37,7 +37,7 @@ public class MemberRegist implements Command {
 		
 		MemberService service = new MemberServiceImpl();
 		service.memberInsert(vo);
-		return "member/memberLoginForm";
+		return "main/main";
 	}
 
 }
