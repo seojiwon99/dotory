@@ -1,58 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.dotory.member.mapper.PickMapper">
-					
-	<!-- 전체 좋아요 목록 -->
-
-	<select id="moviePick" resultType="co.dotory.member.service.PickVO">
-		SELECT * FROM dt_pick where movie_id = #{movieId} AND member_id = #{memberId}
-  	</select>
-<!-- 	<select id="userPickList" resultType="boardVO">
-		SELECT *
-		  FROM (
-		  		SELECT rownum rn, a.board_id, a.board_title, a.board_content, a.board_date, a.board_update, a.board_cnt,a.member_id,a.board_reply
-		  		  FROM (
-		  		  	SELECT bo.*, (select count(*) from dt_reply r where r.board_id = bo.board_id )as board_reply
-		  		 	  FROM dt_board bo
-	  		 	<if test='key.equals("name")'>
-					WHERE MEMBER_ID LIKE '%' || #{val} || '%'
-				</if>
-				<if test='key.equals("title")'>
-					WHERE BOARD_TITLE LIKE '%' || #{val} || '%'
-				</if>
-				<if test='key.equals("all")'>
-					WHERE 1 = 1
-				</if>
-		  		 	 ORDER BY board_id desc
-				  )a
-			)b
-		WHERE b.rn > (#{page} - 1) *10
-		<![CDATA[
-      	  AND b.rn <= #{page} * 10
-    	]]>
-	</select> -->
-	<select id="userPickList" resultType="co.dotory.member.service.PickVO">
-		select * from tab
+	
+	
+	<select id="userPickList" resultType="co.dotory.movie.service.MovieVO">
+    select *
+	from (
+    	select rownum rn, a.*
+    	from (
+        	select m.movie_id, m.movie_age, m.movie_like, m.movie_name, m.movie_poster_img
+        	from dt_pick p,dt_movie m where p.movie_id = m.movie_id AND p.member_id = #{memberId} order by movie_id desc
+        	) a
+    	) b
+	where b.rn > (#{page} -1) * 10
+	<![CDATA[
+	and b.rn <= #{page} * 10
+	]]>
+  </select>
+  
+  	<select id="movieDetail" resultType="co.dotory.movie.service.MovieVO" parameterType="int">
+		SELECT * FROM DT_MOVIE WHERE MOVIE_ID = #{movieId}
 	</select>
 	
+	
+	
+	
+		<!-- 게시글 갯수 -->
 	<select id="totalCnt" resultType="int">
 		SELECT count(*)
 		  FROM dt_pick
 		<if test='key == "name"'>
 			WHERE MEMBER_ID LIKE '%' || #{val} || '%'
 		</if>
-
 	</select>
-	
-	<insert id="moviePickCheck" parameterType="co.dotory.member.service.PickVO">
-		insert into dt_pick
-		values (#{movieId},#{memberId})
-	</insert>
-	
-	<delete id="moviePickUnCheck" parameterType="co.dotory.member.service.PickVO">
-		delete dt_pick
-		where movie_id = #{movieId} AND member_id = #{memberId}
-	</delete>
-	
 	
 </mapper>

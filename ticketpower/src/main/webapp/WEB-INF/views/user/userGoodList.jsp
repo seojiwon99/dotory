@@ -11,7 +11,6 @@
             <form id="frm" name="frm" action="" method="post">
                 <div class="tbl_head01 tbl_wrap">
                     <table>
-                        <caption>게시판</caption>
                         <thead>
                             <tr>
                                 <th scope="col">번호</th>
@@ -22,9 +21,11 @@
                             </tr>
                         </thead>
                         <tbody>                            
-                        <c:set var="num" value="${page.total - ((page.curPage-1) * 10) }"/>
-                        <c:forEach items="${board}" var="b" varStatus="status">
-                            <tr class=" even">
+                        <c:set var="num" value="${page.total - ((page.curPage-1) * 10) }"/> 
+
+                        
+                        <c:forEach items="${good}" var="b" varStatus="status">
+                            <tr class=" even">  
                                 <td class="td_num2">${num}</td>
                                 <td class="td_subject" style="padding-left:0px">
                                     <div class="bo_tit">
@@ -38,13 +39,13 @@
                                         <span class="date">${b.boardDate}</span>
                                     </div>
                                 </td>
-                                <td class="td_name sv_use rep"><span class="sv_member">${b.memberId}</span></td>
-                                <!--            <td class="td_num">214</td>-->
+                                <td class="td_name sv_use rep"><span class="sv_member">${b.memberId}</span></td>                               
                                 <td class="td_datetime rep">${b.boardDate}</td>
                                 <td class="td_num2">${b.boardCnt}</td>
                             </tr>
                             <c:set var="num" value="${num-1 }"></c:set>
                            </c:forEach>
+                           
                         </tbody>
                     </table>
                 </div>

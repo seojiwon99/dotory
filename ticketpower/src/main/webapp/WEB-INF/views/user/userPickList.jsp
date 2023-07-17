@@ -1,17 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link rel="stylesheet" href="css/board.css">
-<!DOCTYPE html>
-<html>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <head>
-<meta charset="UTF-8">
-<title>찜목록</title>
+<style>
+
+body{
+	background-color:white;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	color:rgb(240,240,240);
+}
+
+
+
+.card-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;
+}
+
+.card-body {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 60px 80px 40px;
+	height: 200px;
+	min-height:30vh;
+}
+.card-body h5{
+	grid-column: 1/4;
+}
+.card-body .card-text{
+	grid-column: 2/4;
+}
+
+img {
+	height: 300px;
+}
+
+/* li {
+	height: 600px;
+} */
+
+.mv_list{
+	background-color:rgba(0,0,0,0);
+	margin-left: 478px;
+}
+.card{
+	margin: 20px;
+}
+
+</style>
 </head>
+
 <body>
-	<h1> 내가 찜한 영화 리스트 </h1>
-	<tr>
-	<a href="userInfo.do">마이페이지로 돌아가기</a>
-	</tr>
+	<div class="mv_list" style="width: 90vw;">
+		<ul style="display: flex; flex-wrap: wrap;">
+			<c:forEach items="${pick}" var="m">
+				<li>
+					<div class="card" style="width: 18rem;">
+						<img src="https://image.tmdb.org/t/p/w300/${m.moviePosterImg }"
+							class="card-img-top" alt="mvImg">
+						<div class="card-body">
+							<h5 class="card-title">${m.movieName }</h5>
+							<span>평점:${m.movieLike }</span>
+							<c:choose>
+								<c:when test="${m.movieAge != 0}">
+									<p class="card-text">심의등급:${m.movieAge}세 이상</p>
+								</c:when>
+								<c:otherwise>
+									<p class="card-text">심의등급:전체이용불가</p>
+								</c:otherwise>
+							</c:choose>
+							<a href="movieDetailPage.do?movieId=${m.movieId}" class="btn btn-primary">자세히</a>
+						</div>
+					</div>
+				</li>
+			</c:forEach>
+		</ul>
+	</div>
 </body>
-</html>
