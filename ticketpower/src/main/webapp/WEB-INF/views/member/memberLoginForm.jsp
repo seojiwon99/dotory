@@ -5,10 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Login Page</title>
+ <link href="css/login.css" rel="stylesheet" />
 </head>
 <body>
 	<div align = "center" >
-		<div><h1>로 그 인</h1></div>
+		<div name = "login"><h1>로 그 인</h1></div>
 		<div>
 			<form id="frm" action="memberLogin.do" method="post">
 				<div>
