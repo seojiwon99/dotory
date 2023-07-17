@@ -17,7 +17,8 @@
         <form id="frm" method="post" name = "frm" onsubmit="return false">
         <div class="id">
             <input id="memberId" class="font" name="memberId" type="text" placeholder="아이디를 입력해 주세요." oninput="putId()">
-        	<button type="button" disabled id="idcheck"  onclick="idCheck()">중복체크</button>
+
+        	<button type="button" disabled id="idcheck"  value="checkNo" onclick="idCheck()">중복체크</button>
         	<button type="button" disabled id="idDecide" value="No" onclick="setId()">사용하기</button>
         </div>
         <div id="idError" class="error"></div>
@@ -105,11 +106,15 @@ function initButton(){
 
 function putId(){
 	const mid = document.getElementById("memberId").value
-		if(mid.length > 3){
-			document.getElementById("idcheck").focus();
+		if(mid.length > 4){
 		    document.getElementById("idcheck").setAttribute("style","background-color:yellow;")
 		    document.getElementById("idcheck").disabled = false;
 	}
+		if(document.getElementById("idcheck").value != "checkNo"){
+    	alert("아이디값이 변경되었습니다. 다시 중복체크를 해주세요")
+    	document.getElementById("idDecide").disabled = true;
+    	document.getElementById("idcheck").value = "checkNo"
+    }
 }
 //아이디 중복확인
 function idCheck(){
@@ -127,6 +132,7 @@ function viewHtml(data){
 	}else{
 		alert("사용 가능한 아이디입니다.")
 		document.getElementById("idDecide").disabled = false;
+		document.getElementById("idcheck").value = "checkYes";
 	}
 }
 //아이디확정
