@@ -19,6 +19,12 @@ public interface BoardMapper {
 	
 	// 게시글 갯수
 	public int totalCnt();
+	
+	// 게시글 삭제
+	public int boardDel(int boardId);
+	
+	// 게시글 수정
+	public int boardUpdate(BoardVO vo);
 
 	public int totalCnt(@Param("key")String key, @Param("val") String val);
 	
@@ -37,6 +43,7 @@ public interface BoardMapper {
 	// 좋아요 기록 삭제
 	public int deleteGood(@Param("memberId") String memberId , @Param("boardId") int boardId);
 	
-	// 좋아요 수ㅜ 가져오기
+	// 좋아요 수 가져오기
 	public int getGood(@Param("boardId") int boardId);
+	
 }

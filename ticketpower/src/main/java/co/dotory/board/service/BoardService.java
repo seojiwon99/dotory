@@ -13,6 +13,11 @@ public interface BoardService {
 	// 게시판 등록
 	public int boardAdd(BoardVO vo);
 	
+	// 게시글 수정
+	public boolean boardDel(int boardId);
+	
+	public boolean boardUpdate(BoardVO vo);
+	
 	// 게시글 갯수
 	public int totalCnt();
 	

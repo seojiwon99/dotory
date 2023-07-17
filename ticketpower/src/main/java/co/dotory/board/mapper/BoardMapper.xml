@@ -93,6 +93,22 @@
 		SELECT count(*)
 		  FROM dt_good
 		 WHERE board_id = #{boardId}
-	</select
-	>
+	</select>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="boardDel" parameterType="int">
+		DELETE
+		  FROM dt_board
+		 WHERE board_id = #{boardId}
+	</delete>
+	
+	
+	<!-- 게시글 수정 -->
+	<update id="boardUpdate" parameterType="boardVO">
+		UPDATE dt_board
+		   SET board_title = #{boardTitle}
+		     , board_content = #{boardContent}
+		     , board_update = sysdate
+		 WHERE board_id = #{boardId}
+	</update>
 </mapper>

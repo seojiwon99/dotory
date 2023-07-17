@@ -36,6 +36,7 @@ public class BoardDetail implements Command {
 		
 		// 댓글
 		List<ReplyVO> reply = replysvc.getReply(Integer.parseInt(brdNo));
+		System.out.println(reply);
 		req.setAttribute("reply",reply);
 		
 		return "board/boardDetail";

@@ -69,6 +69,16 @@ public class BoardServiceImpl implements BoardService{
 		return map.getGood(boardId);
 	}
 
+	@Override
+	public boolean boardDel(int boardId) {
+		return map.boardDel(boardId) == 1;
+	}
+
+	@Override
+	public boolean boardUpdate(BoardVO vo) {
+		return map.boardUpdate(vo) == 1;
+	}
+
 	
 
 
