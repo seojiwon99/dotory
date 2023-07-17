@@ -1,29 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link rel="stylesheet" href="css/admin.css">
         <!DOCTYPE html>
         <html>
 
         <head>
             <meta charset="UTF-8">
             <title>Insert title here</title>
+            <style>
+            	.table{
+					width: 600px;
+					margin: 0 auto;
+					height: 700px;
+					margin-top:30px;
+				}
+				
+            </style>
         </head>
 
         <body>
         <div align="center">
-			<div>
+			<div >
 				<form>
 					<select name="key" id="key" class="form-select form-select-sm" aria-label=".form-select-sm example">
 						<option value="id">영화ID</option>
 						<option value="name">영화제목</option>
 						<option value="all">전체</option>
 					</select>
-					<input type="text" id="val" name="val" class="form-control" aria-describedby="addon-wrapping" Placeholder="값을 입력하세요">
-					<button type="button" id="search" onclick="movieSearch()">검색</button>
+					<div class="input-group flex-nowrap">
+                        <input type="text" id="val" name="val" class="form-control" aria-describedby="addon-wrapping" Placeholder="값을 입력하세요">
+                        <button type="button" id="search" onclick="movieSearch()" class="btn btn-secondary">검색</button>
+                    </div>
 				</form>
 			</div>
 		</div>
             <form action="adminMovieAdd.do">               
-                <table class="table" border="5" align="center">
+                <table class="table" border="1"  style="border-radius: 30px;" >
                     <thead>
                         <tr>
                             <th>선택</th>
@@ -55,8 +67,8 @@
                     </tbody>
                 </table>
                 <div align="center">
-                    <input type="submit" id="add" name="add" value="등록">
-                    <input type="button" id="delete" name="delete" value="삭제">
+                    <input type="submit" id="add" name="add" value="등록" class="btn btn-secondary">
+                    <input type="button" id="delete" name="delete" value="삭제" class="btn btn-secondary">
                 </div>
             </form>
             <script type="text/javascript">

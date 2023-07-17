@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.dotory.member.mapper.GoodMapper">
-
-	<select id="userGoodList" resultType="co.dotory.member.service.GoodVO">
-		select * from tab
-	</select>
+	
+	
+	<select id="userGoodList" resultType="co.dotory.board.service.BoardVO">
+    select *
+	from (
+    	select rownum rn, a.*
+    	from (
+        	select g.board_id, g.member_id, b.board_title, b.board_date, b.board_cnt, (select count(*) from dt_reply r where r.board_id = b.board_id AND g.board_id = b.board_id )as board_reply
+        	from dt_good g, dt_board b where g.board_id = b.board_id AND g.member_id = #{memberId} order by board_id desc
+        	) a
+    	) b
+	where b.rn > (#{page} -1) * 10
+	<![CDATA[
+	and b.rn <= #{page} * 10
+	]]>
+  </select>
+	
+	
+	
 	
 		<!-- 게시글 갯수 -->
 	<select id="totalCnt" resultType="int">

@@ -46,4 +46,8 @@ public interface BoardMapper {
 	// 좋아요 수 가져오기
 	public int getGood(@Param("boardId") int boardId);
 	
+
+	//관리자 게시글삭제
+	public boolean boardDelete(int boardid);
+
 }

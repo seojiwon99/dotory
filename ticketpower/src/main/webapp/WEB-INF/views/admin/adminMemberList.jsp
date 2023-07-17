@@ -16,19 +16,30 @@
 				}
 
 				.content-wrapper {
-					margin-top: 50px;
+					margin-top: 0px;
 				}
 
 				.input-group-text {
 					background-color: lightgray;
 				}
-
+				.table{
+					width: 600px;
+					margin: 0 auto;
+					height: 700px;
+					margin-top:30px;
+				}
 				.table>thead {
 			     padding: 0.5rem 0.5rem;
 			    color: var(--bs-table-color-state,var(--bs-table-color-type,var(--bs-table-color)));
 			    background-color: gray;
 			    border-bottom-width: var(--bs-border-width);
 			    box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state,var(--bs-table-bg-type,var(--bs-table-accent-bg))); 
+				}
+				 
+				{
+					width:570px;
+					margin: 0 auto;
+					border-top:30px;
 				}
 				.title{
 					background-color:gray;
@@ -38,7 +49,22 @@
 				}
 			</style>
 		</head>
-
+		  <div>
+		  	<div>
+		  	</div>
+			<form >
+				<select class="form-select form-select-sm" aria-label=".form-select-sm example" name="key" id="key">
+					<option selected>검색키워드</option>
+					<option value="name">이름</option>
+					<option value="tel">전화번호</option>
+					<option value="addr">주소</option>
+					<option value="all">전체</option>
+				</select>
+				<div class="input-group flex-nowrap">
+					<input type="text" id="val" name="val" class="form-control" aria-describedby="addon-wrapping" Placeholder="값을 입력하세요">
+					<button type="button" id="search" onclick="memberSearch()" class="btn btn-secondary">검색</button>
+				</div>
+			</form>
 		<table class="table">
 			<thead>
 				<tr>
@@ -58,37 +84,24 @@
 					</tr>
 				</c:forEach>
 		</table>
-
-		<div>
-			<form>
-				<select class="form-select form-select-sm" aria-label=".form-select-sm example" name="key" id="key">
-					<option selected>검색키워드</option>
-					<option value="name">이름</option>
-					<option value="tel">전화번호</option>
-					<option value="addr">주소</option>
-					<option value="all">전체</option>
-				</select>
-				<div class="input-group flex-nowrap">
-					<span class="input-group-text" id="addon-wrapping">검색</span>
-					<input type="text" class="form-control" aria-describedby="addon-wrapping">
-				</div>
-			</form>
 		</div>
 
-		<div class="center" align="center">
-			<div>
+
+
+		<div  align="center">
+			<div class="pg_wrap">
 				<c:if test="${page.prev}">
-					<a href="adminMemberPage.do?page=${ page.startPage-1 }">prev</a>
+					<a href="adminMemberPage.do?page=${ page.startPage-1 }" class="btn btn-primary" role="button">prev</a>
 				</c:if>
 				<c:forEach begin="${page.startPage}" end="${page.endPage}" var="i">
 					<c:choose>
 						<c:when test="${i == page.curPage}">
-							<a href="adminMemberPage.do?page=${i}" class="active">
+							<a href="adminMemberPage.do?page=${i}"  class="btn btn-primary" role="button">
 								<c:out value="${i}"></c:out>
 							</a>
 						</c:when>
 						<c:otherwise>
-							<a href="adminMemberPage.do?page=${i}">
+							<a href="adminMemberPage.do?page=${i}" class="btn btn-primary" role="button">
 								<c:out value="${i}"></c:out>
 							</a>
 						</c:otherwise>

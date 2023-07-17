@@ -2,12 +2,13 @@
 pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
 prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <link rel="stylesheet" href="css/user.css" />
-<h2>회원 상세정보</h2>
+<div class="container">
+<h2>회원정보 수정</h2>
 <form action="userModify.do">
   <table class="table" border="1" align="center">
     <tr>
       <th>아이디</th>
-      <td>
+      <td colspan="3">
         <input
           id="memberId"
           class="memberId"
@@ -19,19 +20,19 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     </tr>
     <tr>
       <th>이름</th>
-      <td>
+      <td colspan="3">
         <input id="memberName" name="memberName" value="${search.memberName}" />
       </td>
     </tr>
     <tr>
       <th>전화번호</th>
-      <td>
+      <td colspan="3">
         <input id="memberTel" name="memberTel" value="${search.memberTel}" />
       </td>
     </tr>
     <tr>
       <th>주소</th>
-      <td>
+      <td colspan="3">
         <input id="memberAddr" name="memberAddr" value="${search.memberAddr}" />
       </td>
     </tr>
@@ -45,7 +46,6 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
           readonly
         />
       </td>
-
       <th>대표이미지</th>
       <td class="id">
         <img class="image" width="190px" src="images/${search.memberImg }" />
@@ -54,15 +54,18 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     </tr>
 
     <tr>
-      <td colspan="2" align="center">
+      <td colspan="4" align="center">
         <button type="button" id="saveBtn">저장하기</button>
       </td>
     </tr>
-    <th>
-      <a href="userInfo.do"> 마이페이지로 돌아가기 </a>
-    </th>
+    <tr>
+    	<td colspan="4" align="center">
+      		<a href="userInfo.do"> 마이페이지로 돌아가기 </a>
+    	</td>
+    </tr>
   </table>
 </form>
+</div>
 <script>
   //change 이벤트
   document.getElementById("image").addEventListener("change", function (e) {

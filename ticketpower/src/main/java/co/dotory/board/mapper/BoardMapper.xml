@@ -111,4 +111,13 @@
 		     , board_update = sysdate
 		 WHERE board_id = #{boardId}
 	</update>
+
+	<!-- 관리자게시글삭제 -->
+	
+	<delete id="boardDelete">
+		DELETE 
+		  FROM DT_BOARD
+		 WHERE BOARD_ID=#{boardId}
+	</delete>
+
 </mapper>
