@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <title>유저메인</title>
 
+	<div class="container">
         <h3>사용자 페이지 메인입니다</h3>
     <table class="table">
         <tr>
@@ -13,5 +14,6 @@
         	</th>
         </tr>
 	</table>
+	</div>
 
 
