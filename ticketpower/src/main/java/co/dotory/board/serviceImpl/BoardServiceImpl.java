@@ -78,7 +78,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public boolean boardUpdate(BoardVO vo) {
 		return map.boardUpdate(vo) == 1;
-
+	}
 	public boolean boardDelete(int boardid) {
 		return map.boardDelete(boardid);
 
