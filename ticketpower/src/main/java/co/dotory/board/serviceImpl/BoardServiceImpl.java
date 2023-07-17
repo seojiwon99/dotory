@@ -70,8 +70,18 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
+
+	public boolean boardDel(int boardId) {
+		return map.boardDel(boardId) == 1;
+	}
+
+	@Override
+	public boolean boardUpdate(BoardVO vo) {
+		return map.boardUpdate(vo) == 1;
+
 	public boolean boardDelete(int boardid) {
 		return map.boardDelete(boardid);
+
 	}
 
 	

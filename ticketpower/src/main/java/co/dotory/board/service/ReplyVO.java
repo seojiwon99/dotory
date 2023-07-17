@@ -15,7 +15,7 @@ public class ReplyVO {
 	private String reply;
 	private String memberId;
 	private int boardId;
-//	private String replyLevel;
+	private String replyLevel;
 	private int parentNum;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")

@@ -28,4 +28,14 @@ public class ReplyServiceImpl implements ReplyService{
 		return map.replyDelete(id); 
 	}
 
+	@Override
+	public boolean replyUpdate(ReplyVO vo) {
+		return map.replyUpdate(vo) == 1;
+	}
+
+	@Override
+	public boolean commentAdd(ReplyVO vo) {
+		return map.commentAdd(vo) == 1;
+	}
+
 }
