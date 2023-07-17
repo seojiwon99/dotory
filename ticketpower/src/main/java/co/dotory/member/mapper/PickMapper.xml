@@ -45,13 +45,14 @@
 	</select>
 	
 	<insert id="moviePickCheck" parameterType="co.dotory.member.service.PickVO">
-		insert into dt_pick
-		values (#{movieId},#{memberId})
+		INSERT INTO DT_PICK
+		VALUES (#{movieId},#{memberId})
 	</insert>
 	
 	<delete id="moviePickUnCheck" parameterType="co.dotory.member.service.PickVO">
-		delete dt_pick
-		where movie_id = #{movieId} AND member_id = #{memberId}
+		DELETE DT_PICK
+		WHERE MOVIE_ID = #{movieId} AND member_id = #{memberId}
+		
 	</delete>
 	
 	
