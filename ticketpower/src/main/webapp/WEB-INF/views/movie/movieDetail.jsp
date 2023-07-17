@@ -15,69 +15,135 @@ body{
 	background-size: contain; 
 	height: 100vh; 
 	width: 100vw;
+	color:rgb(236, 236, 236);
 }
-.container{
+.mv_container{
 	background-color: rgba(37, 37, 37, 0.836);
+	min-height: 100vh;
+	
 }
 .h1 {
 	display: block;
-	background-color: rgba(0, 0, 0, 0.637);
 	color:white;
 	margin-top: 20px;
 }
 li{
 	list-style: none;
 }
-.mv_review{
+.mv_review_container .mv_review{
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	padding-left: 40px;
+	width: 90%;
 }
+
+
+
 .review_input{
 	display: flex;
 	flex-direction: column;
 	width: 70%;
+	box-sizing: border-box;
 }
 
 .review_input textarea{
 	width: 100%;
 }
 
+.review_input_one{
+	margin-bottom: 10px;
+}
+
+#registBtn{
+	width: 80px;
+	align-self: end;
+}
+
+input {
+	background-color: rgba(19, 19, 19, 0.5);
+	border: none;
+	border-radius: 5px;
+}
+
+.mv_btn{
+	border: none;
+	border-radius: 5px;
+}
+
+.mv_btn:hover{
+	color:rgba(236, 236, 236, 0.486);
+}
+
+.mv_btn:not([type="number"]){
+	background-color: blueviolet;
+}
+
+
+textarea {
+	background-color: rgba(19, 19, 19, 0.5);
+	border: none;
+	border-radius: 5px;
+}
+
+.reviewLi div{
+	display: flex;
+	flex-direction: column;
+}
+
+.reviewLi textarea{
+	width: 90%;
+}
+
+.reviewLi .mv_btn:last-child{
+	margin-left: 5px;
+}
+
+*:focus{
+	outline: none !important;
+	border: none;
+}
+
+
+
 </style>
 </head>
-<body style="color: white; background-color: black;">
-	<div class="container">
+<body>
+	<div class="container mv_container">
 		<!-- 영화정보 -->
-		<div >
+		<div class="movie_info">
 			<h1 class="h1">${movieDetail.movieName }</h1>
 			<hr>
-			<p style="background-color: rgba(0, 0, 0, 0.678);">${movieDetail.movieSummary}</p>
+			<p >${movieDetail.movieSummary}</p>
+			<div>
 			<h2>${movieDetail.movieAge }세 이상</h2>
+			<h2>상영시간 : ${movieDetail.movieRuntime }분</h2>			
+			</div>
 		</div>
 
 		<!-- 영화정보 끝 -->
 		<div>
-			<button id="likeBtn" type="button" class="button">❤</button>
+			<button id="likeBtn" class="mv_btn" type="button" class="button">❤</button>
 		</div>
 
 		<br>
+		<div class="mv_review_container">
 		<form class="mv_review">
 			<input type="hidden" id="movieIdInput" name="movieId"
 				value="${movieDetail.movieId }" required>
 			<c:choose>
 				<c:when test="${not empty id }">
 					<div class="review_input">
-						<div>
+						<div class="review_input_one">
 							<input type="text" readonly id="memberIdInput" name="MemberId"
-								value="${id }" required>
-								<input type="number" id="reviewLikeInput" max="5" min="1"
-									name="reviewLike" required />
-
+							value="${id }" required>
+							<input type="number" id="reviewLikeInput" max="5" min="1"
+							class="mv_btn" name="reviewLike" value="0" required />
 						</div>
-							<div>
-								<textarea id="reviewInput" placeholder="리뷰를 작성해주세요."
-								name="review" required ></textarea>
-							</div>
-						<button type="button" id="registBtn">등록</button>
+						<div>
+							<textarea id="reviewInput" placeholder="리뷰를 작성해주세요."
+							name="review" required ></textarea>
+						</div>
+						<button type="button" class="mv_btn btn" id="registBtn">등록</button>
 					</div>
 				</c:when>
 				<c:when test="${empty id }">
@@ -85,13 +151,11 @@ li{
 						value="NULL" required>
 					<textarea type="text" disabled id="reviewInput"
 						placeholder="로그인을 해주세요" name="review" required></textarea>
-					<input type="number" disabled id="reviewLikeInput" max="5" min="1"
-						name="reviewLike" required />
-					<button type="button" disabled id="registBtn">등록</button>
+					<button type="button" class="mv_btn" disabled id="registBtn">등록</button>
 				</c:when>
 			</c:choose>
 		</form>
-
+		</div>
 		<!-- 자바스크립트로 처리할까? -->
 		<ul id="reviewUl">
 		<c:forEach items="${reviewList}" var="r">
@@ -200,13 +264,13 @@ li{
 					list.forEach((review)=>
 						{
 							
-							$("#reviewUl").append($("<li/>").append($("<div/>")
+							$("#reviewUl").append($("<li/>").addClass("reviewLi").append($("<div/>")
 										.append($("<h3/>").text(review.memberId))
 										.append($("<h4/>").text(review.reviewUpdate ? convertDate(review.reviewUpdate):convertDate(review.reviewDate)))
 										.append($("<textarea/>").addClass("review").text(review.review).attr("readonly",true).attr("placeholder","김치"))
 										.append($("<input/>").val(review.reviewId).attr("type","hidden")))
-										.append('${id}'=== review.memberId ? $("<button/>").text("수정").on("click",clickEditBtn): "")
-										.append('${id}' === review.memberId ? $("<button/>").text("삭제").on("click",clickRemoveBtn):""))
+										.append('${id}'=== review.memberId ? $("<button/>").addClass("mv_btn btn").text("수정").on("click",clickEditBtn): "")
+										.append('${id}' === review.memberId ? $("<button/>").addClass("mv_btn btn").text("삭제").on("click",clickRemoveBtn):""))
 							$("#reviewUl").append("<br>")
 						}
 					)
