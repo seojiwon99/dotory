@@ -8,8 +8,8 @@
 	from (
     	select rownum rn, a.*
     	from (
-        	select g.board_id, g.member_id, b.board_title, b.board_date, b.board_cnt
-        	from dt_good g,dt_board b where g.board_id = b.board_id AND g.member_id = #{memberId} order by board_id desc
+        	select g.board_id, g.member_id, b.board_title, b.board_date, b.board_cnt, (select count(*) from dt_reply r where r.board_id = b.board_id AND g.board_id = b.board_id )as board_reply
+        	from dt_good g, dt_board b where g.board_id = b.board_id AND g.member_id = #{memberId} order by board_id desc
         	) a
     	) b
 	where b.rn > (#{page} -1) * 10
