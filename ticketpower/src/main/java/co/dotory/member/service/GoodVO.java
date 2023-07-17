@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class GoodVO {
 	private int boardId;
-	private int memberId;
+	private String memberId;
 }

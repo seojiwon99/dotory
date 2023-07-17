@@ -15,8 +15,8 @@ public class GoodServiceImpl implements GoodService{
 	private GoodMapper map = sqlSession.getMapper(GoodMapper.class);
 	
 	@Override
-	public List<GoodVO> userGoodList(int page) {
-		return map.userGoodList(page);
+	public List<GoodVO> userGoodList(int page, String memberId) {
+		return map.userGoodList(page, memberId);
 	}
 
 	@Override

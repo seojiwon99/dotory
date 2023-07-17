@@ -2,6 +2,7 @@ package co.dotory.member.serviceImpl;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 
 import co.dotory.common.DataSource;
@@ -15,8 +16,8 @@ public class PickServiceImpl implements PickService{
 	private PickMapper map = sqlSession.getMapper(PickMapper.class);
 	
 	@Override
-	public List<PickVO> userPickList(int page) {
-		return map.userPickList(page);
+	public List<PickVO> userPickList(int page, String memberId) {
+		return map.userPickList(page, memberId);
 	}
 
 	@Override
