@@ -34,7 +34,7 @@
 		</if>
 	</select>
 
-	<select id="moviePick" resultType="co.dotory.member.service.PickVO">
+	<select id="moviePick">
 		SELECT * FROM DT_PICK WHERE MOVIE_ID = #{movieId} AND member_id = #{memberId}
   	</select>
 
