@@ -17,6 +17,7 @@
         <form id="frm" method="post" name = "frm" onsubmit="return false">
         <div class="id">
             <input id="memberId" class="font" name="memberId" type="text" placeholder="아이디를 입력해 주세요." oninput="putId()">
+
         	<button type="button" disabled id="idcheck"  value="checkNo" onclick="idCheck()">중복체크</button>
         	<button type="button" disabled id="idDecide" value="No" onclick="setId()">사용하기</button>
         </div>
