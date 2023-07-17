@@ -1,6 +1,14 @@
-@charset "UTF-8";
-
-/* í˜ì´ì§• ì»¤ìŠ¤í…€ */
+@charset "EUC-KR";
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* ÆäÀÌÂ¡ Ä¿½ºÅÒ */
+body{
+	font-family: 'GangwonEdu_OTFBoldA';
+}
 .pg_wrap {
     float: none !important;
     width: 100%;
@@ -26,7 +34,7 @@
 }
 
 
-/* ì´ˆê¸°í™” */
+/* ÃÊ±âÈ­ */
 html {
     overflow-y: scroll
 }
@@ -198,7 +206,7 @@ select:focus {
 
 
 
-/* ê¸°ë³¸í…Œì´ë¸” */
+/* ±âº»Å×ÀÌºí */
 .tbl_wrap table {
     width: 100%;
     border-collapse: collapse;
@@ -270,7 +278,7 @@ select:focus {
 }
 
 
-/* í˜ì´ì§• */
+/* ÆäÀÌÂ¡ */
 .pg_wrap {
     clear: both;
     float: left;
