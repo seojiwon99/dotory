@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import co.dotory.member.service.GoodVO;
 
 public interface GoodMapper {
-	List<GoodVO> userGoodList(int page);
+	List<GoodVO> userGoodList(@Param("page") int page, @Param("memberId") String memberId);
 	List<GoodVO> userGoodList(@Param("key") String key, @Param("val") String val, @Param("page") int page);
 	GoodVO goodSelect(GoodVO vo);
 	int goodInsert(GoodVO vo);
