@@ -2,6 +2,7 @@
 pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
 prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <link rel="stylesheet" href="css/user.css" />
+<div class="container">
 <h2>회원 상세정보</h2>
 <table class="table">
   <tr>
@@ -91,5 +92,5 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <a href="userMain.do"> 메인으로 돌아가기 </a>
   </th>
 </table>
-
+</div>
 <script></script>
