@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <div class="wrapper" align="center"	style="background-image:url('images/Regist.jpg');">
+    <div class="wrapper" align="center"	style="background-image:url('images/RejistMain.jpg');">
    	 <div class="outer">
-        <div class="title"><h1 style="font-size: 21px;">회원가입</h1></div>
+        <div class="title"><h1 style="font-size: 21px; color:white;">회원가입</h1></div>
         <form id="frm" method="post" name = "frm" onsubmit="return false">
         <div class="id">
-            <input id="memberId" name="memberId" type="text" placeholder="아이디를 입력해 주세요." oninput="putId()">
+            <input id="memberId" class="font" name="memberId" type="text" placeholder="아이디를 입력해 주세요." oninput="putId()">
         	<button type="button" disabled id="idcheck"  onclick="idCheck()">중복체크</button>
         	<button type="button" disabled id="idDecide" value="No" onclick="setId()">사용하기</button>
         </div>
@@ -45,7 +45,7 @@
         <div class="addr">
         <input type="text" id="detailAddress" placeholder="상세주소()"  oninput ="setAddr()">
 		    <input type="hidden" id="postcode" placeholder="우편번호" >
-			<input type="button" onclick="execDaumPostcode()" value="주소 찾기"><br>
+			<input type="button" id="addrBtn" onclick="execDaumPostcode()" value="주소 찾기"><br>
 		</div>
         <br>
         <div class="phone">
