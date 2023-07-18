@@ -16,6 +16,9 @@ html {
 body {
     width: 100%;
 }
+h1 {
+	margin :20px;
+}
 input{
     border: 1px solid black;
     border-radius: 3px;
@@ -37,8 +40,9 @@ input{
 }
 .outer {
 	width:40%;
-	border: 1px solid white;
-    border-radius:10px;
+	border: 5px solid white;
+    border-radius:30px;
+    margin-top:50px;
 }
 
 div {
@@ -52,7 +56,7 @@ div {
 }
 
 .id input {
-	margin-left : 20px;
+	margin-left : 0px;
     width: 220px;
     margin-right : 10px;
 }
@@ -96,7 +100,7 @@ div {
     width:100%;
 }
 .phone input{
-	width:350px;
+	width:343px;
 	float:center;
 }
 
@@ -135,7 +139,7 @@ div {
     margin-right:10px;
 }
 .timer input {
-	margin-right : 10px;
+	margin-right : 8px;
 	padding : 0px;
 	width:150px;
 	display:inline;
@@ -143,7 +147,7 @@ div {
 }
 
 .timer button {
-	margin-right:20px;
+	margin-right:17px;
     width: 100px;
     display:inline;
 }
@@ -157,6 +161,7 @@ div {
 button{
     cursor: pointer;
     height: 30px;
+    color: rgba(255,255,255,0.8);
 }
 
 .error{
