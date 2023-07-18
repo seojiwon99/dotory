@@ -9,6 +9,9 @@
 body{
 	font-family: 'GangwonEdu_OTFBoldA';
 }
+.list{
+	background-color: white;
+}
 .pg_wrap {
     float: none !important;
     width: 100%;

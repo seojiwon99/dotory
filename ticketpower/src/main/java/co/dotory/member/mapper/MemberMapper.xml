@@ -76,8 +76,9 @@
 	</select> 
 	
 	<select id="memberLogin" resultType="co.dotory.member.service.MemberVO">
-		SELECT * FROM DT_MEMBER WHERE MEMBER_ID = #{memberId}
-		<if test="memberPw != null"> AND MEMBER_PW = #{memberPw}</if>
+		select * from dt_member
+		where member_id = #{memberId} 
+		and   member_pw = #{memberPw}
 	</select>
 	<!-- <update id="memberUpdate" parameterType="co.dotory.member.service.MemberVO">
 		UPDATE MEMBER
