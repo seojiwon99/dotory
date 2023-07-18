@@ -1,5 +1,8 @@
 package co.dotory.board.command;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,7 +34,10 @@ public class ReplyAdd implements Command {
 		vo.setBoardId(Integer.parseInt(boardId));
 		vo.setReply(reply);
 		vo.setMemberId(memberId);
-		
+
+
+       
+        
 		if(svc.replyAdd(vo)) {
 			try {
 				result += mapper.writeValueAsString(vo);

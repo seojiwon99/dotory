@@ -45,9 +45,10 @@
         } else if (content == null || content == '') {
             alert("내용을 입력해주세요.");
         } else {
+            console.log($('form[name="myFrm"]').attr('action'));
             $.ajax({
                 url: $('form[name="myFrm"]').attr('action'),
-                method: "POST",
+                type: "POST",
                 data: $('form[name="myFrm"]').serialize(),
                 success: function (result) {
                     console.log(result);

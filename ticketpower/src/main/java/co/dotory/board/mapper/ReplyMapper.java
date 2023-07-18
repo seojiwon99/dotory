@@ -20,4 +20,7 @@ public interface ReplyMapper {
 	
 	// 대댓글 등록
 	public int commentAdd(ReplyVO replyvo);
+	
+	// 삭제
+	public boolean replydDel(int replyId);
 }

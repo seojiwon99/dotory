@@ -2,6 +2,8 @@ package co.dotory.member.command;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +29,8 @@ public class MemberLogin implements Command {
 		memberVO=memberService.memberLogin(id, pw);
 		
 		
+	
+		
 		if (memberVO != null) {
 			session.setAttribute("id", memberVO.getMemberId());
 			session.setAttribute("pw", memberVO.getMemberPw());
@@ -38,7 +42,7 @@ public class MemberLogin implements Command {
 
 			session.setAttribute("img", memberVO.getMemberImg());
 			
-
+			
 			if (memberVO.getMemberAuthor().equals("ADMIN")) {
 				return "adminMainPage.do";
 			}

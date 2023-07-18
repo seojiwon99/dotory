@@ -23,7 +23,7 @@
                             <tr>
                                 <th>좋아요</th>
                                 <td colspan="3"><input type="text" value="${board.boardGood}" id="goodBox"
-                                        name="goodBox" style="float: left; border: 0px solid salmon;">
+                                        name="goodBox" style="float: left; border: 0px solid salmon;" readonly>
                                     <c:if test="${goodchk eq 0}">
                                         <img src="images/nogood.png" style="width:30px" class="good">
                                     </c:if>
@@ -38,13 +38,6 @@
                                 </td>
                             </tr>
                         </table>
-                            <!-- <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">reply</label>
-                                <div class="col-sm-10" style="width: 40%;">
-                                    <input type="text" class="form-control" id="reply" name="reply">
-                                </div>
-                                <button type="button" id="addreplyBtn" class="btn btn-primary">댓글 등록</button>
-                            </div> -->
                             <div class="input-group mb-3" style="width: 100%; margin-bottom: 50px;">
                                 <input type="text" class="form-control" placeholder="댓글" aria-label="Recipient's username" id="reply" name="reply" style="width: 70%;">
                                 <button class="btn btn-outline-secondary" type="button" id="addreplyBtn">Button</button>
@@ -60,35 +53,33 @@
                             </thead>
                             <tbody class="replybody">
                                     <c:forEach items="${reply}" var="r">
-                                        <tr class="addReply2" style="${r.replyLevel ne 1 ? 'background-color:rgba(0,0,0,0.05)':'' }">
-                                            <input type="hidden" value="${r.replyId}">
+                                        <tr class="${r.replyLevel ne 1 ? '':'addReply2' }" style="${r.replyLevel ne 1 ? 'background-color:rgba(0,0,0,0.05)':' '}">
                                             <td>
-                                            
-	                                        <c:forEach begin="1" end="${r.replyLevel - 1}">
-	                                        	&nbsp&nbsp&nbsp
-	                                        </c:forEach>
-	                                        <c:if test="${r.replyLevel ne 1}">
-	                                        
-		                                        └
-	                                        </c:if>
+                                                <c:forEach begin="1" end="${r.replyLevel - 1}">
+                                                    &nbsp&nbsp&nbsp
+                                                </c:forEach>
+                                                <c:if test="${r.replyLevel ne 1}">
+                                                    └
+                                                </c:if>
                                             	${r.memberId}
                                             </td>
                                             <td>${r.reply}</td>
                                             <td>${r.replyDate}</td>
                                             <td>
                                                 <c:if test="${r.memberId == id }">
-                                                    <input type="button" data-id="${r.replyId}" id="replydelete" class="replyAdd"
-                                                        name="replydelete" value="삭제">
-                                                    <input type="button" data-id="${r.replyId}" id="replyedit" class="replyAdd"
-                                                        name="replydelete" value="수정">
+                                                    <input type="button" data-id="${r.replyId}" id="replydelete" class="replydelete"
+                                                    name="replydelete" value="삭제">
+                                                    <input type="button" data-id="${r.replyId}" id="replyedit" class="replyedit"
+                                                    name="replyedit" value="수정">
                                                 </c:if>
                                             </td>
+                                            <input type="hidden" value="${r.replyId}" class="rreplyId" data-parent="${r.parentNum}"> 
                                         </tr>
 
                                     </c:forEach>
                           
                             </tbody>
-                        </table>
+                        </table> 
                         <div style="text-align: center;">
                             <a href="boardList.do">목록으로</a>
 
@@ -98,11 +89,12 @@
             </div>
         </header>
         <script type="text/javascript">
-            $(document).ready(function(){
-                
-            })
+            let today = new Date();  
 
-
+            let year = today.getFullYear(); // 년도
+            let month = today.getMonth() + 1;  // 월
+            let date = today.getDate(); 
+            let to = year+"-"+(("00"+month.toString()).slice(-2))+"-"+(("00"+date.toString()).slice(-2));
                 $('.good').on('click', function () {
                     let boardId = $('#boardId').val();
                     let good = $('#goodBox').val();
@@ -130,7 +122,21 @@
     
                     })
                 })
-    
+                
+                $('.replyedit').on('click',function(e){
+                    e.stopPropagation();
+                    let t =  $(this).parent().parent().children().eq(2);
+                    let text = t.text();
+                    console.log(text);
+                    t.text('');
+                    t.append('<input type="text" value="'+ text +'" class="textbox" style="width:200px;">');
+                    t.append('<button type="button" class="edit">수정하기</button><button type="button" class="cancle">취소</button>');
+                       
+                })
+
+              
+
+
                 $('#addreplyBtn').on('click', function () {
                     let boardId = $('#boardId').val();
                     let reply = $('#reply').val();
@@ -149,16 +155,22 @@
                                 'Content-type': 'application/x-www-form-urlencoded'
                             },
                             success: function (result) {
-                   
+                                console.log(result);
                                 let str =`
                                     <tr class="addReply2">
                                         <td>\${result.memberId}</td>
                                         <td>\${result.reply}</td>
-                                        <td>\${result.replyDate}</td>
-                                        <td><button>삭제하기</button></td>
+                                        <td>\${to}</td>
+                                        <td>
+                                            <input type="button" data-id="\${result.replyId}" id="replydelete" class="replydelete"
+                                            name="replydelete" value="삭제">
+                                            <input type="button" data-id="\${result.replyId}" id="replyedit" class="replyedit"
+                                            name="replydelete" value="수정">
+                                            </td>
+                                        <input type="hidden" value="\${result.replyId}" data-parent="\${result.parentNum}">
                                     </tr>
                                 `   
-                                $('tbody').prepend(str);
+                                $('.replybody').prepend(str);
     
                                 $('#reply').val('');
                             },
@@ -170,34 +182,7 @@
     
                     }
                 })
-                // $("input[name='replydelete']").on('click', function () {
-                //     let id = $(this).data("id");
-                //     let thi = $(this).parent().parent();
-                //     console.log(this)
-                //     $.ajax({
-                //         url: 'adminReplyDelte.do',
-                //         type: "post",
-                //         dataType: "json",
-                //         data: {
-                //             replyid: id
-                //         },
-                //         headers: {
-                //             'Content-type': 'application/x-www-form-urlencoded'
-                //         },
-                //         success: function (result) {
-                //             if (result == 1) {
-                //                 thi.remove();
-                //             } else if (result == 0) {
-                //                 alert("삭제실패");
-    
-                //             }
-                //         },
-                //         error: function (err) {
-                //             console.log(err);
-                //         }
-    
-                //     })
-                // })
+      
         
                 $(document).on('click',".addReply2",function(){
                     let id = $('#memberId').val();
@@ -214,16 +199,107 @@
                         </tr>
                                 
                                 `;
-                                $(this).after(str);
+                        $(this).after(str);
   
                 })
                 
+
+                $(document).on('click',".textbox",function(e){
+                    e.stopPropagation();
+                })
+
+                $(document).on('click',".edit",function(e){
+                    e.stopPropagation();    
+                    let td = $(this).parent();
+                    let replyId = $(this).parent().parent().children("input").val();
+                    let reply =$(this).siblings("input").val();
+                    if(reply == null || reply == ''){
+                        alert("댓글을 입력해주세요.")
+                    }else{
+                        $.ajax({
+                            url: 'replyEdit.do',
+                            type: "POST",
+                            dataType:"json",
+                            data: {
+                                replyId: replyId,
+                                reply: reply,
+                            },
+                            headers: {
+                                'Content-type': 'application/x-www-form-urlencoded'
+                            },
+                            success: function (result) {
+                                console.log(result);
+                                td.children().remove();
+                                td.text(result.reply)
+                            },
+                            error: function (err) {
+                                console.log(err);
+                            }
+                        })
+                    }
+                })
+
+
+                $(document).on("click",".cancle",function(e){
+                    e.stopPropagation();
+                   
+                    let text = $(this).siblings('input').val();
+                    $(this).parent().text(text);
+                    $(this).parent().children().remove();
+                });
+      
+
+                $(document).on("click",".replydelete",function(e){
+                    e.stopPropagation();
+                    let tr = $(this).parent().parent().parent().children();
+                    let replyId = $(this).data('id');
+                    console.log($(this).parent().parent());
+                    let thistr = $(this).parent().parent()
+                    
+                    
+                    if (!confirm("삭제하시겠습니까?")) {
+                        return false;                        
+                    } else {
+                        $.ajax({
+                            url: 'replyDelete.do',
+                            type: "POST",
+                            dataType:"json",
+                            data: {
+                                replyId: replyId,
+                            },
+                            headers: {
+                                'Content-type': 'application/x-www-form-urlencoded'
+                            },
+                            success: function (result) {
+                                console.log(result);
+                                if(result == 1){
+                                    alert("삭제완료");
+                                    thistr.remove();
+                                    tr.each(function(index,data){
+                                        if($(data).children().last().data('parent') == replyId){
+                                            $(data).remove();
+                                        }
+                                    
+                                    })
+                                }else{
+                                    alert("삭제 실패");
+                                }
+                            },
+                            error: function (err) {
+                                console.log(err);
+                            }
+                        })
+                    }
+                    
+                });
+
                 $(document).on("click",".replyAdd",function(){
+                    
+
                     let board = $('#boardId').val();
                     let par = $(this).data("par");
                     let reply2 = $(this).siblings("input").val();
-                    
-                    console.log(board + par + reply2);
+                    let tr = $(this).parent().parent();
                     if (reply2 == null || reply2 == '') {
                         alert("댓글을 입력해주세요");
                     } else {
@@ -241,7 +317,27 @@
                             },
                             success: function (result) {
                                 console.log(result);
-                                
+                                tr.children().remove();
+                                let str = 
+                                `   
+                                <td>
+                                    &nbsp&nbsp&nbsp
+                                    └ \${result.memberId}
+                                    </td>
+                                    <td>\${result.reply}</td>
+                                    <td>\${to}</td>
+                                    <td>
+                                        <input type="button" data-id="\${result.replyId}" id="replydelete" class="replydelete"
+                                        name="replydelete" value="삭제">
+                                        <input type="button" data-id="\${result.replyId}" id="replyedit" class="replyedit"
+                                        name="replydelete" value="수정">
+                                        </td>
+                                        <input type="hidden" value="\${result.replyId}" data-parent="\${result.parentNum}"/>
+                                `
+                         
+                                tr.css({'background-color':'rgba(0,0,0,0.05)',})
+                                tr.append(str);
+
                             },
                             error: function (err) {
                                 console.log(err);

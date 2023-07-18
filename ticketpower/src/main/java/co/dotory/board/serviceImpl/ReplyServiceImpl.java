@@ -38,4 +38,9 @@ public class ReplyServiceImpl implements ReplyService{
 		return map.commentAdd(vo) == 1;
 	}
 
+	@Override
+	public boolean replydDel(int replyId) {
+		return map.replydDel(replyId);
+	}
+
 }
