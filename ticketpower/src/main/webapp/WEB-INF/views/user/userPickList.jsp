@@ -13,8 +13,15 @@
 				<li>
 					<div class="mv_card" >
 						<a href="movieDetailPage.do?movieId=${m.movieId}">
-						<img src="https://image.tmdb.org/t/p/w300/${m.moviePosterImg }"
-						class="card-img-top" alt="mvImg">
+						<c:choose>
+							<c:when test="${empty m.moviePosterImg}">
+								<img src="images/user11.jpg" style="width:160px" class="card-img-top"/>	
+							</c:when>
+						<c:otherwise>
+							<img src="https://image.tmdb.org/t/p/w300/${m.moviePosterImg }"				
+							class="card-img-top" alt="mvImg">
+						</c:otherwise>
+						</c:choose>
 						</a>
 						<div class="card-body">
 							<h5 class="card-title">${m.movieName }</h5>
