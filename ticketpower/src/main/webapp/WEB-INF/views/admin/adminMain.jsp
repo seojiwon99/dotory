@@ -8,7 +8,6 @@
         object-fit:cover;
     }
 </style>
-
     <div class="imgbox">
     <img src="images/daramgwee.jpg" class="daram">
 </div>

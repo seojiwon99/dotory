@@ -5,7 +5,7 @@
 
 <tiles-definitions>
   <definition name="myapp.homepage" template="/WEB-INF/views/layouts/layout.jsp">
-    <put-attribute name="title" value="My shop" />
+    <put-attribute name="title" value="DotoryMovie" />
     <put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp" />
     <put-attribute name="body" value="/WEB-INF/views/layouts/body.jsp" />
     <put-attribute name="footer" value="/WEB-INF/views/layouts/footer.jsp" />
