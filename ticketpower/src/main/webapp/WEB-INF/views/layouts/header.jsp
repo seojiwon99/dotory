@@ -2,6 +2,24 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <head>
+<style>
+	#img{
+		width:35px;
+		height:35px;
+		cursor: pointer;
+	}
+	#home{
+		position:absolute;
+		margin-top:28px;
+		color:white;
+		font-size: 20px;
+		cursor: pointer;
+		-webkit-user-select:none;
+  		-moz-user-select:none;
+  		-ms-user-select:none;
+ 		user-select:none
+	}
+</style>
 </head>
 <div id="menu">
     <nav class="navbar-wrapper navbar-default" role="navigation">
@@ -13,7 +31,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand site-name" href="movieListPage.do"><img src="images/logo2.png" alt="logo"></a>
+                <a class="navbar-brand site-name" href="movieListPage.do"><img src="images/dotory1.png" id="img" alt="logo"></a>
+                <p id="home" onclick="location.href='movieListPage.do';">Dotory</p>
             </div>
 
             <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
