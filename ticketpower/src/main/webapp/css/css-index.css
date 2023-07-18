@@ -598,7 +598,7 @@ a:hover {
 	transition: all .8s ease;
 }
 #footer {
-	background: #fff;
+	background-color:rgb(26, 26, 26);
 	padding: 40px 0;
 }
 .social ul {

@@ -30,7 +30,6 @@ public class ImageUpload implements Command {
 			MemberVO vo = new MemberVO();
 			vo.setMemberId(id);
 			vo.setMemberImg(fileName);
-			System.out.println(vo.toString());
 			if(service.modifyImage(vo)) {
 				//{"retCode": "Success", "path": "fileName"}
 				result += fileName;

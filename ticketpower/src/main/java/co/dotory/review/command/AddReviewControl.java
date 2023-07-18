@@ -18,7 +18,6 @@ public class AddReviewControl implements Command {
 		String memberId = req.getParameter("memberId");
 		String review = req.getParameter("review");
 		String reviewLike = req.getParameter("reviewLike");
-		System.out.println(movieId + memberId + review + reviewLike);
 		ObjectMapper mapper = new ObjectMapper();
 		String result = "Ajax:";
 		ReviewVO vo = new ReviewVO();

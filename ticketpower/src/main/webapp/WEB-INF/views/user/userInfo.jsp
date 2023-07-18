@@ -84,7 +84,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 		    </div>
 			<div id = uMod onclick="location.href='userModifyForm.do?memberId=${search.memberId }&memberName=${search.memberName }&memberTel=${search.memberTel}&memberAddr=${search.memberAddr}&memberEdate=${search.memberEdate}&memberImage=${search.memberImg}';">정보 수정
 			</div>
-			<div id = uMain onclick="location.href='userMain.do';">메인
+			<div id = uMain onclick="location.href='movieListPage.do';">메인
 			</div>
 		</div>
 </body>

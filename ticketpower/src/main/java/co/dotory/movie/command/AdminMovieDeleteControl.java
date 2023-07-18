@@ -16,10 +16,7 @@ public class AdminMovieDeleteControl implements Command {
 		
 		String[] id = req.getParameterValues("check");	
 		MovieService svc = new MovieServiceImpl();
-		System.out.println(id);
-		System.out.println(id.length);
 		 for (int i = 0; i < id.length; i++) {
-			 System.out.println(id[i]);
 			 svc.movieDelete(Integer.parseInt(id[i]));
 	      }
 		return "adminMoviePage.do";
