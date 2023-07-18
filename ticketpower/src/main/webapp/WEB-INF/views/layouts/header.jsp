@@ -45,9 +45,7 @@
                     <li><a href="movieListPage.do">영화리스트</a></li>
                     <li><a href="#testi">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
-                 	<c:if test="${session.getAttribute} != null">
-    					 <li><a href="memberLogout.do">로그아웃</a></li>
-    				</c:if>
+    				<li><a href="memberLogout.do">로그아웃</a></li>
                 </ul>
             </div>
         </div>
