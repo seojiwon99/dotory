@@ -6,6 +6,9 @@
 
 <html>
 <head>
+<title>
+	<tiles:getAsString name="title"/>
+</title>
 <style>
 @font-face {
     font-family: 'GangwonEdu_OTFBoldA';
@@ -17,11 +20,8 @@
 	font-family: 'GangwonEdu_OTFBoldA';
 }
 </style>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
 <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -33,10 +33,6 @@
         <!-- Colors -->
         <link href="css/css-index.css" rel="stylesheet" media="screen"> 
 </head>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Insert title here</title>
-  </head>
  <body data-spy="scroll" data-target="#navbar-scroll">
 		<c:if test="${!empty id}">
 		
