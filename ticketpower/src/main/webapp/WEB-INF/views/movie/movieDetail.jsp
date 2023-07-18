@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/movieDetail.css">
 </head>
-<body style="background-image: url('https://image.tmdb.org/t/p/original/${movieDetail.movieBackImg}');">
+<body style="background-image: url('https://image.tmdb.org/t/p/original/${movieDetail.movieBackImg}'), url('images/background.jpg');">
 	<div class="container mv_container">
 		<!-- 영화정보 -->
 		<div class="movie_info">
@@ -47,8 +47,9 @@
 						<div class="review_input_one">
 							<input type="text" readonly id="memberIdInput" name="MemberId"
 							value="${id }" required>
+							<a>평점</a>
 							<input type="number" id="reviewLikeInput" max="5" min="1"
-							class="mv_btn" name="reviewLike" value="0" required />
+							class="mv_btn" name="reviewLike" value="5" required />
 						</div>
 						<div>
 							<textarea id="reviewInput" placeholder="리뷰를 작성해주세요."
