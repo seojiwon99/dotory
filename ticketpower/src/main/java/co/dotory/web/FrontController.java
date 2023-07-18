@@ -41,23 +41,23 @@ import co.dotory.member.command.UserMain;
 import co.dotory.member.command.UserModify;
 import co.dotory.member.command.UserModifyForm;
 import co.dotory.member.command.UserPickList;
-import co.dotory.member.command.adminMainControl;
-import co.dotory.member.command.adminMemberDeleteControl;
-import co.dotory.member.command.adminMemberForm;
-import co.dotory.member.command.adminMemberModifyControl;
-import co.dotory.member.command.adminMemberPageControl;
+import co.dotory.member.command.AdminMainControl;
+import co.dotory.member.command.AdminMemberDeleteControl;
+import co.dotory.member.command.AdminMemberForm;
+import co.dotory.member.command.AdminMemberModifyControl;
+import co.dotory.member.command.AdminMemberPageControl;
 import co.dotory.movie.command.AdminMovieDeleteControl;
 import co.dotory.movie.command.AdminMovieFormControl;
 import co.dotory.movie.command.AdminMoviePlusControl;
 import co.dotory.movie.command.MoviePickControl;
-import co.dotory.movie.command.adminMovieAddControl;
-import co.dotory.movie.command.adminMoviePageControl;
-import co.dotory.movie.command.movieDetailPageControl;
-import co.dotory.movie.command.movieListPageControl;
+import co.dotory.movie.command.AdminMovieAddControl;
+import co.dotory.movie.command.AdminMoviePageControl;
+import co.dotory.movie.command.MovieDetailPageControl;
+import co.dotory.movie.command.MovieListPageControl;
 import co.dotory.review.command.ModifyReviewControl;
 import co.dotory.review.command.RemoveReviewControl;
 import co.dotory.review.command.ShowReviewControl;
-import co.dotory.review.command.addReviewControl;
+import co.dotory.review.command.AddReviewControl;
 
 
 
@@ -101,14 +101,14 @@ public class FrontController extends HttpServlet {
 		map.put("/replyAdd2.do",new ReplyAdd2());// 대댓글 등록
 		
 		//관리자 (호현)
-		map.put("/adminMainPage.do", new adminMainControl());
-		map.put("/adminMemberPage.do", new adminMemberPageControl());	
-		map.put("/adminMemberForm.do", new adminMemberForm());
-		map.put("/adminMemberModify.do", new adminMemberModifyControl());
-		map.put("/adminMemberDelete.do", new adminMemberDeleteControl());
+		map.put("/adminMainPage.do", new AdminMainControl());
+		map.put("/adminMemberPage.do", new AdminMemberPageControl());	
+		map.put("/adminMemberForm.do", new AdminMemberForm());
+		map.put("/adminMemberModify.do", new AdminMemberModifyControl());
+		map.put("/adminMemberDelete.do", new AdminMemberDeleteControl());
 		map.put("/ajaxMemberSearchList.do", new AjaxMemberSearchList());
-		map.put("/adminMoviePage.do", new adminMoviePageControl());
-		map.put("/adminMovieAdd.do", new adminMovieAddControl());
+		map.put("/adminMoviePage.do", new AdminMoviePageControl());
+		map.put("/adminMovieAdd.do", new AdminMovieAddControl());
 		map.put("/adminMovieAddControl.do", new AdminMoviePlusControl());
 		map.put("/adminMovieForm.do", new AdminMovieFormControl());
 		map.put("/adminMovieDelete.do", new AdminMovieDeleteControl());
@@ -118,13 +118,13 @@ public class FrontController extends HttpServlet {
 		map.put("/adminBoardDelete.do", new AdminBoardDeleteControl());
 		
 		//영화
-		map.put("/movieListPage.do", new movieListPageControl());
-		map.put("/movieDetailPage.do", new movieDetailPageControl());
+		map.put("/movieListPage.do", new MovieListPageControl());
+		map.put("/movieDetailPage.do", new MovieDetailPageControl());
 		map.put("/moviePick.do", new MoviePickControl());
 		
 		//리뷰
 		map.put("/showReview.do", new ShowReviewControl());
-		map.put("/addReview.do", new addReviewControl());
+		map.put("/addReview.do", new AddReviewControl());
 		map.put("/removeReview.do", new RemoveReviewControl());
 		map.put("/modifyReview.do", new ModifyReviewControl());
 		

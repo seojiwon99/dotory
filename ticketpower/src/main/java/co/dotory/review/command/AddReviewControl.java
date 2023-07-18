@@ -10,7 +10,7 @@ import co.dotory.review.service.ReviewService;
 import co.dotory.review.service.ReviewVO;
 import co.dotory.review.serviceImpl.ReviewServiceImpl;
 
-public class addReviewControl implements Command {
+public class AddReviewControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {

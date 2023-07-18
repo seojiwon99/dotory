@@ -10,7 +10,7 @@ import co.dotory.member.service.MemberService;
 import co.dotory.member.service.MemberVO;
 import co.dotory.member.serviceImpl.MemberServiceImpl;
 
-public class adminMemberForm implements Command {
+public class AdminMemberForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {

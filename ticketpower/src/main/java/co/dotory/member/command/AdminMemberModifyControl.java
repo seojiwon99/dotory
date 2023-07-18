@@ -11,7 +11,7 @@ import co.dotory.member.service.MemberService;
 import co.dotory.member.service.MemberVO;
 import co.dotory.member.serviceImpl.MemberServiceImpl;
 
-public class adminMemberModifyControl implements Command {
+public class AdminMemberModifyControl implements Command {
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
