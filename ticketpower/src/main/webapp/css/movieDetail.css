@@ -3,7 +3,7 @@
 		resize: none;
 	}
 body{
-	background-size: contain; 
+	background-size: cover; 
 	height: 100vh; 
 	width: 100vw;
 	color:rgb(236, 236, 236);
