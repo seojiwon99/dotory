@@ -1,78 +1,95 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
 prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<link rel="stylesheet" href="css/user.css" />
-<div class="container">
-<h2>회원정보 수정</h2>
-<form action="userModify.do">
-  <table class="table" border="1" align="center">
-    <tr>
-      <th>아이디</th>
-      <td colspan="3">
-        <input
-          id="memberId"
-          class="memberId"
-          name="memberId"
-          value="${search.memberId}"
-          readonly
-        />
-      </td>
-    </tr>
-    <tr>
-      <th>이름</th>
-      <td colspan="3">
-        <input id="memberName" name="memberName" value="${search.memberName}" />
-      </td>
-    </tr>
-    <tr>
-      <th>전화번호</th>
-      <td colspan="3">
-        <input id="memberTel" name="memberTel" value="${search.memberTel}" />
-      </td>
-    </tr>
-    <tr>
-      <th>주소</th>
-      <td colspan="3">
-        <input id="memberAddr" name="memberAddr" value="${search.memberAddr}" />
-      </td>
-    </tr>
-    <tr>
-      <th>가입날짜</th>
-      <td>
-        <input
-          id="memberEdate"
-          name="memberEdate"
-          value="${search.memberEdate}"
-          readonly
-        />
-      </td>
-      <th>대표이미지</th>
-      <td class="id">
-        <img class="image" width="190px" src="images/${search.memberImg }" />
-        <input type="file" id="image" style="display= none;" />
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="4" align="center">
-        <button type="button" id="saveBtn">저장하기</button>
-      </td>
-    </tr>
-    <tr>
-    	<td colspan="4" align="center">
-      		<a href="userInfo.do"> 마이페이지로 돌아가기 </a>
-    	</td>
-    </tr>
-  </table>
+<!DOCTYPE html>
+<html lang="ko" style="background-color:black" >
+<head>
+	<link rel="stylesheet" href="css/userinfo.css" />
+	<title>마이페이지</title>
+	
+</head>
+<body>
+	<div class="container">
+		<h2>회원정보 수정</h2>
+		<form action="userModify.do" id = "form">
+		<div class = "Boximg">
+			<h3 class="imgtext">대표이미지</h3>
+		      <img class="image" id = "uimg" width="190px" src="images/${search.memberImg }" />
+		      <input type="file" id="image" style="display= none; border:none; font-size:10px;"/>
+		</div>
+  		<br>
+  		<div class = "Box">
+			<h4 class="text">아이디</h4>
+			<br>
+			<span class="input_area">
+					<input
+					id="memberId"
+					name="memberId"
+					value="${search.memberId}"
+					readonly/>
+			</span>
+		</div>
+		<br>
+		<div class = "Box">
+      		<h4 class="text">수정할 이름</h4>
+      		<br>
+			<span class="input_area">
+				<input
+			    id="memberName"
+			    name="memberName"
+			    value="${search.memberName}"/>
+			</span>
+		</div>
+		<br>
+		<div class = "Box">
+    	  	<h4 class="text">수정할 전화번호</h4>
+    	  	<br>
+      		<span class="input_area">
+					<input
+				    id="memberTel"
+				    name="memberTel"
+				    value="${search.memberTel}"/>
+			</span>
+		</div>
+		<br>
+		<div class = "Box">
+			<h4 class="text">수정할 주소</h4>
+     		<br>
+	        <span class="input_area">
+				<input
+		        id="memberAddr"
+		        name="memberAddr"
+		        value="${search.memberAddr}"/>
+        	</span>
+	   	</div>
+		<br>
+	    <div class = "Box">	
+			<h4 class="text">가입날짜</h4>		
+			<br>    	
+			<span class="input_area">
+				<input
+		        id="memberEdate"
+		        name="memberEdate"
+		        value="${search.memberEdate}"
+		        readonly/>
+		    </span>
+		</div>
+		<br>
+		
+    	<div class = "linkBtn">
+    	<div id = saveBtn >저장하기</div>
+    	<div id = uMain onclick="location.href='userInfo.do';">마이페이지
+		</div>
+	</div>
 </form>
 </div>
-<script>
+<script type = "text/javascript">
   //change 이벤트
   document.getElementById("image").addEventListener("change", function (e) {
     console.log(e.target.files[0]);
     // multipart/form-data
     let formData = new FormData(); // <form></form>
-    formData.append("id", document.querySelector("input.memberId").value);
+    formData.append("id", document.querySelector("#form #memberId").value);
     formData.append("image", e.target.files[0]);
 
     $.ajax({
@@ -192,6 +209,8 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     return true;
   }
 </script>
+</body>
+</html>
 
 <!--   버튼이벤트
    $("#btn").on("click", function () {
