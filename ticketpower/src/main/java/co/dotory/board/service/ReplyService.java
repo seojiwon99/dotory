@@ -9,7 +9,13 @@ public interface ReplyService {
 	
 	// 댓글 등록
 	public boolean replyAdd(ReplyVO vo);
-
+	
+	// 댓글 삭제
 	public boolean replyDelte(int id);
 	
+	// 댓글 수정
+	public boolean replyUpdate(ReplyVO vo);
+	
+	// 대댓글 등록
+	public boolean commentAdd(ReplyVO vo);
 }

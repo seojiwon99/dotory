@@ -377,7 +377,7 @@ select:focus {
 }
 
 #s_content {
-    padding: 90px 0 100px;
+    padding: 50px 0 70px;
 }
 
 #s_content .s_area {
@@ -391,7 +391,7 @@ select:focus {
 }
 
 #s_content .s_area .s_tit h3 {
-    padding-bottom: 86px;
+    padding-bottom: 60px;
     text-align: center;
     font-size: 38px;
 }
@@ -680,6 +680,16 @@ select:focus {
     height: 100%
 }
 
+.area{
+	width: 100%;
+	text-align:right;
+}
+
+.btn-primary{
+	margin:0;
+	padding:0px 15px;
+}
+
 @media (min-width: 650px) {
     .tbl_wrap .rep_info {
         display: none;
@@ -769,4 +779,12 @@ select:focus {
         width: 100%;
         margin-top: 10px;
     }
+}
+
+.mb-3{
+	margin-bottom:15px;
+}
+
+.comment{
+	background-color : rgba(0,0,0,0.05);
 }

@@ -10,12 +10,12 @@
 		     , member_id
 		     , board_id
 		     , parent_num
-		     , (level-1) as reply_level
+		     , (level) as reply_level
 	      FROM dt_reply
 	     WHERE board_id = #{boardId}
-	     START WITH parent_num IS NULL
+	     START WITH parent_num = 0
 	   CONNECT BY PRIOR reply_id = parent_num
-		 ORDER SIBLINGS BY reply_id
+		 ORDER SIBLINGS BY reply_id desc
 	</select>
 	
 	<delete id ="replyDelete" >
@@ -24,14 +24,31 @@
 		 where reply_id = #{replyId}
 	</delete>
 	
-	<!-- <insert id="replyAdd" parameterType="replyVO">
-		<selectKey keyProperty="replyId,replyDate" resultType="map" order="BEFORE">
-			SELECT count(reply_id) + 1 as reply_id
+	<!-- 댓글 등록 -->
+	<insert id="replyAdd" parameterType="replyVO">
+		<selectKey keyProperty="replyId,replyDate" resultType="replyVO" order="BEFORE">
+			SELECT max(reply_id) + 1 as reply_id
 			     , sysdate as reply_date
 			  FROM dt_reply
 		</selectKey>
 			INSERT  
-			  INTO dt_reply (reply_id,reply,board_id,member_id)
-			VALUES (#{replyId}, #{reply}, #{boardId},#{memberId})
-	</insert> -->
+			  INTO dt_reply (reply_id,reply,board_id,member_id, 
+			  <if test="parentNum != null">
+				  parent_num
+			  </if>
+			  )
+			VALUES (#{replyId}, #{reply}, #{boardId},#{memberId}, 
+			<if test="parentNum != null">
+				#{parentNum}
+			</if>
+			)
+	</insert>
+	
+	
+	<update id="replyUpdate" parameterType="replyVO">
+		UPDATE dt_reply
+		   SET reply = #{Reply}
+		     , reply_update = sysdate
+		 WHERE reply_id = #{reply_id}
+	</update>	
 </mapper>

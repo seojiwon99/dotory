@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.dotory.MainCommand;
+import co.dotory.board.command.AdminBoardDeleteControl;
+import co.dotory.board.command.AdminBoardDetailControl;
+import co.dotory.board.command.AdminBoardListControl;
 import co.dotory.board.command.AdminReplyDeleteControl;
 import co.dotory.board.command.BoardAdd;
 import co.dotory.board.command.BoardDetail;
@@ -21,6 +24,7 @@ import co.dotory.board.command.BoardGood;
 import co.dotory.board.command.BoardList;
 import co.dotory.board.command.BoardSearch;
 import co.dotory.board.command.ReplyAdd;
+import co.dotory.board.command.ReplyAdd2;
 import co.dotory.common.Command;
 import co.dotory.member.command.AjaxMemberSearchList;
 import co.dotory.member.command.ImageUpload;
@@ -94,6 +98,8 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/replyAdd.do", new ReplyAdd()); // 댓글 등록
 		
+		map.put("/replyAdd2.do",new ReplyAdd2());// 대댓글 등록
+		
 		//관리자 (호현)
 		map.put("/adminMainPage.do", new adminMainControl());
 		map.put("/adminMemberPage.do", new adminMemberPageControl());	
@@ -107,7 +113,10 @@ public class FrontController extends HttpServlet {
 		map.put("/adminMovieForm.do", new AdminMovieFormControl());
 		map.put("/adminMovieDelete.do", new AdminMovieDeleteControl());
 		map.put("/adminReplyDelte.do", new AdminReplyDeleteControl());
-
+		map.put("/adminboardList.do", new AdminBoardListControl());
+		map.put("/adminboardDetail.do", new AdminBoardDetailControl());
+		map.put("/adminBoardDelete.do", new AdminBoardDeleteControl());
+		
 		//영화
 		map.put("/movieListPage.do", new movieListPageControl());
 		map.put("/movieDetailPage.do", new movieDetailPageControl());

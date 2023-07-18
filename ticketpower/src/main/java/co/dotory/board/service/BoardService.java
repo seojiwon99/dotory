@@ -13,6 +13,11 @@ public interface BoardService {
 	// 게시판 등록
 	public int boardAdd(BoardVO vo);
 	
+	// 게시글 수정
+	public boolean boardDel(int boardId);
+	
+	public boolean boardUpdate(BoardVO vo);
+	
 	// 게시글 갯수
 	public int totalCnt();
 	
@@ -35,6 +40,8 @@ public interface BoardService {
 	
 	// 좋아요 수 가져오기
 	public int getGood(int boardId);
+
+	public boolean boardDelete(int boardid);
 
 	// 좋아요 수 수정
 	/* public boolean updateGood(String memeberId, int boardId); */

@@ -14,7 +14,7 @@ import co.dotory.board.serviceImpl.BoardServiceImpl;
 import co.dotory.board.serviceImpl.ReplyServiceImpl;
 import co.dotory.common.Command;
 
-public class BoardDetail implements Command {
+public class AdminBoardDetailControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
@@ -36,10 +36,9 @@ public class BoardDetail implements Command {
 		
 		// 댓글
 		List<ReplyVO> reply = replysvc.getReply(Integer.parseInt(brdNo));
-		System.out.println(reply);
 		req.setAttribute("reply",reply);
 		
-		return "board/boardDetail";
+		return "admin/adminboardDetail";
 	}
 
 }

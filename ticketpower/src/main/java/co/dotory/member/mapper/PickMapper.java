@@ -19,6 +19,6 @@ public interface PickMapper {
 	int moviePickUnCheck(PickVO vo);
 	public int totalCnt();
 	public int totalCnt(@Param("key")String key, @Param("val") String val);
-	PickVO moviePick(int movieId, String memberId);
+	PickVO moviePick(@Param("movieId") int movieId, @Param("memberId") String memberId);
 
 }
