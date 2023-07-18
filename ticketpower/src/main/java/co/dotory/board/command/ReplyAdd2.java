@@ -27,7 +27,6 @@ public class ReplyAdd2 implements Command {
 		String memberId = (String) session.getAttribute("id");
 		String par = req.getParameter("parent");
 		
-		System.out.println(reply +" "+ boardId + " " +memberId + " " + par);
 		ObjectMapper mapper = new ObjectMapper();
 		
 		ReplyVO vo = new ReplyVO();

@@ -18,7 +18,6 @@ public class UserModifyForm implements Command{
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
-		System.out.println(id);
 		/* String id = req.getParameter("id"); */
 		MemberVO vo = new MemberVO();
 		MemberService svc = new MemberServiceImpl();

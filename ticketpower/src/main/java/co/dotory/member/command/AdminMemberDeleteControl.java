@@ -15,10 +15,8 @@ public class AdminMemberDeleteControl implements Command {
 		MemberService svc = new MemberServiceImpl();
 
 		if (svc.memberDelete(id)) {
-			System.out.println("삭제성공");
 			return "adminMemberPage.do";
 		} else {
-			System.out.println("삭제실패");
 			return "adminMemberDelete.do";
 		}
 	}

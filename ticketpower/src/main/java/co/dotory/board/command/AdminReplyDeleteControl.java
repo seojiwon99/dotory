@@ -15,11 +15,9 @@ public class AdminReplyDeleteControl implements Command {
 		ReplyService svc = new ReplyServiceImpl();
 		String ajax = "Ajax:";
 		if(svc.replyDelte(replyid)) {
-			System.out.println("삭제성공");
 			return ajax+="1";
 		}
 		else {
-			System.out.println("삭제실패");
 			return ajax+="0";
 		}
 		
