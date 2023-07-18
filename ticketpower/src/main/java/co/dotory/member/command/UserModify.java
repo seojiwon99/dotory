@@ -18,7 +18,6 @@ public class UserModify implements Command {
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
 		
 		String id = req.getParameter("memberId");
-		System.out.println(id);
 		
 		String result = "Ajax:";
 		MemberService svc = new MemberServiceImpl();
@@ -28,13 +27,10 @@ public class UserModify implements Command {
 		vo.setMemberTel(req.getParameter("memberTel"));
 		vo.setMemberAddr(req.getParameter("memberAddr"));
 		vo.setMemberImg(req.getParameter("memberImg"));
-		System.out.println(vo);
 		//return "Ajax:" + ""
 		if (svc.memberUpdate(vo)) {
-			System.out.println("수정완료");
 			return result += "1";
 		} else {
-			System.out.println("수정실패");
 			return result += "0";
 		}
 	}

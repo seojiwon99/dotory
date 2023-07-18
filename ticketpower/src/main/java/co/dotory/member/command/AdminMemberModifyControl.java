@@ -27,13 +27,10 @@ public class AdminMemberModifyControl implements Command {
 		vo.setMemberName(name);
 		vo.setMemberTel(tel);
 		vo.setMemberAddr(addr);
-		System.out.println(vo);
 		
 		if(svc.memberUpdate(vo)) {
-			System.out.println("수정완료");
 			return "adminMemberPage.do";
 		}else {
-			System.out.println("수정실패");
 			return "adminMemberForm.do";
 		}
 	}

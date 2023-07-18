@@ -34,7 +34,6 @@ public class AdminMovieModifyControl implements Command {
 			String backimg = multi.getFilesystemName("moviebackimg");
 			String release = multi.getParameter("movierelease");
 			LocalDate releaseDate = LocalDate.parse(release, formatter);
-			System.out.println(posterimg);
 			int id = Integer.parseInt(multi.getParameter("movieid"));
 			int age = Integer.parseInt(multi.getParameter("movieage"));
 
@@ -52,10 +51,8 @@ public class AdminMovieModifyControl implements Command {
 			vo.setMovieRelease(Date.valueOf(releaseDate));
 
 			if (svc.movieModify(vo) == 0) {
-				System.out.println("수정실패");
 				return "adminMovieModify.do";
 			} else {
-				System.out.println("수정성공");
 				return "adminMoviePage.do";
 			}
 		} catch (IOException e) {
