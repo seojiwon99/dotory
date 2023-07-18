@@ -29,6 +29,20 @@ body{
 	border: 2px solid rgba(0,0,0,0.7);
 	border-radius: 45%;
 	overflow:hidden;
+	width:200px;
+	height:200px;
+	object-fit:cover;
+}
+.Boximg{
+	width:250px;
+	height: 250px;
+	margin:auto;
+}
+#image{
+	margin: auto;
+	margin-left:95px;
+	margin-top:20px;
+	padding:0px;
 }
 input{
 	float:left;
@@ -131,4 +145,19 @@ h4{
 	align-items: center;
 	display: flex;
 	color:white;
+}
+#saveBtn{
+	margin-top:100px;
+	width:100px;
+	height:100px;
+	background-color: rgba(0,0,0,0.7);
+	margin-bottom : 40px;
+	border-radius: 50%;
+	overflow:hidden;
+	cursor: pointer;
+	justify-content:center;
+	align-items: center;
+	display: flex;
+	color:white;
+	margin-right : 50px;
 }
