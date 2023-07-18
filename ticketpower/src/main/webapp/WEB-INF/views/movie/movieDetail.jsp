@@ -16,7 +16,14 @@
 			<hr>
 			<p >${movieDetail.movieSummary}</p>
 			<div>
-			<h2>${movieDetail.movieAge }세 이상</h2>
+			<c:choose>
+				<c:when test="${movieDetail.movieAge le 0 }">
+					<h2>전체이용가</h2>
+				</c:when>
+				<c:otherwise>
+					<h2>${movieDetail.movieAge }세 이상</h2>					
+				</c:otherwise>	
+			</c:choose>
 			<h2>상영시간 : ${movieDetail.movieRuntime }분</h2>			
 			</div>
 		</div>
@@ -92,14 +99,10 @@
 		const movieId = document.getElementById("movieIdInput");
 		const memberId = document.getElementById("memberIdInput");
 		const review = document.getElementById("reviewInput");
-		const reviewLike = document.getElementById("reviewLikeInput");
 		const registBtn = document.getElementById("registBtn");
 		
 		registBtn.addEventListener("click",clickRegistBtn)
 		
-
-
-
 
 		if("${pickVo}" != ""){
 			$("#likeBtn").text("🧡")
@@ -127,11 +130,13 @@
 
 		//댓글등록버튼 이벤트
 		function clickRegistBtn(){
-			if(reviewLike.value === ""){
+			const reviewLike = document.getElementById("reviewLikeInput");
+			if(reviewLike.value === "0"){
 				alert("리뷰점수는 필수입니다.");
 				return;
-			}else if(reviewLike.value < 0 && reviewLike.value > 5){
-				alert("리뷰점수는 0~5 범위로 입력해주세요. ")
+			}else if(reviewLike.value < 1 && reviewLike.value > 5){
+				alert("리뷰점수는 1~5 범위로 입력해주세요. ")
+				return;
 			}
 			$.ajax({
 				type:"POST",
