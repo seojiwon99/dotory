@@ -65,6 +65,8 @@ body{
 	overflow:hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	width:100%;
+	text-align: center;
 }
 img {
 	height: 250px;
