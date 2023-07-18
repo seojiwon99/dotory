@@ -31,13 +31,11 @@
                             <div class="signup-header wow fadeInUp">
                                 <h3 class="form-title text-center">GET STARTED</h3>
                                 <form class="form-header" action="memberLogin.do" role="form" method="POST" id="frm">
-                                    <input type="hidden" name="u" value="503bdae81fde8612ff4944435">
-                                    <input type="hidden" name="id" value="bfdba52708">
                                     <div class="form-group">
                                         <input class="form-control input-lg" name="memberId" id="memberId" type="text" placeholder="Your ID" required>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control input-lg" name="password" id="password" type="password" placeholder="Password" required>
+                                        <input class="form-control input-lg" name="memberPw" id="memberPw" type="password" placeholder="Password" required>
                                     </div>
                                     <div class="form-group last">
                                         <input type="submit" class="btn btn-warning btn-block btn-lg" value="로그인" />
@@ -51,4 +49,20 @@
                 </div> 
             </div> 
         </div>
-    
+<script type="text/javascript">
+document.getElementById("frm").addEventListener("submit",function(e){
+	if(document.getElementById("memberId").value == ""){
+		e.preventDefault();
+		alert("ID를 확인해주세요");
+		document.getElementById("memberId").focus();
+	}
+	else if(document.getElementById("memberPw").value == ""){
+		e.preventDefault();
+		alert("PW를 확인해주세요");
+		document.getElementById("memberPw").focus();
+	}
+	else{
+		
+	}
+});
+</script>
