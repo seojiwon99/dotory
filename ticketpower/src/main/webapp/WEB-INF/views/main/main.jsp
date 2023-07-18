@@ -13,7 +13,7 @@
                             <!-- /.main title -->
                             <h1 class="wow fadeInLeft" style="height: 300px; text-align: center; padding-top:150px; margin-bottom: 50px;">
                                 명작은 그 전개와 결말을 알고서도 다시 찾게 만든다<br>
-                                Ticket Power:
+                                Ticket Power: 
                             </h1>
 
                             <!-- /.header paragraph -->
