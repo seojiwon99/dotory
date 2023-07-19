@@ -13,7 +13,7 @@
                     <li><a class="wow fadeInUp" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-instagram"></i></a></li>
                 </ul>
             </div>	
-            <div class="text-center wow fadeInUp" style="font-size: 14px;">Copyright Backyard 2015 - Template by</div>
+            <div class="text-center wow fadeInUp" style="font-size: 14px;">Team Dotory, Mid Project</div>
             <a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
         </div>	
     </div>	
