@@ -9,7 +9,7 @@
 		  		  FROM (
 		  		  	SELECT bo.*, (select count(*) from dt_reply r where r.board_id = bo.board_id )as board_reply
 		  		 	  FROM dt_board bo
-	  		 	<if test='key.equals("name")'>
+	  		 	<if test='key.equals("userId")'>
 					WHERE MEMBER_ID LIKE '%' || #{val} || '%'
 				</if>
 				<if test='key.equals("title")'>

@@ -27,7 +27,7 @@ public class BoardDetail implements Command {
 		String memberId = (String) session.getAttribute("id");
 		
 		// 조회수
-		/* svc.addCnt(Integer.parseInt(brdNo)); */
+		 svc.addCnt(Integer.parseInt(brdNo)); 
 		
 		BoardVO vo = svc.getBoard(Integer.parseInt(brdNo));
 		req.setAttribute("board", vo);

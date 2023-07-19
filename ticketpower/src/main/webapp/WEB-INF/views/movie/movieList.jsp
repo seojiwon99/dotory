@@ -14,8 +14,11 @@
 					<div class="mv_card" >
 						<a href="movieDetailPage.do?movieId=${m.movieId}">
 						<c:choose>
-						<c:when test="${m.movieId > 81774}">
+						<c:when test="${m.movieId > 81774 and not empty m.moviePosterImg}">
 						<img src="images/${m.moviePosterImg}" style="width:160px" class="card-img-top"/>	
+						</c:when>
+						<c:when test="${empty m.moviePosterImg}">
+							<img src="images/user11.jpg" style="width:160px" class="card-img-top"/>
 						</c:when>
 						<c:otherwise>
 						<img src="https://image.tmdb.org/t/p/w300/${m.moviePosterImg }"				
