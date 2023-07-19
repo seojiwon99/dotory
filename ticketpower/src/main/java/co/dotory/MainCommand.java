@@ -9,7 +9,7 @@ import co.dotory.common.Command;
 public class MainCommand implements Command {
 
 	@Override
-	public String exec(HttpServletRequest req, HttpServletResponse res) {
+	public String exec(HttpServletRequest req, HttpServletResponse res) {	
 		return "main/main";
 	}
 

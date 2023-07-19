@@ -27,6 +27,7 @@ public class MemberLogin implements Command {
 		memberVO=memberService.memberLogin(id, pw);
 		
 		
+		
 		if (memberVO != null) {
 			session.setAttribute("id", memberVO.getMemberId());
 			session.setAttribute("pw", memberVO.getMemberPw());
@@ -45,18 +46,8 @@ public class MemberLogin implements Command {
 			else if (memberVO.getMemberAuthor().equals("USER")) {
 				return "movieListPage.do";
 			}
-		}else{
-			res.setCharacterEncoding("EUC-KR");
-			PrintWriter writer;
-			try {
-				writer = res.getWriter();
-				writer.println("<script type = 'text/javascript'>");
-				writer.println("alert('아이디 비밀번호를 확인해주세요')");
-				writer.println("<'/script'>");
+		}else{	
 				return "main.do";
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 			
 		}
 		return null;

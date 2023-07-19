@@ -42,6 +42,7 @@
                                     </div>
                                     <p class="privacy text-center">계정이 없나요? 다음으로 이동하세요 <a href="memberRegistForm.do">회원가입</a>.</p>
                                 </form>
+                                <p>${err }</p>
                             </div>				
 
                         </div>

@@ -43,8 +43,6 @@
                     <li><a href="adminMainPage.do">관리자페이지</a></li>
                     </c:if>
                     <li><a href="movieListPage.do">영화리스트</a></li>
-                    <li><a href="#testi">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
     				<li><a href="memberLogout.do">로그아웃</a></li>
                 </ul>
             </div>

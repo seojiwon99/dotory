@@ -39,7 +39,7 @@
                             </tr>
                             <tr>
                                <td colspan="4" style="height: 425px;" >
-                                    <textarea cols="150" style="height: 425px; border:none" >${board.boardContent}</textarea>
+                                    <textarea cols="150" style="height: 425px; border:none" readonly >${board.boardContent}</textarea>
                                     
                             </td>
                             </tr>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<header class="masthead" style="margin-top: 90px;">
+<header class="masthead" style="margin-top: 90px;margin-bottom:300px">
     <div class="container px-4 px-lg-5 h-100" style="background-color:white; width: 40%; border: 1px solid; padding: 5px; border-radius:5px;">
                 <h2>글쓰기</h2>
                 <form name="myFrm" action="boardAdd.do">
