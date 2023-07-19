@@ -24,10 +24,20 @@
 		 where reply_id = #{replyId}
 	</delete>
 	
+	<!-- 댓글/ 대댓글 삭제 -->
+	<delete id="replydDel" parameterType="int">
+		DELETE FROM dt_reply 
+             WHERE reply_id in (
+	                      SELECT reply_id FROM dt_reply
+	                      START WITH reply_id = #{replyId}
+	                      CONNECT BY PRIOR  reply_id = parent_num
+              )	
+	</delete>
+	
 	<!-- 댓글 등록 -->
 	<insert id="replyAdd" parameterType="replyVO">
 		<selectKey keyProperty="replyId,replyDate" resultType="replyVO" order="BEFORE">
-			SELECT max(reply_id) + 1 as reply_id
+			SELECT NVL( MAX(reply_id) , 0) + 1 as reply_id
 			     , sysdate as reply_date
 			  FROM dt_reply
 		</selectKey>
@@ -47,8 +57,8 @@
 	
 	<update id="replyUpdate" parameterType="replyVO">
 		UPDATE dt_reply
-		   SET reply = #{Reply}
+		   SET reply = #{reply}
 		     , reply_update = sysdate
-		 WHERE reply_id = #{reply_id}
+		 WHERE reply_id = #{replyId}
 	</update>	
 </mapper>

@@ -44,7 +44,7 @@
 	
 	<insert id="boardAdd" parameterType="boardVO">
 		<selectKey keyProperty="boardId" resultType="int" order="BEFORE">
-			SELECT max(board_id) + 1 as board_id
+			SELECT NVL(MAX(board_id),0) + 1 as board_id
 			  FROM dt_board
 		</selectKey>
 		INSERT 
