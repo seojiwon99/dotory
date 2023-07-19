@@ -33,7 +33,7 @@
                     <tr>
                         <th><span class="input-group-text" id="inputGroup-sizing-default">이미지</span></th>
                     </tr>
-                    <c:if test="${search.movieId < 188814}">
+                    <c:if test="${search.movieId < 81775}">
                         <tr>
                             <td>
                                 <img src="https://image.tmdb.org/t/p/w500/${search.moviePosterImg}" style="width:80px">
@@ -44,7 +44,7 @@
                             </td>
                         </tr>
                     </c:if>
-                    <c:if test="${search.movieId > 188813}">
+                    <c:if test="${search.movieId > 81774}">
                         <td>
                             <img src="images/${search.moviePosterImg}" style="width:80px" />
                             <!-- <input type="file" id="movieImg" name="movieImg"> -->
@@ -111,7 +111,7 @@
                     <tr>
                         <th><span class="input-group-text" id="inputGroup-sizing-default">배경이미지</span></th>
                     </tr>
-                    <c:if test="${search.movieId < 188814}">
+                    <c:if test="${search.movieId < 81774}">
                         <tr>
                             <td>
                                 <img src="https://image.tmdb.org/t/p/w500/${search.movieBackImg}" style="width:80px">
@@ -122,7 +122,7 @@
                             </td>
                         </tr>
                     </c:if>
-                    <c:if test="${search.movieId > 188813}">
+                    <c:if test="${search.movieId > 81775}">
                         <td>
                             <img src="images/${search.movieBackImg}" style="width:80px" /><input type="file"
                                 id="movienackImg" name="moviebackImg" value="${search.moviePosterImg}">

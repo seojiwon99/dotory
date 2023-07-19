@@ -52,12 +52,14 @@
                                 <td><input type="checkbox" id="${mvlist.movieId}" name="check"></td>
                                 <td>${mvlist.movieId}</td>
                                 <td>
-                                	<c:if test="${mvlist.movieId < 188814}">
-	                                	<img src="https://image.tmdb.org/t/p/w500/${mvlist.moviePosterImg}" style="width:80px">
-                                	</c:if>
-                                	<c:if test="${mvlist.movieId > 188813}">
-                                		<img src="images/${mvlist.moviePosterImg}" style="width:80px"/>
-                                	</c:if>
+                                	<c:choose>
+                                		<c:when test="${mvlist.movieId < 81775}">
+		                                	<img src="https://image.tmdb.org/t/p/w500/${mvlist.moviePosterImg}" style="width:80px">                                		
+                                		</c:when>
+                                		<c:otherwise>
+	                                		<img src="images/${mvlist.moviePosterImg}" style="width:80px"/>                                			
+                                		</c:otherwise>
+                                	</c:choose>
                                 </td>
                                 <td><a href="adminMovieForm.do?movieid=${mvlist.movieId }">${mvlist.movieName}</a></td>
                                 <td>${mvlist.movieAge}</td>
