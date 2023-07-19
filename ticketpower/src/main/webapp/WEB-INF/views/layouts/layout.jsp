@@ -9,6 +9,7 @@
 <title>
 	<tiles:getAsString name="title"/>
 </title>
+<script src="https://kit.fontawesome.com/257f34c49d.js" crossorigin="anonymous"></script>
 <style>
 @font-face {
     font-family: 'GangwonEdu_OTFBoldA';
