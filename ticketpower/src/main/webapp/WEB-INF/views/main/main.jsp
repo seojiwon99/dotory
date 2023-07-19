@@ -9,16 +9,20 @@
                         <div class="col-md-7">
 
                             <!-- /.logo -->
-                            <div class="logo wow fadeInDown"> <a href=""><img src="images/logo.png" alt="Dotory"></a></div>
 
                             <!-- /.main title -->
-                            <h1 class="wow fadeInLeft">
-                                Beautiful High Converting Landing Page
+                            <h1 class="wow fadeInLeft" style="height: 300px; text-align: center; padding-top:150px; margin-bottom: 50px;">
+                                명작은 그 전개와 결말을 알고서도 다시 찾게 만든다<br>
+                                Ticket Power: 
                             </h1>
 
                             <!-- /.header paragraph -->
                             <div class="landing-text wow fadeInUp">
-                                <p>Backyard is a modern and customizable landing page template designed to increase conversion of your product. Backyard is flexible to suit any kind of your business. Try now and join with our happy customers!</p>
+                                <p>티켓파워는 명작이지만 시간에 묻혀 우리에게 잊혀져버린 영화들을 소개한다</p>
+                                <p>
+									과거를 그리워하는 사람들의 니즈를 만족시키기 위해 80년대에서 2000년대 초반에 개봉한 영화들을 소개하는 기능을 가진 사이트로 만들어졌다
+									해당하는 시기의 명작 영화들을 간추려서 업로드하고 사용자들은 이 영화들에 대해 자유롭게 줄거리, 느낀점, 별점들을 제공하고 소통할 수 있는 공간이다.  
+								</p>
                             </div>				  
                         </div> 
 

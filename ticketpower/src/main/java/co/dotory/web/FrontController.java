@@ -25,7 +25,14 @@ import co.dotory.board.command.BoardList;
 import co.dotory.board.command.BoardSearch;
 import co.dotory.board.command.ReplyAdd;
 import co.dotory.board.command.ReplyAdd2;
+import co.dotory.board.command.ReplyDelete;
+import co.dotory.board.command.ReplyEdit;
 import co.dotory.common.Command;
+import co.dotory.member.command.AdminMainControl;
+import co.dotory.member.command.AdminMemberDeleteControl;
+import co.dotory.member.command.AdminMemberForm;
+import co.dotory.member.command.AdminMemberModifyControl;
+import co.dotory.member.command.AdminMemberPageControl;
 import co.dotory.member.command.AjaxMemberSearchList;
 import co.dotory.member.command.ImageUpload;
 import co.dotory.member.command.MemberIdcheck;
@@ -41,23 +48,19 @@ import co.dotory.member.command.UserMain;
 import co.dotory.member.command.UserModify;
 import co.dotory.member.command.UserModifyForm;
 import co.dotory.member.command.UserPickList;
-import co.dotory.member.command.AdminMainControl;
-import co.dotory.member.command.AdminMemberDeleteControl;
-import co.dotory.member.command.AdminMemberForm;
-import co.dotory.member.command.AdminMemberModifyControl;
-import co.dotory.member.command.AdminMemberPageControl;
+import co.dotory.movie.command.AdminMovieAddControl;
 import co.dotory.movie.command.AdminMovieDeleteControl;
 import co.dotory.movie.command.AdminMovieFormControl;
-import co.dotory.movie.command.AdminMoviePlusControl;
-import co.dotory.movie.command.MoviePickControl;
-import co.dotory.movie.command.AdminMovieAddControl;
+import co.dotory.movie.command.AdminMovieModifyControl;
 import co.dotory.movie.command.AdminMoviePageControl;
+import co.dotory.movie.command.AdminMoviePlusControl;
 import co.dotory.movie.command.MovieDetailPageControl;
 import co.dotory.movie.command.MovieListPageControl;
+import co.dotory.movie.command.MoviePickControl;
+import co.dotory.review.command.AddReviewControl;
 import co.dotory.review.command.ModifyReviewControl;
 import co.dotory.review.command.RemoveReviewControl;
 import co.dotory.review.command.ShowReviewControl;
-import co.dotory.review.command.AddReviewControl;
 
 
 
@@ -100,6 +103,10 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/replyAdd2.do",new ReplyAdd2());// 대댓글 등록
 		
+		map.put("/replyEdit.do", new ReplyEdit());// 댓글 수정
+		
+		map.put("/replyDelete.do",new ReplyDelete()); // 댓글 삭제
+		
 		//관리자 (호현)
 		map.put("/adminMainPage.do", new AdminMainControl());
 		map.put("/adminMemberPage.do", new AdminMemberPageControl());	
@@ -111,6 +118,7 @@ public class FrontController extends HttpServlet {
 		map.put("/adminMovieAdd.do", new AdminMovieAddControl());
 		map.put("/adminMovieAddControl.do", new AdminMoviePlusControl());
 		map.put("/adminMovieForm.do", new AdminMovieFormControl());
+	    map.put("/adminMovieModify.do", new AdminMovieModifyControl());
 		map.put("/adminMovieDelete.do", new AdminMovieDeleteControl());
 		map.put("/adminReplyDelte.do", new AdminReplyDeleteControl());
 		map.put("/adminboardList.do", new AdminBoardListControl());

@@ -18,4 +18,7 @@ public interface ReplyService {
 	
 	// 대댓글 등록
 	public boolean commentAdd(ReplyVO vo);
+	
+	// 삭제
+	public boolean replydDel(int replyId);
 }
