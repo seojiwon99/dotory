@@ -87,7 +87,7 @@ function changePhone1(){
     		document.getElementById("memberTel").value = "";
     	}else{
     		document.getElementById("idError").innerHTML=""
-    		document.getElementById("sendMessage").setAttribute("style","background-color:yellow;")
+    		document.getElementById("sendMessage").setAttribute("style","background-color:rgba(169,143,143,0.6);")
 			document.getElementById("sendMessage").disabled = false;
     	}
     }
@@ -107,7 +107,7 @@ function initButton(){
 function putId(){
 	const mid = document.getElementById("memberId").value
 		if(mid.length > 4){
-		    document.getElementById("idcheck").setAttribute("style","background-color:yellow;")
+		    document.getElementById("idcheck").setAttribute("style","background-color:rgba(169,143,143,0.6);")
 		    document.getElementById("idcheck").disabled = false;
 	}
 		if(document.getElementById("idcheck").value != "checkNo"){
@@ -150,7 +150,7 @@ let processID = -1;
 const getToken = () => {
 
   // 인증확인 버튼 활성화
-  document.getElementById("completion").setAttribute("style","background-color:yellow;")
+  document.getElementById("completion").setAttribute("style","background-color:rgba(169,143,143,0.6);")
   document.getElementById("completion").disabled = false;
   document.getElementById("sendMessage").setAttribute("style","background-color:none;")
   document.getElementById("memberTel").readOnly = true;
@@ -184,7 +184,7 @@ function checkCompletion(){
   document.getElementById("completion").innerHTML="인증완료"
   if(document.getElementById("idDecide").value === "Yes" && document.getElementById("completion").value === "Yes"){
 	  document.getElementById("signUpButton").disabled = false;
-	  document.getElementById("signUpButton").setAttribute("style","background-color:yellow;")
+	  document.getElementById("signUpButton").setAttribute("style","background-color:rgba(169,143,143,0.6);")
 	  document.getElementById("completion").setAttribute("style","background-color:none;")
   }
   }
